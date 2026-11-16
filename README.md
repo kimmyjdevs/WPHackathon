@@ -11,6 +11,18 @@ A self-contained single-page mock of a Westpac-style online banking site featuri
 
 ---
 
+## New BankSmart features
+
+**🛡️ Bill cover:** if a personal purchase is bigger than *Safe to spend*, it would eat into money set aside for bills. Wesley automatically moves the difference from savings (the round-up goal first, then the Buffer) and shows an alert on Overview, the account page and BankSmart. You then pick how to refill: **increase round-ups**, a **bigger lump sum**, or **balance both**. The Add transaction preview warns you before you submit. There's a toggle in AI controls. *Demo: as Alex, add the "🎧 Big buy" preset ($549).*
+
+**🔁 Subscription check:** Wesley watches each subscription for 6 months, then compares monthly against annual pricing. You get **Switch to annual** (or switch all), a running "you're saving $X a year" total, and Undo. New subscription-like debits are tracked automatically. Prices are demo values.
+
+**🌏 What if…? planner:** where, when and how much gives a verdict of ✅ doable, 🟡 tight or ❌ not doable as planned, plus the weekly amount needed and tweaks (a later month, a lower budget, bigger round-ups). One tap turns it into a savings goal. You can also ask Wesley, e.g. *"What if I go to Bali in June?"*, then *"Push it to July 2027"*, *"Make it $2500"*, *"Make it a goal"*.
+
+Also fixed: the "Wesley is paused" banner was always showing, even when Wesley was on.
+
+---
+
 ## Pre-populated Demo Profiles
 
 On the login screen, click the **👤 Demo accounts ▾** button in the bottom-left corner to quickly switch between demo users, or type any of their 8-digit Customer IDs directly into the login form:

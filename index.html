@@ -392,6 +392,7 @@
   .bs-sec{font-size:19px;font-weight:600;margin:30px 0 4px}
   .help{font-size:11px;color:#9a9ea6;cursor:help;border:1px solid #c7c7c7;border-radius:50%;width:15px;height:15px;display:inline-flex;align-items:center;justify-content:center;vertical-align:middle}
   .ai-off-banner{display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap;background:#fff4cf;border:1px solid #e9d08a;border-radius:10px;padding:14px 16px;margin-bottom:18px;font-size:14px;color:#6b5500}
+  .ai-off-banner[hidden]{display:none}
   .ai-off-banner button{font-family:inherit;font-size:13px;font-weight:700;border:none;background:var(--brand);color:#fff;border-radius:999px;padding:8px 16px;cursor:pointer}
   .ai-insights{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:8px}
   .ai-insight{border:1px solid var(--line2);border-radius:10px;padding:16px;display:flex;flex-direction:column;gap:6px}
@@ -423,6 +424,49 @@
   .ai-num{font-family:inherit;font-size:13px;padding:7px 10px;border:1px solid #bcbcbc;border-radius:6px;width:76px}
   @media(max-width:900px){.ai-insights,.ai-tools{grid-template-columns:1fr 1fr}}
   @media(max-width:600px){.ai-insights,.ai-tools{grid-template-columns:1fr}}
+
+  /* ===== Bill cover, Subscription check, What-if ===== */
+  .bc-alert{border:1px solid #f0c060;background:#fff8e6;border-radius:10px;padding:16px 18px;margin:0 0 18px}
+  .ask-wesley + .billCoverSlot .bc-alert{margin-top:16px}
+  .bc-alert.done{border-color:#bfe3cf;background:var(--success-bg)}
+  .bc-alert .bc-top{display:flex;gap:12px;align-items:flex-start}
+  .bc-alert .bc-ic{font-size:22px;line-height:1}
+  .bc-alert h4{font-size:15px;margin-bottom:3px;color:var(--navy)}
+  .bc-alert p{font-size:13.5px;line-height:1.5;color:#333}
+  .bc-alert .bc-actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
+  .bc-alert .bc-link{font-family:inherit;font-size:12.5px;font-weight:700;border:1px solid var(--brand);background:#fff;color:var(--brand);border-radius:999px;padding:6px 13px;cursor:pointer}
+  .bc-alert .bc-link.ghost{border-color:#c7c7c7;color:#555}
+  .bc-opts{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:12px}
+  .bc-opt{border:1px solid var(--line2);background:#fff;border-radius:8px;padding:12px;text-align:left;cursor:pointer;font-family:inherit;display:flex;flex-direction:column;gap:4px}
+  .bc-opt:hover{border-color:var(--brand)}
+  .bc-opt b{font-size:13.5px;color:var(--navy)}
+  .bc-opt span{font-size:12.5px;color:var(--muted);line-height:1.4}
+  .bc-opt em{font-style:normal;font-size:12.5px;font-weight:700;color:var(--success)}
+  .sub-row{display:grid;grid-template-columns:1fr auto;gap:6px 14px;align-items:center;padding:12px 0;border-bottom:1px solid var(--line)}
+  .sub-row:last-child{border-bottom:none;padding-bottom:0}
+  .sub-row:first-child{padding-top:0}
+  .sub-row .sn{font-weight:700;font-size:14px}
+  .sub-row .sm{font-size:12.5px;color:var(--muted);margin-top:2px}
+  .sub-row .ss{font-size:12.5px;font-weight:700;margin-top:4px}
+  .sub-row .ss.save{color:var(--success)} .sub-row .ss.watch{color:var(--info)} .sub-row .ss.none{color:var(--muted)}
+  .sub-row button{font-family:inherit;font-size:12.5px;font-weight:700;border:1px solid var(--brand);background:#fff;color:var(--brand);border-radius:999px;padding:6px 13px;cursor:pointer;white-space:nowrap}
+  .sub-row button:hover{background:var(--brand);color:#fff}
+  .sub-row button.undo-sub{border-color:#c7c7c7;color:#555}
+  .sub-row button.undo-sub:hover{background:#f1f1f1;color:#111}
+  .subs-total{margin-top:12px;font-size:13px;background:var(--success-bg);color:var(--success);font-weight:700;padding:8px 12px;border-radius:8px}
+  .watchbar{height:5px;background:var(--line);border-radius:3px;margin-top:6px;max-width:220px;overflow:hidden}
+  .watchbar span{display:block;height:100%;background:var(--info)}
+  .wi-result{border-radius:10px;padding:14px 16px;font-size:13.5px;line-height:1.55;background:#f4f5f7;border:1px solid #e0e0e0}
+  .wi-result.ok{background:var(--success-bg);border-color:#bfe3cf}
+  .wi-result.tight{background:#fff8e6;border-color:#f0c060}
+  .wi-result.no{background:var(--soft);border-color:#f3b9b5}
+  .wi-result .wv{font-size:16px;font-weight:800;margin-bottom:4px;color:var(--navy)}
+  .wi-result ul{margin:8px 0 0 18px}
+  .wi-tweaks{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
+  .wi-tweaks button{font-family:inherit;font-size:12.5px;font-weight:700;border:1px solid var(--navy);background:#fff;color:var(--navy);border-radius:999px;padding:6px 12px;cursor:pointer}
+  .wi-tweaks button:hover{background:var(--navy);color:#fff}
+  .signinbtn:disabled{opacity:.5;cursor:not-allowed}
+  @media(max-width:700px){.bc-opts{grid-template-columns:1fr}}
 
   /* ====== Notifications & Alert Rules ====== */
   .notif-wesley-bar{border:1px dashed var(--brand);border-radius:10px;padding:16px;background:#fffaf9;margin-bottom:20px}
@@ -582,6 +626,7 @@
         <div class="pagehead"><h1>Your accounts</h1><a class="editview" onclick="return false">Edit view ▾</a><div class="viewicons"><span>▦</span><span>☰</span></div></div>
         
         <!-- Dynamic Personal Accounts Section -->
+        <div class="billCoverSlot" data-variant="compact"></div>
         <div id="ovPersonalAccountsSection"></div>
         <div id="ovPersonalCardsSection"></div>
         <div id="ovPersonalTermSection"></div>
@@ -598,6 +643,7 @@
       <!-- Personal Account / Transaction Page -->
       <section class="page" data-page="account" hidden>
         <div class="pagehead"><h1 id="acctPageTitle">Westpac Choice</h1></div>
+        <div class="billCoverSlot" data-variant="compact"></div>
         <div id="acctSummaryContainer"></div>
         <div class="section-gap"></div>
         <div id="acctTxContainer"></div>
@@ -644,6 +690,9 @@
           <button onclick="openWesley()">Chat with Wesley</button>
         </div>
 
+        <!-- Bill cover alert (shows after Wesley tops up bills from savings) -->
+        <div class="billCoverSlot" data-variant="full"></div>
+
         <!-- 1. Snapshot -->
         <h2 class="bs-sec">Your money right now</h2>
         <div class="panelbox">
@@ -664,6 +713,11 @@
           <div class="legend" id="savingsLegend"></div>
           <div class="pots" id="savingsPots"></div>
         </div>
+
+        <!-- Subscription check -->
+        <h2 class="bs-sec">Subscription check</h2>
+        <div class="muted" style="font-size:13px;margin:-6px 0 14px">Wesley watches each subscription for 6 months, then tells you if paying yearly would be cheaper.</div>
+        <div class="panelbox" id="subsPanel"></div>
 
         <!-- 2. Wesley's insights from the user's data -->
         <h2 class="bs-sec">What Wesley noticed in your accounts</h2>
@@ -696,13 +750,13 @@
         <div class="muted" style="font-size:13px;margin:-6px 0 14px">Tap any tool and Wesley will take it from there.</div>
         <div class="ai-tools">
           <div class="ai-tool"><div class="ic">🧮</div><h4>Can I afford it?</h4><p>Check any purchase and see the effect on your spending and savings.</p><button onclick="openWesley('Can I afford a $1,200 purchase?')">Try it</button></div>
+          <div class="ai-tool"><div class="ic">🌏</div><h4>What if…?</h4><p>Plan a trip: where, when and how much. Wesley tells you if it's doable and how to get there.</p><button onclick="openWhatIf()">Plan it</button></div>
           <div class="ai-tool"><div class="ic">🪙</div><h4>Round-ups</h4><p>Round purchases up and save the spare change. Set which buys count.</p><button onclick="openWesley('Tell me about my round-ups')">Manage</button></div>
           <div class="ai-tool"><div class="ic">⟳</div><h4>Smart sweeps</h4><p>Move spare money into savings on good weeks, ease off on tight ones.</p><button onclick="openWesley('Tell me about smart sweeps')">Manage</button></div>
-          <div class="ai-tool"><div class="ic">🛡️</div><h4>Fee cover</h4><p>Top up from your buffer before a payment bounces, so you dodge fees.</p><button onclick="openWesley('Cover my fees automatically')">Manage</button></div>
+          <div class="ai-tool"><div class="ic">🛡️</div><h4>Bill cover</h4><p>Spent more than planned? Wesley tops up your bills from savings, then helps you refill.</p><button onclick="openWesley('How does bill cover work?')">Manage</button></div>
           <div class="ai-tool"><div class="ic">🎁</div><h4>Offers for you</h4><p>Deals you actually qualify for, spotted from your own spending.</p><button onclick="openWesley('What offers do I qualify for?')">See offers</button></div>
           <div class="ai-tool"><div class="ic">🎯</div><h4>Goals &amp; buckets</h4><p>Create savings goals and spending buckets Wesley fills for you.</p><button onclick="openPlanModal()">Create</button></div>
-          <div class="ai-tool"><div class="ic">📈</div><h4>Look-ahead</h4><p>See upcoming low points and let Wesley prepare for them early.</p><button onclick="openWesley('What does my forecast look like?')">View</button></div>
-          <div class="ai-tool"><div class="ic">🧾</div><h4>Statement insights</h4><p>Wesley reads your statements to flag subscriptions and odd charges.</p><button onclick="openWesley('What did you notice in my statements?')">Review</button></div>
+          <div class="ai-tool"><div class="ic">🔁</div><h4>Subscription check</h4><p>After 6 months, Wesley checks if paying yearly beats paying monthly.</p><button onclick="openWesley('Should any subscriptions go annual?')">Check</button></div>
         </div>
 
         <!-- 5. AI controls & privacy -->
@@ -1019,6 +1073,37 @@
     </div>
   </div>
 
+  <!-- Modal: What if planner -->
+  <div class="modal-backdrop" id="whatIfModal" hidden onclick="if(event.target===this)closeWhatIf()">
+    <div class="modal-box" role="dialog" aria-modal="true" aria-labelledby="whatIfTitle">
+      <div class="modal-head">
+        <h2 id="whatIfTitle"><span>🌏</span> What if I went on a trip?</h2>
+        <button class="modal-close" onclick="closeWhatIf()" aria-label="Close dialog">✕</button>
+      </div>
+      <form id="whatIfForm" onsubmit="event.preventDefault();whatIfCreateGoal();">
+        <div class="form-group">
+          <label for="wiWhere">Where?</label>
+          <input type="text" id="wiWhere" placeholder="e.g. Bali" maxlength="40" oninput="renderWhatIf()">
+          <div class="chip-presets" id="wiPresets"></div>
+        </div>
+        <div class="form-group">
+          <label for="wiWhen">When?</label>
+          <input type="month" id="wiWhen" oninput="renderWhatIf()" onchange="renderWhatIf()">
+        </div>
+        <div class="form-group">
+          <label for="wiCost">How much will it cost? ($)</label>
+          <input type="number" id="wiCost" placeholder="e.g. 3000" min="1" step="any" oninput="renderWhatIf()">
+          <div style="font-size:12px;color:var(--muted);margin-top:4px">Flights, accommodation and spending money. The suggestions are rough demo estimates.</div>
+        </div>
+        <div id="wiResult" class="wi-result"></div>
+        <div style="display:flex;justify-content:flex-end;gap:10px;margin-top:18px">
+          <button type="button" class="applybtn" onclick="closeWhatIf()" style="margin:0">Close</button>
+          <button type="submit" class="signinbtn" style="padding:10px 20px;font-size:15px" id="wiGoalBtn" disabled>Make it a savings goal</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
   <!-- Modal: Add Transaction -->
   <div class="modal-backdrop" id="txModal" hidden onclick="if(event.target===this)closeTxModal()">
     <div class="modal-box" role="dialog" aria-modal="true" aria-labelledby="txModalTitle">
@@ -1213,6 +1298,13 @@
         { id: 'ab3', name: 'Optus (mobile + internet)', source: 'Direct debit', freq: 'Monthly', due: '2026-12-15', amount: 139.00, setAside: 139.00 },
         { id: 'ab4', name: 'Youi contents insurance', source: 'Direct debit', freq: 'Annual', due: '2026-12-17', amount: 208.01, setAside: 208.01 }
       ],
+      weeklySpare: 120,
+      subscriptions: [
+        { id: 'sub_netflix', name: 'Netflix Standard', monthly: 18.99, months: 8, annual: null },
+        { id: 'sub_disney', name: 'Disney+ Premium', monthly: 18.99, months: 9, annual: 189.99 },
+        { id: 'sub_m365', name: 'Microsoft 365 Personal', monthly: 15.99, months: 7, annual: 159.00 },
+        { id: 'sub_prime', name: 'Amazon Prime', monthly: 9.99, months: 3, annual: 79.00 }
+      ],
       wesley: { intensity: '2×', elig: { dir: 'above', amt: 5 }, feeCover: true, digest: 'weekly' },
       bsSettings: {
         split: { spend: 40, bills: 30, buffer: 10, bond: 20 },
@@ -1267,6 +1359,12 @@
         { id: 'pb4', name: 'Sydney Water', source: 'Recurring BPAY', freq: 'Quarterly', due: '2026-12-11', amount: 168.40, setAside: 168.40 },
         { id: 'pb5', name: 'Bupa health insurance', source: 'Direct debit', freq: 'Monthly', due: '2026-12-14', amount: 246.00, setAside: 123.00 }
       ],
+      weeklySpare: 140,
+      subscriptions: [
+        { id: 'sub_m365', name: 'Microsoft 365 Family', monthly: 18.00, months: 14, annual: 179.00 },
+        { id: 'sub_disney', name: 'Disney+ Premium', monthly: 18.99, months: 11, annual: 189.99 },
+        { id: 'sub_prime', name: 'Amazon Prime', monthly: 9.99, months: 5, annual: 79.00 }
+      ],
       wesley: { intensity: '2×', elig: { dir: 'above', amt: 10 }, feeCover: true, digest: 'weekly' },
       bsSettings: {
         split: { spend: 25, bills: 40, buffer: 15, holiday: 10, education: 10 },
@@ -1319,6 +1417,12 @@
         { id: 'sb2', name: 'Vodafone', source: 'Direct debit', freq: 'Monthly', due: '2026-12-03', amount: 55.00, setAside: 55.00 },
         { id: 'sb3', name: 'Origin Energy', source: 'Recurring BPAY', freq: 'Monthly', due: '2026-12-09', amount: 142.30, setAside: 142.30 },
         { id: 'sb4', name: 'NRMA car insurance', source: 'Direct debit', freq: 'Monthly', due: '2026-12-15', amount: 212.75, setAside: 212.75 }
+      ],
+      weeklySpare: 150,
+      subscriptions: [
+        { id: 'sub_canva', name: 'Canva Pro', monthly: 17.99, months: 10, annual: 164.99 },
+        { id: 'sub_spotify', name: 'Spotify Premium', monthly: 13.99, months: 26, annual: null },
+        { id: 'sub_strava', name: 'Strava', monthly: 11.99, months: 4, annual: 79.99 }
       ],
       wesley: { intensity: '5×', elig: { dir: 'above', amt: 5 }, feeCover: true, digest: 'daily' },
       bsSettings: {
@@ -1374,6 +1478,12 @@
         { id: 'mb3', name: 'Cronulla Bowls Club', source: 'Existing transaction', freq: 'Monthly', due: '2026-12-14', amount: 95.00, setAside: 95.00 },
         { id: 'mb4', name: 'Medibank health insurance', source: 'Direct debit', freq: 'Monthly', due: '2026-12-16', amount: 159.80, setAside: 159.80 }
       ],
+      weeklySpare: 95,
+      subscriptions: [
+        { id: 'sub_prime', name: 'Amazon Prime', monthly: 9.99, months: 8, annual: 79.00 },
+        { id: 'sub_binge', name: 'Binge Standard', monthly: 18.00, months: 6, annual: null },
+        { id: 'sub_ancestry', name: 'Ancestry Family History', monthly: 34.99, months: 2, annual: 299.00 }
+      ],
       wesley: { intensity: '1×', elig: { dir: 'above', amt: 5 }, feeCover: true, digest: 'weekly' },
       bsSettings: {
         split: { spend: 25, bills: 30, rates: 15, buffer: 10, grandkids: 10, caravan: 10 },
@@ -1426,6 +1536,10 @@
         };
       }
     }
+    // New features: subscription check, what-if planner (backfill older saved data)
+    var seedU = DEMO_USERS[u.id] || {};
+    if (!Array.isArray(u.subscriptions)) u.subscriptions = clone(seedU.subscriptions || []);
+    if (typeof u.weeklySpare !== 'number') u.weeklySpare = seedU.weeklySpare || 80;
     if (!u.bsSettings.split) u.bsSettings.split = {};
     if (!u.bsSettings.roundUp) {
       u.bsSettings.roundUp = { enabled: true, step: 1, dest: '', rules: [] };
@@ -2136,6 +2250,7 @@
     if (!w.elig) w.elig = { dir: 'above', amt: 5 };
     if (w.intensity === undefined) w.intensity = '2×';
     if (w.feeCover === undefined) w.feeCover = true;
+    if (w.billCover === undefined) w.billCover = true;
     if (w.sweeps === undefined) w.sweeps = true;
     if (w.shield === undefined) w.shield = true;
     if (w.forecast === undefined) w.forecast = true;
@@ -2165,6 +2280,7 @@
       '<div class="ctl"><label class="toggle"><input type="checkbox" ' + (w.aiEnabled ? 'checked' : '') + ' onchange="aiSet(\'aiEnabled\', this.checked)"><span class="tk"></span></label></div></div>';
     var rest = '<div class="' + (w.aiEnabled ? '' : 'ai-dim') + '">' +
       aiTog('Fee cover', 'Top up from your buffer before a payment bounces, so you avoid fees.', 'feeCover', w.feeCover) +
+      aiTog('Bill cover', 'If a purchase eats into money set aside for bills, top it up from savings automatically, then help you refill.', 'billCover', w.billCover) +
       aiTog('Smart sweeps', 'Move spare money into savings on good weeks; ease off on tight ones.', 'sweeps', w.sweeps) +
       aiTog('Hold back tempting spends', 'Briefly set money aside during your known big-spend moments, then return it.', 'shield', w.shield) +
       aiTog('Look-ahead pre-funding', 'Set money aside early when a low point is coming up.', 'forecast', w.forecast) +
@@ -2184,6 +2300,13 @@
     var sub = debits.find(function(t){ return /sub|netflix|spotify|software|membership|prime|disney/i.test(t.desc || ''); });
     var travel = txs.find(function(t){ return /flight|airline|hotel|qantas|jetstar|booking|airbnb|travel/i.test(t.desc || ''); });
     var cards = [];
+    var bc = user.billCover;
+    if (bc && !bc.dismissed && !bc.plan) cards.push('<div class="ai-insight"><div class="ic">🛡️</div><h4>I covered your bills</h4><p>I moved <strong>' + money(bc.covered) + '</strong> from ' + escapeHtml(bc.from) + ' after a bigger spend. Pick how you\'d like to refill it.</p><button onclick="openWesley(\'How should I refill my savings?\')">Refill options</button></div>');
+    var toSwitch = subsToSwitch();
+    if (toSwitch.length) {
+      var subTotal = toSwitch.reduce(function(a, s){ return a + subSaving(s); }, 0);
+      cards.push('<div class="ai-insight"><div class="ic">🔁</div><h4>Pay yearly, save ' + money(subTotal) + '</h4><p>You\'ve paid ' + (toSwitch.length === 1 ? escapeHtml(toSwitch[0].name) : toSwitch.length + ' subscriptions') + ' monthly for 6+ months. Paying yearly would cost less.</p><button onclick="openWesley(\'Should any subscriptions go annual?\')">See savings</button></div>');
+    }
     cards.push('<div class="ai-insight"><div class="ic">💸</div><h4>Your spending</h4><p>You\'ve spent <strong>' + money(spent) + '</strong> across ' + debits.length + ' purchase' + (debits.length === 1 ? '' : 's') + ' on this account.</p><button onclick="openWesley(\'Where is my money going?\')">Break it down</button></div>');
     if (biggest) cards.push('<div class="ai-insight"><div class="ic">🔎</div><h4>Biggest purchase</h4><p>Your largest was <strong>' + money(Math.abs(biggest.amount)) + '</strong> at ' + escapeHtml(biggest.desc || 'a merchant') + '.</p><button onclick="openWesley(\'Can I afford another ' + Math.round(Math.abs(biggest.amount)) + ' dollars?\')">Could I do that again?</button></div>');
     if (travel) cards.push('<div class="ai-insight"><div class="ic">✈️</div><h4>Planning a trip?</h4><p>I noticed travel spending — you may qualify for travel insurance and a fee-free overseas card.</p><button onclick="openWesley(\'What offers do I qualify for?\')">See offers</button></div>');
@@ -2205,6 +2328,8 @@
     renderAiControls();
     renderAccountPage(currentAcctId);
     renderBSSettings();
+    renderSubscriptions();
+    renderBillCover();
     renderBusinessApprovals();
     renderNotificationsPage();
     updateNotifBadge();
@@ -2221,7 +2346,8 @@
       { label: '⛽ Fuel', desc: 'Ampol Express Petrol', amount: 75.00 },
       { label: '⚡ Electricity', desc: 'Origin Energy Power', amount: 180.00 },
       { label: '🍽️ Dining', desc: 'Bondi Trattoria', amount: 68.00 },
-      { label: '💻 Tech / Subs', desc: 'Software Subscription', amount: 29.99 }
+      { label: '💻 Tech / Subs', desc: 'Software Subscription', amount: 29.99 },
+      { label: '🎧 Big buy', desc: 'JB Hi-Fi — Noise-cancelling headphones', amount: 549.00 }
     ],
     credit: [
       { label: '💼 Salary', desc: 'Salary Payment — Acme Pty Ltd', amount: 2480.00 },
@@ -2352,6 +2478,12 @@
       var color = newBal < 0 ? 'var(--brand)' : 'var(--navy)';
       previewEl.innerHTML = 'Current balance: <strong>' + money(cur) + '</strong> → After ' + currentTxType + ': <strong style="color:' + color + '">' +
         money(newBal) + '</strong>';
+      var sts = getSafeToSpend();
+      if (currentTxType === 'debit' && acct.kind === 'everyday' && acct.mode === 'personal' && amt > sts) {
+        var w = wz(), src = billCoverSource();
+        previewEl.innerHTML += '<div style="margin-top:8px;padding:8px 10px;border-radius:6px;background:#fff8e6;border:1px solid #f0c060">⚠️ This is <strong>' + money(amt - sts) + '</strong> more than your Safe to spend (' + money(sts) + '), so it would eat into money set aside for bills.' +
+          ((w.aiEnabled && w.billCover !== false) ? ' <strong>Bill cover</strong> will top your bills back up from ' + escapeHtml(src ? src.name : 'your Buffer') + '.' : ' Bill cover is off.') + '</div>';
+      }
     }
   }
 
@@ -2391,10 +2523,14 @@
     // If everyday personal account, adjust Safe to spend in savingPlan
     if (acct.kind === 'everyday' && acct.mode === 'personal') {
       var spendBucket = user.savingsPlan.find(function(i){ return i.id === 'spend'; });
+      var billCoverResult = null;
       if (spendBucket) {
+        var overBy = Math.round((-signedAmt - spendBucket.amount) * 100) / 100;
+        if (signedAmt < 0 && overBy > 0) billCoverResult = runBillCover(overBy, desc, dateVal);
         spendBucket.amount = Math.max(0, Math.round((spendBucket.amount + signedAmt) * 100) / 100);
       }
     }
+    if (acct.mode === 'personal') trackSubscriptionFromTx(desc, signedAmt);
 
     var triggeredCount = evaluateTxNotificationRules(newTx, acct);
     saveStore();
@@ -2409,7 +2545,9 @@
     renderAll();
     go('account');
     closeTxModal();
-    var toastMsg = '✓ Added ' + (signedAmt < 0 ? 'debit' : 'credit') + ' of ' + money(Math.abs(signedAmt)) + ' to ' + acct.name;
+    var toastMsg = (typeof billCoverResult !== 'undefined' && billCoverResult)
+      ? '🛡️ Bill cover: moved ' + money(billCoverResult.covered) + ' from ' + billCoverResult.from + ' so your bills stay covered'
+      : '✓ Added ' + (signedAmt < 0 ? 'debit' : 'credit') + ' of ' + money(Math.abs(signedAmt)) + ' to ' + acct.name;
     if (triggeredCount > 0) {
       toastMsg += ' · 🔔 ' + triggeredCount + ' notification' + (triggeredCount === 1 ? '' : 's') + ' sent';
     }
@@ -3031,6 +3169,336 @@
         if (newCat) newCat.value = 'Entertainment & eating out';
       });
     }
+  }
+
+  // ==========================================
+  // NEW FEATURES: SUBSCRIPTION CHECK · BILL COVER · WHAT IF
+  // ==========================================
+  var SUB_WATCH_MONTHS = 6;
+  var ROUNDUP_TIERS = [1, 5, 10, 50, 100];
+  var ROUNDUP_WEEKLY = { 0: 0, 1: 12, 2: 18, 5: 31, 10: 48, 50: 85, 100: 120 };
+
+  function round2(n){ return Math.round(n * 100) / 100; }
+  function roundUpWeekly(step){ return ROUNDUP_WEEKLY[step] !== undefined ? ROUNDUP_WEEKLY[step] : 12; }
+  function nextRoundUpTier(step){
+    for (var i = 0; i < ROUNDUP_TIERS.length; i++) { if (ROUNDUP_TIERS[i] > step) return ROUNDUP_TIERS[i]; }
+    return step;
+  }
+
+  // ---------- Subscription check ----------
+  function subSaving(sub){ return sub.annual ? round2(sub.monthly * 12 - sub.annual) : 0; }
+  function subStatus(sub){
+    if (sub.plan === 'annual') return 'switched';
+    if ((sub.months || 0) < SUB_WATCH_MONTHS) return 'watching';
+    if (!sub.annual) return 'no-annual';
+    return subSaving(sub) > 0 ? 'save' : 'monthly-better';
+  }
+  function subsToSwitch(){
+    return (user && user.subscriptions || []).filter(function(s){ return subStatus(s) === 'save'; });
+  }
+  function findSubByText(t){
+    t = (t || '').toLowerCase();
+    return (user && user.subscriptions || []).find(function(s){
+      var first = s.name.toLowerCase().split(/\s+/)[0].replace(/[^a-z0-9+]/g, '');
+      return t.indexOf(first) !== -1 || t.indexOf(s.name.toLowerCase()) !== -1;
+    });
+  }
+  function switchToAnnual(id, silent){
+    var sub = (user.subscriptions || []).find(function(s){ return s.id === id; });
+    if (!sub || subStatus(sub) !== 'save') return null;
+    sub.plan = 'annual';
+    sub.switchedOn = new Date().toISOString().slice(0, 10);
+    saveStore();
+    renderSubscriptions(); renderWesleyInsights();
+    if (!silent) showToast('✓ ' + sub.name + ' switched to annual — saving ' + money(subSaving(sub)) + ' a year');
+    return sub;
+  }
+  function undoAnnual(id){
+    var sub = (user.subscriptions || []).find(function(s){ return s.id === id; });
+    if (!sub) return;
+    delete sub.plan; delete sub.switchedOn;
+    saveStore(); renderSubscriptions(); renderWesleyInsights();
+    showToast('↩ ' + sub.name + ' is back on monthly billing');
+  }
+  function renderSubscriptions(){
+    var box = document.getElementById('subsPanel'); if (!box || !user) return;
+    var subs = user.subscriptions || [];
+    if (!subs.length) { box.innerHTML = '<div class="muted" style="font-size:13px">No subscriptions spotted yet. Wesley starts watching as soon as one turns up in your transactions.</div>'; return; }
+    var saved = 0;
+    var rows = subs.map(function(s){
+      var st = subStatus(s), action = '', line = '';
+      var meta = money(s.monthly) + '/month · paid for ' + s.months + ' month' + (s.months === 1 ? '' : 's');
+      if (st === 'switched') {
+        saved += subSaving(s);
+        line = '<div class="ss save">✓ On annual billing (' + money(s.annual) + '/year) — saving ' + money(subSaving(s)) + ' a year</div>';
+        action = '<button class="undo-sub" onclick="undoAnnual(\'' + s.id + '\')">Undo</button>';
+      } else if (st === 'watching') {
+        var left = SUB_WATCH_MONTHS - s.months;
+        line = '<div class="ss watch">👀 Watching — I\'ll check annual pricing in ' + left + ' month' + (left === 1 ? '' : 's') + '</div>' +
+               '<div class="watchbar"><span style="width:' + Math.round(s.months / SUB_WATCH_MONTHS * 100) + '%"></span></div>';
+      } else if (st === 'save') {
+        line = '<div class="ss save">💡 Annual is ' + money(s.annual) + '/year vs ' + money(round2(s.monthly * 12)) + ' paying monthly — save ' + money(subSaving(s)) + '</div>';
+        action = '<button onclick="switchToAnnual(\'' + s.id + '\')">Switch to annual</button>';
+      } else if (st === 'no-annual') {
+        line = '<div class="ss none">No annual plan offered — monthly is your only option. I\'ll keep an eye on it.</div>';
+      } else {
+        line = '<div class="ss none">Monthly works out cheaper here — no change needed.</div>';
+      }
+      return '<div class="sub-row"><div><div class="sn">' + escapeHtml(s.name) + '</div><div class="sm">' + meta + '</div>' + line + '</div><div>' + action + '</div></div>';
+    }).join('');
+    var pending = subsToSwitch();
+    var pendingSave = pending.reduce(function(a, s){ return a + subSaving(s); }, 0);
+    var foot = '';
+    if (pending.length > 1) foot += '<div style="margin-top:12px"><button class="hbtn" style="color:var(--brand);border-color:var(--brand);font-weight:700" onclick="switchAllAnnual()">Switch all ' + pending.length + ' to annual · save ' + money(pendingSave) + '/year</button></div>';
+    if (saved > 0) foot += '<div class="subs-total">You\'re saving ' + money(saved) + ' a year by paying annually.</div>';
+    box.innerHTML = rows + foot + '<div class="muted" style="font-size:11.5px;margin-top:10px">Demo prices. Wesley flags the saving; you confirm the switch with the provider.</div>';
+  }
+  function switchAllAnnual(){
+    var list = subsToSwitch(), total = 0;
+    list.forEach(function(s){ total += subSaving(s); switchToAnnual(s.id, true); });
+    if (list.length) showToast('✓ Switched ' + list.length + ' subscriptions to annual — saving ' + money(total) + ' a year');
+    return { count: list.length, total: total };
+  }
+  // Track subscriptions automatically when a matching debit is added
+  var SUB_PATTERN = /subscription|netflix|spotify|disney|prime|stan\b|binge|kayo|microsoft 365|office 365|adobe|canva|strava|youtube|apple|icloud|audible|ancestry|patreon/i;
+  function trackSubscriptionFromTx(desc, amount){
+    if (!user || amount >= 0 || !SUB_PATTERN.test(desc || '')) return;
+    var existing = findSubByText(desc);
+    if (existing) { existing.months = (existing.months || 0) + 1; return; }
+    var monthly = round2(Math.abs(amount));
+    user.subscriptions = user.subscriptions || [];
+    user.subscriptions.push({ id: 'sub_' + Date.now(), name: desc.replace(/\s+—.*$/, ''), monthly: monthly, months: 1, annual: round2(monthly * 10), estimated: true });
+    setTimeout(function(){ showToast('🔁 New subscription spotted — Wesley will check annual pricing after 6 months'); }, 3500);
+  }
+
+  // ---------- Bill cover ----------
+  function billCoverSource(){
+    var plan = user.savingsPlan || [];
+    var dest = user.bsSettings && user.bsSettings.roundUp ? user.bsSettings.roundUp.dest : '';
+    var src = plan.find(function(p){ return p.type === 'goal' && p.name === dest && p.amount > 0; });
+    if (!src) src = plan.filter(function(p){ return p.type === 'goal' && p.amount > 0; }).sort(function(a, b){ return b.amount - a.amount; })[0];
+    return src || null;
+  }
+  // Called when a personal everyday debit is bigger than Safe to spend
+  function runBillCover(shortfall, merchant, dateVal){
+    var w = wz();
+    if (!w.aiEnabled || w.billCover === false || shortfall <= 0) return null;
+    var moves = [], left = shortfall;
+    var src = billCoverSource();
+    if (src) { var take = round2(Math.min(src.amount, left)); if (take > 0) { src.amount = round2(src.amount - take); left = round2(left - take); moves.push({ id: src.id, name: src.name, amt: take }); } }
+    if (left > 0) {
+      var buf = (user.savingsPlan || []).find(function(p){ return p.id === 'buffer'; });
+      if (buf && buf.amount > 0) { var t2 = round2(Math.min(buf.amount, left)); buf.amount = round2(buf.amount - t2); left = round2(left - t2); moves.push({ id: 'buffer', name: 'Buffer', amt: t2 }); }
+    }
+    var covered = round2(shortfall - left);
+    if (covered <= 0) return null;
+    moves.forEach(function(m){
+      if (m.id !== 'buffer') {
+        user.transactions.push({ id: 'tx_bc_' + Date.now() + '_' + m.id, acct: 'choice', date: dateVal, desc: 'BankSmart bill cover — from ' + m.name, amount: m.amt, custom: true, auto: true });
+      }
+    });
+    user.billCover = { date: dateVal, merchant: merchant, shortfall: shortfall, covered: covered, uncovered: left, moves: moves, from: moves.map(function(m){ return m.name; }).join(' + '), refillTo: moves[0].id, refillName: moves[0].name, plan: null, dismissed: false };
+    return user.billCover;
+  }
+  function refillOptions(){
+    var bc = user.billCover; if (!bc) return [];
+    var amt = bc.covered;
+    var step = (user.bsSettings && user.bsSettings.roundUp && user.bsSettings.roundUp.step) || 1;
+    var nextStep = nextRoundUpTier(step);
+    var extraRU = Math.max(5, roundUpWeekly(nextStep) - roundUpWeekly(step));
+    var lump = Math.max(10, Math.ceil(amt / 4 / 5) * 5);
+    var halfLump = Math.max(5, Math.ceil(lump / 2 / 5) * 5);
+    return [
+      { key: 'roundups', title: 'Increase round-ups', desc: 'Round up to the nearest $' + nextStep + ' instead of $' + step + ' — about +' + money(extraRU) + ' a week, no change to your budget.', weeks: Math.ceil(amt / extraRU), step: nextStep, weekly: extraRU, lump: 0 },
+      { key: 'lump', title: 'Bigger lump sum', desc: 'Move ' + money(lump) + ' from Safe to spend each week until it\'s back.', weeks: Math.ceil(amt / lump), step: step, weekly: lump, lump: lump },
+      { key: 'both', title: 'Balance both', desc: 'Round up to $' + nextStep + ' and move ' + money(halfLump) + ' a week.', weeks: Math.ceil(amt / (extraRU + halfLump)), step: nextStep, weekly: extraRU + halfLump, lump: halfLump }
+    ];
+  }
+  function chooseRefill(key){
+    var bc = user && user.billCover; if (!bc) return null;
+    var opt = refillOptions().find(function(o){ return o.key === key; }); if (!opt) return null;
+    bc.prevStep = (bc.prevStep !== undefined) ? bc.prevStep : user.bsSettings.roundUp.step;
+    user.bsSettings.roundUp.step = (key === 'lump') ? bc.prevStep : opt.step;
+    bc.plan = { key: key, title: opt.title, weeks: opt.weeks, weekly: opt.weekly, lump: opt.lump, step: user.bsSettings.roundUp.step };
+    saveStore(); renderAll();
+    showToast('✓ ' + opt.title + ' — ' + bc.refillName + ' refilled in about ' + opt.weeks + ' weeks');
+    return bc.plan;
+  }
+  function changeRefill(){ if (user && user.billCover) { user.billCover.plan = null; saveStore(); renderAll(); } }
+  function dismissBillCover(){ if (user && user.billCover) { user.billCover.dismissed = true; saveStore(); renderAll(); } }
+  function renderBillCover(){
+    var slots = document.querySelectorAll('.billCoverSlot');
+    var bc = user && user.billCover;
+    slots.forEach(function(slot){
+      if (!bc || bc.dismissed) { slot.innerHTML = ''; return; }
+      var full = slot.getAttribute('data-variant') === 'full';
+      var head = '🛡️';
+      var title, body, extra = '';
+      if (!bc.plan) {
+        title = 'Bill cover: your bills are still covered';
+        body = 'Your ' + escapeHtml(bc.merchant) + ' purchase was ' + money(bc.shortfall) + ' more than your Safe to spend, so I moved <strong>' + money(bc.covered) + '</strong> from <strong>' + escapeHtml(bc.from) + '</strong> to keep your upcoming bills covered.' +
+          (bc.uncovered > 0 ? ' I couldn\'t cover the last ' + money(bc.uncovered) + ' — check your upcoming bills.' : '') + ' How would you like to refill your savings?';
+        if (full) {
+          extra = '<div class="bc-opts">' + refillOptions().map(function(o){
+            return '<button class="bc-opt" onclick="chooseRefill(\'' + o.key + '\')"><b>' + o.title + '</b><span>' + o.desc + '</span><em>Back in ~' + o.weeks + ' week' + (o.weeks === 1 ? '' : 's') + '</em></button>';
+          }).join('') + '</div>';
+        } else {
+          extra = '<div class="bc-actions"><button class="bc-link" onclick="go(\'banksmart\')">Choose how to refill</button></div>';
+        }
+      } else {
+        title = 'Refilling ' + escapeHtml(bc.refillName) + ': ' + escapeHtml(bc.plan.title.toLowerCase());
+        body = 'I\'ll put back the ' + money(bc.covered) + ' I used for bill cover — about ' + money(bc.plan.weekly) + ' a week, so it\'s back in roughly <strong>' + bc.plan.weeks + ' week' + (bc.plan.weeks === 1 ? '' : 's') + '</strong>.' +
+          (bc.plan.key !== 'lump' ? ' Round-ups are now set to the nearest $' + bc.plan.step + '.' : '');
+        extra = '<div class="bc-actions">' + (full ? '<button class="bc-link ghost" onclick="changeRefill()">Change plan</button>' : '') + '<button class="bc-link ghost" onclick="dismissBillCover()">Dismiss</button></div>';
+      }
+      slot.innerHTML = '<div class="bc-alert' + (bc.plan ? ' done' : '') + '"><div class="bc-top"><div class="bc-ic">' + head + '</div><div style="flex:1"><h4>' + title + '</h4><p>' + body + '</p></div></div>' + extra + '</div>';
+    });
+  }
+
+  // ---------- What if planner ----------
+  var WI_PRESETS = [
+    { label: '🏝️ Bali', where: 'Bali', cost: 2800 },
+    { label: '🗾 Japan', where: 'Japan', cost: 5500 },
+    { label: '🏔️ NZ ski trip', where: 'New Zealand', cost: 3200 },
+    { label: '🏖️ Gold Coast weekend', where: 'the Gold Coast', cost: 650 },
+    { label: '🇪🇺 Europe', where: 'Europe', cost: 9000 }
+  ];
+  var MONTHS = ['jan','feb','mar','apr','may','jun','jul','aug','sep','oct','nov','dec'];
+  function monthLabel(ym){
+    var p = (ym || '').split('-'); if (p.length < 2) return '';
+    return new Date(Number(p[0]), Number(p[1]) - 1, 1).toLocaleDateString('en-AU', { month: 'short', year: 'numeric' });
+  }
+  function weeksUntil(ym){
+    var p = (ym || '').split('-'); if (p.length < 2) return 0;
+    var target = new Date(Number(p[0]), Number(p[1]) - 1, 1);
+    return Math.floor((target - new Date()) / (7 * 864e5));
+  }
+  function ymAddWeeks(weeks){
+    var d = new Date(Date.now() + weeks * 7 * 864e5);
+    d = new Date(d.getFullYear(), d.getMonth() + 1, 1); // first full month after
+    return d.getFullYear() + '-' + String(d.getMonth() + 1).padStart(2, '0');
+  }
+  function defaultYm(monthsAhead){
+    var d = new Date(); d = new Date(d.getFullYear(), d.getMonth() + monthsAhead, 1);
+    return d.getFullYear() + '-' + String(d.getMonth() + 1).padStart(2, '0');
+  }
+  function presetCost(where){
+    var w = (where || '').toLowerCase();
+    var p = WI_PRESETS.find(function(x){ return w && (x.where.toLowerCase().indexOf(w) !== -1 || w.indexOf(x.where.toLowerCase().replace('the ', '')) !== -1); });
+    return p ? p.cost : 0;
+  }
+  // Core maths shared by the planner and Wesley
+  function evalWhatIf(where, ym, cost){
+    var spare = (user && user.weeklySpare) || 80;
+    var comfy = spare * 0.75;
+    var weeks = weeksUntil(ym);
+    var r = { where: where, ym: ym, cost: cost, weeks: weeks, spare: spare, when: monthLabel(ym) };
+    if (!cost || cost <= 0 || !ym) { r.verdict = 'incomplete'; return r; }
+    if (weeks < 1) { r.verdict = 'too-soon'; return r; }
+    r.weekly = Math.ceil(cost / weeks);
+    r.pct = Math.round(r.weekly / spare * 100);
+    r.verdict = r.weekly <= comfy ? 'ok' : (r.weekly <= spare ? 'tight' : 'no');
+    var step = (user && user.bsSettings && user.bsSettings.roundUp && user.bsSettings.roundUp.step) || 1;
+    r.ruStep = nextRoundUpTier(step);
+    r.ruExtra = Math.max(5, roundUpWeekly(r.ruStep) - roundUpWeekly(step));
+    if (r.verdict !== 'ok') {
+      r.laterYm = ymAddWeeks(Math.ceil(cost / comfy));
+      r.laterLabel = monthLabel(r.laterYm);
+      r.lowerCost = Math.max(50, Math.floor(comfy * weeks / 50) * 50);
+      r.ruWeekly = Math.ceil(cost / weeks) - r.ruExtra;
+      r.ruFixes = (r.weekly - r.ruExtra) <= spare;
+    }
+    return r;
+  }
+  function whatIfHtml(r, forChat){
+    var place = r.where ? escapeHtml(r.where) : 'this trip';
+    if (r.verdict === 'incomplete') return 'Tell me where, when and roughly how much, and I\'ll check if it\'s doable.';
+    if (r.verdict === 'too-soon') return 'That\'s less than a week away, so there\'s no time to save for it. Check it with <strong>Can I afford it?</strong> instead, or pick a later month.';
+    var head = r.verdict === 'ok' ? '✅ Doable' : (r.verdict === 'tight' ? '🟡 Doable, but tight' : '❌ Not doable as planned');
+    var body = (forChat ? '<strong>' + head + '.</strong> ' : '<div class="wv">' + head + '</div>') +
+      place + ' in ' + r.when + ' for ' + money(r.cost) + ' means saving <strong>' + money(r.weekly) + ' a week</strong> for ' + r.weeks + ' weeks. ' +
+      'That\'s ' + r.pct + '% of the ~' + money(r.spare) + ' you have spare each week after bills and your other goals.';
+    if (r.verdict === 'ok') body += ' Your other goals stay on track.';
+    else if (r.verdict === 'tight') body += ' It works, but leaves little room for surprises.';
+    else body += ' You\'d come up about ' + money((r.weekly - r.spare) * r.weeks) + ' short.';
+    if (r.verdict !== 'ok') {
+      var tips = ['Go in <strong>' + r.laterLabel + '</strong> instead to keep it comfortable', 'Or keep ' + r.when + ' with a budget of <strong>' + money(r.lowerCost) + '</strong>'];
+      if (r.ruFixes) tips.push('Or round up to the nearest $' + r.ruStep + ' — adds about ' + money(r.ruExtra) + ' a week');
+      body += forChat ? '<br>• ' + tips.join('<br>• ') : '<ul><li>' + tips.join('</li><li>') + '</li></ul>';
+    }
+    return body;
+  }
+  function openWhatIf(prefill){
+    prefill = prefill || {};
+    document.getElementById('wiWhere').value = prefill.where || '';
+    document.getElementById('wiCost').value = prefill.cost || '';
+    var when = document.getElementById('wiWhen');
+    when.min = defaultYm(1);
+    when.value = prefill.ym || defaultYm(6);
+    document.getElementById('wiPresets').innerHTML = '<span style="font-size:11.5px;color:var(--muted);align-self:center">Ideas:</span>' +
+      WI_PRESETS.map(function(p, i){ return '<button type="button" class="preset-chip" onclick="applyWiPreset(' + i + ')">' + p.label + ' (~' + money(p.cost).replace('.00', '') + ')</button>'; }).join('');
+    document.getElementById('whatIfModal').hidden = false;
+    renderWhatIf();
+  }
+  function closeWhatIf(){ document.getElementById('whatIfModal').hidden = true; }
+  function applyWiPreset(i){
+    var p = WI_PRESETS[i]; if (!p) return;
+    document.getElementById('wiWhere').value = p.where.replace(/^the /, 'The ');
+    document.getElementById('wiCost').value = p.cost;
+    renderWhatIf();
+  }
+  function wiApply(field, value){ document.getElementById(field).value = value; renderWhatIf(); }
+  function readWhatIf(){
+    return evalWhatIf((document.getElementById('wiWhere').value || '').trim(), document.getElementById('wiWhen').value, parseFloat(document.getElementById('wiCost').value) || 0);
+  }
+  function renderWhatIf(){
+    var r = readWhatIf(), box = document.getElementById('wiResult'), btn = document.getElementById('wiGoalBtn');
+    box.className = 'wi-result' + (r.verdict === 'ok' ? ' ok' : r.verdict === 'tight' ? ' tight' : r.verdict === 'no' ? ' no' : '');
+    var html = whatIfHtml(r, false);
+    if (r.verdict === 'tight' || r.verdict === 'no') {
+      html += '<div class="wi-tweaks"><button type="button" onclick="wiApply(\'wiWhen\',\'' + r.laterYm + '\')">Try ' + r.laterLabel + '</button>' +
+        '<button type="button" onclick="wiApply(\'wiCost\',' + r.lowerCost + ')">Try ' + money(r.lowerCost).replace('.00', '') + '</button></div>';
+    }
+    box.innerHTML = html;
+    var ready = ['ok', 'tight', 'no'].indexOf(r.verdict) !== -1;
+    btn.disabled = !ready;
+    btn.textContent = r.verdict === 'no' ? 'Make it a goal anyway' : 'Make it a savings goal';
+  }
+  function createTripGoal(r){
+    if (!user || !r || !r.cost) return null;
+    var name = '✈️ ' + (r.where ? r.where.replace(/^the /i, '').replace(/^./, function(c){ return c.toUpperCase(); }) : 'Trip') + ' trip';
+    var id = 'goal_' + Date.now();
+    user.savingsPlan.push({ id: id, name: name, type: 'goal', amount: 0, target: r.cost, targetDate: r.when, color: '#7e22ce', note: 'Saving ' + money(r.weekly) + '/week', fixed: false });
+    ensureUserBSSettings(user);
+    saveStore(); renderAll();
+    showToast('🎯 Added "' + name + '" — ' + money(r.cost) + ' by ' + r.when);
+    return name;
+  }
+  function whatIfCreateGoal(){
+    var r = readWhatIf();
+    if (['ok', 'tight', 'no'].indexOf(r.verdict) === -1) return;
+    createTripGoal(r); closeWhatIf(); go('banksmart');
+  }
+  // Natural-language parsing for Wesley: "what if I go to Bali in March for $3,000"
+  function parseWhatIf(raw){
+    var t = raw.toLowerCase().replace(/,/g, '');
+    var where = '';
+    var m = raw.match(/\b(?:to|visit|in)\s+((?:the\s+)?[A-Z][A-Za-z]+(?:\s+[A-Z][A-Za-z]+)?)/);
+    if (m && MONTHS.indexOf(m[1].toLowerCase().slice(0, 3)) === -1) where = m[1];
+    if (!where) { var m2 = t.match(/\b(?:to|visit)\s+([a-z]+(?:\s+[a-z]+)?)/); if (m2 && MONTHS.indexOf(m2[1].slice(0, 3)) === -1) where = m2[1].replace(/\s+(in|for|next|this|on)$/, '').replace(/\b\w/g, function(c){ return c.toUpperCase(); }); }
+    where = where.replace(/\s+(In|For|Next|This|On)$/, '');
+    var ym = '';
+    var mm = t.match(/\b(jan|feb|mar|apr|may|jun|jul|aug|sep|oct|nov|dec)[a-z]*\.?(?:\s+(20\d\d))?/);
+    if (mm) {
+      var mi = MONTHS.indexOf(mm[1]), now = new Date(), y = mm[2] ? Number(mm[2]) : now.getFullYear();
+      if (!mm[2] && (mi < now.getMonth() + 1)) y += 1;
+      ym = y + '-' + String(mi + 1).padStart(2, '0');
+    } else if (/next year/.test(t)) ym = defaultYm(12);
+    else { var inM = t.match(/in (\d+) months?/); if (inM) ym = defaultYm(Number(inM[1])); }
+    var cm = t.match(/\$\s?(\d+(?:\.\d+)?)\s*(k)?/) || t.match(/(\d{3,6})(k)?\s*(?:dollars|bucks)?/) || t.match(/(\d+(?:\.\d+)?)\s*(k)\b/);
+    var cost = cm ? parseFloat(cm[1]) * (cm[2] ? 1000 : 1) : 0;
+    if (/20\d\d/.test(String(cost)) && mm && mm[2] && String(cost) === mm[2]) cost = 0;
+    return { where: where, ym: ym, cost: cost };
   }
 
   // ==========================================
@@ -4514,7 +4982,8 @@
     var safeAmt = getSafeToSpend();
     var name = (user ? user.firstName : 'Alex');
     var paydayStr = (user && user.id === 'peggy') ? 'next pension payment' : 'payday';
-    wesleyBubble("Hey " + name + " 👋 I'm Wesley. You've got <strong>" + money(safeAmt) + "</strong> safe to spend till " + paydayStr + ", and I've quietly sorted a few things this week. What's on your mind?", ["Can I afford something?","Add a goal or bucket","Notifications & alerts","My round-ups","BankSmart settings"]);
+    wesleyBubble("Hey " + name + " 👋 I'm Wesley. You've got <strong>" + money(safeAmt) + "</strong> safe to spend till " + paydayStr + ", and I've quietly sorted a few things this week. What's on your mind?", ["Can I afford something?","What if I go to Bali in June?","Should any subscriptions go annual?","Notifications & alerts","My round-ups"]);
+    if (user && user.billCover && !user.billCover.dismissed && !user.billCover.plan) wesleyBubble("Heads up 🛡️ — I used <strong>" + money(user.billCover.covered) + "</strong> from " + escapeHtml(user.billCover.from) + " to keep your bills covered. Want to pick how we refill it?", ["How should I refill my savings?"]);
   }
 
   function addMe(t){
@@ -4593,11 +5062,94 @@
     return { html: pre + verdict + detail + save + choice, chips: ["Save a bit harder", "Keep it relaxed", "Pick a different amount", "Not now"] };
   }
 
+  function whatIfAnswer(){
+    var wi = ctx.whatif, r = evalWhatIf(wi.where, wi.ym, wi.cost);
+    ctx.whatifR = r; ctx.awaiting = null;
+    var notes = [];
+    if (wi.assumedWhen) notes.push("I've assumed " + r.when + "");
+    if (wi.guessedCost) notes.push("used a rough " + money(wi.cost) + " estimate");
+    var pre = notes.length ? "(" + notes.join(" and ") + " — tell me if that's off.) " : "";
+    var chips = ["Make it a goal"];
+    if (r.verdict === 'tight' || r.verdict === 'no') chips.push("Push it to " + r.laterLabel, "Make it $" + r.lowerCost);
+    chips.push("Open the planner");
+    if (r.verdict === 'too-soon') chips = ["Can I afford something?", "Open the planner"];
+    return { html: pre + whatIfHtml(r, true), chips: chips };
+  }
+
   function answerFor(t){
     var raw = t || '';
     t = raw.toLowerCase().trim();
     var amtMatch = t.replace(/,/g, '').match(/\$?\s?(\d+(?:\.\d+)?)/);
     var amt = amtMatch ? parseFloat(amtMatch[1]) : 0;
+
+    // ===== NEW: Bill cover refill choices =====
+    var notifIntent = /notif|alert|remind|warn|ping|sms me|text me|email me|let me know|tell me when|\brule\b/.test(t);
+    var bcPending = user && user.billCover && !user.billCover.dismissed && !user.billCover.plan;
+    if (bcPending && /increase round.?ups|more round.?ups|bigger lump|lump sum|balance both|bit of both|^both\b/.test(t)) {
+      var key = /balance both|bit of both|^both\b/.test(t) ? 'both' : (/lump/.test(t) ? 'lump' : 'roundups');
+      var plan = chooseRefill(key);
+      ctx.topic = 'billcover';
+      return { html: "Done — <strong>" + plan.title.toLowerCase() + "</strong>. I'll put back about " + money(plan.weekly) + " a week, so " + escapeHtml(user.billCover.refillName) + " is back where it was in roughly <strong>" + plan.weeks + " weeks</strong>." + (key !== 'lump' ? " Round-ups now go to the nearest $" + plan.step + "." : ""), chips: ["Open dashboard", "Thanks"] };
+    }
+    if (!notifIntent && /bill cover|refill|replenish|top(ped)? ?up my bills|cover(ed)? my bills|not enough (for|to cover) (my )?bills/.test(t)) {
+      ctx.topic = 'billcover';
+      var bc = user && user.billCover;
+      if (bc && !bc.dismissed && !bc.plan) {
+        var opts = refillOptions();
+        return { html: "Your " + escapeHtml(bc.merchant) + " purchase went " + money(bc.shortfall) + " past your Safe to spend, so I moved <strong>" + money(bc.covered) + "</strong> from " + escapeHtml(bc.from) + " to keep your bills covered. Three ways to put it back:<br>" +
+          opts.map(function(o){ return "• <strong>" + o.title + "</strong> — " + o.desc + " (~" + o.weeks + " weeks)"; }).join("<br>"), chips: opts.map(function(o){ return o.title; }) };
+      }
+      if (bc && bc.plan && !bc.dismissed) return { html: "You're refilling " + escapeHtml(bc.refillName) + " with <strong>" + bc.plan.title.toLowerCase() + "</strong> — about " + money(bc.plan.weekly) + " a week, back in roughly " + bc.plan.weeks + " weeks.", chips: ["Open dashboard", "Thanks"] };
+      var on = wz().billCover !== false;
+      return { html: "Bill cover is <strong>" + (on ? "on" : "off") + "</strong>. If a purchase is bigger than your Safe to spend, it would eat into money set aside for bills. When that happens I automatically top your bills back up from savings, tell you straight away, and then give you three ways to refill: increase round-ups, a bigger lump sum, or a bit of both.", chips: ["Can I afford something?", "Open dashboard"] };
+    }
+
+    // ===== NEW: Subscription check =====
+    if (!notifIntent && /subscri|annual|yearly|pay (for )?the year/.test(t)) {
+      ctx.topic = 'subs';
+      if (/switch (them )?all|all (of them|to annual)|switch everything/.test(t)) {
+        var res = switchAllAnnual();
+        if (!res.count) return { html: "Nothing to switch right now — you're already on the best plan for everything I've watched for 6+ months.", chips: ["Open dashboard", "Thanks"] };
+        return { html: "Done ✓ — switched <strong>" + res.count + "</strong> subscriptions to annual billing. That saves you about <strong>" + money(res.total) + " a year</strong>.", chips: ["Open dashboard", "Thanks"] };
+      }
+      if (/switch/.test(t)) {
+        var target = findSubByText(t);
+        if (target && subStatus(target) === 'save') { switchToAnnual(target.id); return { html: "Done ✓ — <strong>" + escapeHtml(target.name) + "</strong> is now on annual billing (" + money(target.annual) + "/year). That's <strong>" + money(subSaving(target)) + "</strong> back in your pocket each year.", chips: ["Should any subscriptions go annual?", "Thanks"] }; }
+        if (target) return { html: escapeHtml(target.name) + " isn't ready to switch: " + (subStatus(target) === 'watching' ? "I've only seen " + target.months + " months of payments, and I wait for 6." : subStatus(target) === 'switched' ? "it's already on annual." : "there's no cheaper annual plan.") , chips: ["Should any subscriptions go annual?"] };
+      }
+      var subs = (user && user.subscriptions) || [];
+      var save = subsToSwitch(), watching = subs.filter(function(s){ return subStatus(s) === 'watching'; });
+      if (!save.length) return { html: "I'm watching " + subs.length + " subscription" + (subs.length === 1 ? "" : "s") + ". Nothing would be cheaper on annual right now" + (watching.length ? ", and I'll check " + watching.map(function(s){ return escapeHtml(s.name); }).join(", ") + " once it hits 6 months." : "."), chips: ["Open dashboard", "Thanks"] };
+      var total = save.reduce(function(a, s){ return a + subSaving(s); }, 0);
+      return { html: "You've paid these monthly for 6+ months — switching to annual would save <strong>" + money(total) + " a year</strong>:<br>" +
+        save.map(function(s){ return "• <strong>" + escapeHtml(s.name) + "</strong>: " + money(round2(s.monthly * 12)) + " a year monthly vs " + money(s.annual) + " annual — save " + money(subSaving(s)); }).join("<br>") +
+        (watching.length ? "<br>Still watching: " + watching.map(function(s){ return escapeHtml(s.name) + " (" + s.months + "/6 months)"; }).join(", ") + "." : ""),
+        chips: (save.length > 1 ? ["Switch all to annual"] : []).concat(save.slice(0, 3).map(function(s){ return "Switch " + s.name.split(' ')[0] + " to annual"; })) };
+    }
+
+    // ===== NEW: What if planner =====
+    var wiNew = parseWhatIf(raw);
+    var wiIsNewTrip = !!wiNew.where && wiNew.where.toLowerCase() !== String(ctx.whatif && ctx.whatif.where || '').toLowerCase();
+    if ((ctx.topic === 'whatif' || (ctx.whatifR && /make it a goal/.test(t))) && ctx.whatif && !wiIsNewTrip && !/afford|bill|subscri|round.?up|what are my goals|settings|offer|forecast/.test(t)) {
+      if (/make it a goal|create (the |a )?goal|set (it )?up as a goal|save for it/.test(t)) {
+        var gname = createTripGoal(ctx.whatifR); ctx.topic = null;
+        return { html: "Done 🎯 — I've added <strong>" + escapeHtml(gname) + "</strong> to your savings plan: " + money(ctx.whatifR.cost) + " by " + ctx.whatifR.when + ", about " + money(ctx.whatifR.weekly) + " a week.", chips: ["What are my goals?", "Open dashboard"] };
+      }
+      if (/open (the )?planner/.test(t)) { openWhatIf(ctx.whatif); return { html: "Opened the What if planner with your trip filled in — tweak anything there.", chips: ["Thanks"] }; }
+      var upd = parseWhatIf(raw), changed = false;
+      if (upd.ym) { ctx.whatif.ym = upd.ym; ctx.whatif.assumedWhen = false; changed = true; }
+      if (upd.cost) { ctx.whatif.cost = upd.cost; ctx.whatif.guessedCost = false; changed = true; }
+      else if (amt > 0 && ctx.awaiting === 'whatif-cost') { ctx.whatif.cost = amt; ctx.whatif.guessedCost = false; changed = true; }
+      if (changed) return whatIfAnswer();
+    }
+    if (!notifIntent && /what if|plan (a|my) trip|save for (a|my) trip|holiday|trip to|go(ing)? to [a-z]|travel(l)?ing to|fly to|visit [a-z]/.test(t) && !/afford/.test(t)) {
+      var q = parseWhatIf(raw);
+      ctx.topic = 'whatif';
+      ctx.whatif = { where: q.where, ym: q.ym, cost: q.cost || presetCost(q.where), assumedWhen: !q.ym, guessedCost: !q.cost && !!presetCost(q.where) };
+      if (!ctx.whatif.ym) ctx.whatif.ym = defaultYm(6);
+      if (!ctx.whatif.cost) { ctx.awaiting = 'whatif-cost'; return { html: "Love it ✈️ " + (q.where ? escapeHtml(q.where) + " — " : "") + "roughly how much do you think it'll cost all up (flights, stay and spending)?", chips: ["$1,500", "$3,000", "$6,000"] }; }
+      return whatIfAnswer();
+    }
 
     // pick / change the amount while we're talking about a purchase
     if (/different amount|another amount|change the amount|pick a different|change my number/.test(t) && !amt) { ctx.awaiting = 'amount'; return { html: pick(["Sure — what number should I use?", "No problem — what's the new amount?"]), chips: ["$500", "$1,200", "$3,000"] }; }
