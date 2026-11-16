@@ -21,6 +21,18 @@ A self-contained single-page mock of a Westpac-style online banking site featuri
 
 **AI controls & privacy** are now Westpac-style tiles with an On/Off band, at the top of BankSmart **Settings & Rules**.
 
+**🧠 Wesley learns (habits, unusual activity and spending moments):**
+- *Habit profile:* each customer has a learned history (transactions, usual supermarket, typical spend per category, usual hours, home area, regular merchants). It grows with every spend and every answer. See **What Wesley's learning about you** on BankSmart, or ask Wesley *"what have you learned about me?"*.
+- *Unusual activity checks:* new spends are checked against the profile. Spends that are out of character (e.g. 15× your usual, a new overseas merchant at 3am) get a **"Was this you?"** card that lists the reasons. **Yes** teaches Wesley (that merchant is trusted next time), and Bill cover waits until you confirm. **No** explains what the live app would do (demo only).
+- *Spending moments:* when flights or accommodation are detected (Qantas, Jetstar, Virgin, Booking.com, Airbnb and so on), a friendly card asks whether it's a holiday, work or not travel. For a holiday it asks whether it's part of a trip saver (or offers to create one) and whether you're going overseas. Then it shares helpful tips:
+  - travel insurance, highlighting complimentary cover on cards that include it (e.g. Altitude Black), with eligibility and activation notes
+  - adding your Qantas Frequent Flyer or Velocity number, with a "link it" option
+  - telling Wesley your travel dates so overseas spends aren't flagged
+  - comparing cards for international fees
+  It remembers answers (e.g. "Qantas is usually work") so it stops asking.
+- *Ideas based on how you spend:* travel → insurance or rewards cards, bigger purchases → What if…, many subscriptions → Subscription check. All links go to real westpac.com.au pages with "general information, not a recommendation" wording.
+- *Demo:* **Try it** buttons on the panel, or the new **✈️ Flights** and **🌐 Overseas online** presets in Add transaction. **Reset what Wesley learned** clears it. Both features have toggles in Settings & Rules.
+
 Also fixed: the "Wesley is paused" banner was always showing, even when Wesley was on.
 
 ---

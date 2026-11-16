@@ -618,6 +618,60 @@
   .inbox-action-link{font-size:12.5px;font-weight:700;color:var(--brand);cursor:pointer}
   .notif-contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:14px;padding-top:14px;border-top:1px solid var(--line)}
   @media(max-width:900px){.notif-two-col,.notif-contact-grid{grid-template-columns:1fr}}
+
+  /* ===== Wesley learns: moments + learning panel ===== */
+  .moment-stack{position:fixed;top:86px;right:22px;width:min(410px,calc(100vw - 32px));display:flex;flex-direction:column;gap:12px;z-index:850}
+  .moment{background:#fff;border:1px solid var(--line2);border-radius:18px;box-shadow:0 14px 40px rgba(0,0,0,.18);padding:16px 18px;animation:moIn .35s cubic-bezier(.2,.9,.3,1.2);font-size:14.5px;line-height:1.5}
+  .moment.fraud{border-top:4px solid var(--brand)}
+  .moment.travel{border-top:4px solid #0067b1}
+  @keyframes moIn{from{opacity:0;transform:translateY(-10px) scale(.98)}to{opacity:1;transform:none}}
+  .mo-head{display:flex;gap:12px;align-items:flex-start;margin-bottom:6px}
+  .mo-head>div{flex:1;display:flex;flex-direction:column}
+  .mo-head b{font-size:16px;line-height:1.3}
+  .mo-head span{font-size:13px;color:var(--muted)}
+  .mo-ic{width:42px;height:42px;flex:0 0 42px;border-radius:13px;display:flex;align-items:center;justify-content:center;font-size:21px;background:#eef4fb}
+  .mo-ic.warn{background:var(--soft)} .mo-ic.ok{background:var(--success-bg);color:var(--success);font-weight:800}
+  .mo-x{background:none;border:0;font-size:16px;color:#888;cursor:pointer;padding:4px;line-height:1}
+  .moment p{margin:6px 0}
+  .mo-reasons{margin:4px 0 0 18px;padding:0;font-size:14px;line-height:1.55}
+  .mo-meta{font-size:12.5px;color:var(--muted);margin-top:2px}
+  .mo-actions{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+  .mo-actions.sm{margin-top:8px}
+  .mo-b{font-family:inherit;font-size:13.5px;font-weight:700;border:1.5px solid var(--navy);background:#fff;color:var(--navy);border-radius:999px;padding:8px 14px;cursor:pointer}
+  .mo-b:hover{background:var(--navy);color:#fff}
+  .mo-b.pri{background:var(--brand);border-color:var(--brand);color:#fff}
+  .mo-b.pri:hover{background:#b3120c;border-color:#b3120c}
+  .mo-b.danger{border-color:var(--brand);color:var(--brand)}
+  .mo-b.danger:hover{background:var(--brand);color:#fff}
+  .mo-tip{display:flex;gap:10px;background:#f7f8fa;border-radius:12px;padding:10px 12px;margin-top:8px;font-size:13.5px;line-height:1.5}
+  .mo-tip .ti{font-size:18px;line-height:1.3}
+  .mo-link{font-weight:700;color:var(--brand);white-space:nowrap}
+  .mo-done{font-size:13px;font-weight:700;color:var(--success)}
+  .mo-fine{font-size:11.5px;color:var(--muted);margin-top:10px}
+  .lp-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:18px}
+  .lp-stats>div{border:1px solid var(--line);border-radius:12px;padding:12px 14px;position:relative;overflow:hidden}
+  .lp-stats b{display:block;font-size:22px;font-weight:800;color:var(--navy)}
+  .lp-stats span{font-size:12.5px;color:var(--muted);font-weight:600}
+  .lp-stats i{position:absolute;left:0;bottom:0;height:4px;width:var(--w);background:var(--success)}
+  .lp-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+  #learnPanel h4{font-size:15px;margin:0 0 8px;color:var(--navy)}
+  .lp-habits,.lp-facts{list-style:none;margin:0;padding:0;font-size:14px;line-height:1.5}
+  .lp-habits li{display:grid;grid-template-columns:24px 1fr;gap:8px;align-items:start;padding:7px 0;border-bottom:1px solid #f2f2f2}
+  .lp-habits em{font-style:normal;font-size:12px;font-weight:700;background:#f1f1f1;border-radius:999px;padding:2px 9px;margin:2px 2px 2px 4px;display:inline-block}
+  .lp-facts li{padding:5px 0;border-bottom:1px solid #f2f2f2}
+  .lp-empty{font-size:13.5px;color:var(--muted);background:#f7f8fa;border-radius:10px;padding:10px 12px}
+  .lp-ideas{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:10px}
+  .lp-idea{display:flex;gap:10px;border:1px solid var(--line);border-radius:12px;padding:12px 14px}
+  .lp-idea>span{font-size:22px}
+  .lp-idea b{font-size:14px}
+  .lp-idea p{font-size:13px;color:var(--muted);margin:2px 0 6px;line-height:1.45}
+  .lp-idea a,.lp-idea button{font-family:inherit;font-size:13px;font-weight:700;color:var(--brand);background:none;border:0;padding:0;cursor:pointer}
+  .lp-fine{font-size:11.5px;color:var(--muted);margin-top:8px}
+  .lp-demo{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-top:18px;padding-top:14px;border-top:1px dashed var(--line2);font-size:13px;color:var(--muted);font-weight:700}
+  .lp-demo button{font-family:inherit;font-size:13px;font-weight:700;border:1px solid var(--brand);background:#fff;color:var(--brand);border-radius:999px;padding:7px 13px;cursor:pointer}
+  .lp-demo button:hover{background:var(--brand);color:#fff}
+  .lp-demo button.ghost{border-color:var(--line2);color:var(--muted)}
+  @media(max-width:760px){.lp-grid,.lp-stats{grid-template-columns:1fr}.moment-stack{top:auto;bottom:96px;right:16px}}
 </style>
 </head>
 <body>
@@ -855,6 +909,11 @@
           <div class="ai-tool"><div class="ic">🎯</div><h4>Goals &amp; buckets</h4><p>Create savings goals and spending buckets Wesley fills for you.</p><button onclick="openPlanModal()">Create</button></div>
           <div class="ai-tool"><div class="ic">🔁</div><h4>Subscription check</h4><p>After 6 months, Wesley checks if paying yearly beats paying monthly.</p><button onclick="openWesley('Should any subscriptions go annual?')">Check</button></div>
         </div>
+
+        <!-- 5. What Wesley's learning -->
+        <h2 class="bs-sec">🧠 What Wesley's learning about you</h2>
+        <div class="muted" style="font-size:13px;margin:-6px 0 14px">The more you bank, the better Wesley knows your habits, so he can spot unusual activity faster and notice moments that matter. Only ever your own data.</div>
+        <div class="panelbox" id="learnPanel"></div>
 
         <div class="bs-note">⚙️ Want to switch a feature on or off? <a href="#" onclick="go('bs-settings');setTimeout(function(){var e=document.getElementById('aiControls');e&&e.scrollIntoView({block:'start'})},60);return false">Manage AI controls &amp; privacy in Settings &amp; Rules</a>.</div>
       </section>
@@ -1261,6 +1320,7 @@
 
   <!-- ===== Wesley floating chat ===== -->
   <div class="wesley-fab" onclick="openWesley()"><span class="fblabel">Chat with Wesley</span><svg width="32" height="32" viewBox="0 0 24 24" fill="#fff"><use href="#spark"/></svg></div>
+  <div class="moment-stack" id="momentStack" aria-label="Wesley notifications"></div>
   <div class="wesley-panel" id="wesleyPanel" hidden>
     <div class="wp-head">
       <div class="wp-id"><div class="wesley-av" style="width:38px;height:38px"><svg width="22" height="22" viewBox="0 0 24 24" fill="#fff"><use href="#spark"/></svg></div>
@@ -1355,7 +1415,7 @@
       accounts: [
         { id: 'choice', mode: 'personal', kind: 'everyday', name: 'Westpac Choice', number: 'BSB 032-000 · 1234 5678 · Everyday', opening: 703.79 },
         { id: 'life', mode: 'personal', kind: 'savings', name: 'Westpac Life', number: 'BSB 032-000 · 8765 4321 · where your savings & goals live', opening: 0, linkedTo: 'choice' },
-        { id: 'card', mode: 'personal', kind: 'credit', name: 'Low Rate Card', number: 'Card ending 4417 · Limit $5,000', limit: 5000, opening: 688.00 },
+        { id: 'card', mode: 'personal', kind: 'credit', name: 'Low Rate Card', number: 'Card ending 4417 · Limit $5,000', limit: 5000, opening: 688.00, perks: { insurance: false, rewards: null } },
         { id: 'biz1', mode: 'business', kind: 'everyday', name: 'Westpac Business One', number: '00000000000', opening: 7363.33 }
       ],
       transactions: [
@@ -1379,6 +1439,8 @@
         { id: 'ab4', name: 'Youi contents insurance', source: 'Direct debit', freq: 'Annual', due: '2026-12-17', amount: 208.01, setAside: 208.01 }
       ],
       weeklySpare: 120,
+      habitSeed: { learned: 186, months: 14, home: 'Bondi, Sydney', hours: [7, 22], grocer: 'Woolworths Bondi Junction', avgShop: 82, maxUsual: 600, typical: { 'Groceries': 85, 'Entertainment & eating out': 45, 'Shopping': 120, 'Transport & fuel': 40, 'Subscriptions': 20, 'Important bills': 180, 'Travel': 0, 'Other': 60 }, known: ['woolworths', 'netflix', 'single o', 'ampol', 'optus', 'agl', 'youi', 'jb hi-fi', 'bondi trattoria', 'origin', 'acme', 'disney', 'microsoft', 'amazon'] },
+      memberships: { qantas: false, velocity: false },
       finProfile: { income: 5370, incomeLabel: 'Salary (Acme Pty Ltd)', home: 1950, homeLabel: 'Rent', bills: 260, living: 2340, debt: 100, saving: 200 },
       subscriptions: [
         { id: 'sub_netflix', name: 'Netflix Standard', monthly: 18.99, months: 8, annual: null },
@@ -1416,7 +1478,7 @@
       accounts: [
         { id: 'choice', mode: 'personal', kind: 'everyday', name: 'Westpac Choice', number: 'BSB 032-000 · 2948 1192 · Everyday', opening: 1450.00 },
         { id: 'life', mode: 'personal', kind: 'savings', name: 'Westpac Life', number: 'BSB 032-000 · 2948 9931 · Family savings & goals', opening: 0, linkedTo: 'choice' },
-        { id: 'card', mode: 'personal', kind: 'credit', name: 'Altitude Black Card', number: 'Card ending 8190 · Limit $15,000', limit: 15000, opening: 1240.50 }
+        { id: 'card', mode: 'personal', kind: 'credit', name: 'Altitude Black Card', number: 'Card ending 8190 · Limit $15,000', limit: 15000, opening: 1240.50, perks: { insurance: true, rewards: 'Altitude Rewards' } }
       ],
       transactions: [
         { id: 'pt1', acct: 'choice', date: '2026-11-12', desc: 'Harris Farm Markets', amount: -94.30 },
@@ -1441,6 +1503,8 @@
         { id: 'pb5', name: 'Bupa health insurance', source: 'Direct debit', freq: 'Monthly', due: '2026-12-14', amount: 246.00, setAside: 123.00 }
       ],
       weeklySpare: 140,
+      habitSeed: { learned: 412, months: 31, home: 'Parramatta, Sydney', hours: [6, 21], grocer: 'Coles Parramatta', avgShop: 210, maxUsual: 900, typical: { 'Groceries': 210, 'Entertainment & eating out': 70, 'Shopping': 150, 'Transport & fuel': 85, 'Subscriptions': 18, 'Important bills': 320, 'Travel': 650, 'Other': 90 }, known: ['coles', 'woolworths', 'goodstart', 'agl', 'sydney water', 'medibank', 'disney', 'microsoft', 'amazon', 'kmart', 'qantas', 'netflix'] },
+      memberships: { qantas: true, velocity: false },
       finProfile: { income: 10400, incomeLabel: 'Household take-home pay', home: 3400, homeLabel: 'Mortgage', bills: 1100, living: 4100, debt: 200, saving: 1000 },
       subscriptions: [
         { id: 'sub_m365', name: 'Microsoft 365 Family', monthly: 18.00, months: 14, annual: 179.00 },
@@ -1477,7 +1541,7 @@
       accounts: [
         { id: 'choice', mode: 'personal', kind: 'everyday', name: 'Westpac Choice', number: 'BSB 032-000 · 5512 8840 · Personal', opening: 820.00 },
         { id: 'life', mode: 'personal', kind: 'savings', name: 'Westpac Life', number: 'BSB 032-000 · 5512 8859 · Personal savings', opening: 0, linkedTo: 'choice' },
-        { id: 'card', mode: 'personal', kind: 'credit', name: 'Business Platinum Card', number: 'Card ending 1932 · Limit $20,000', limit: 20000, opening: 3150.00 },
+        { id: 'card', mode: 'personal', kind: 'credit', name: 'Business Platinum Card', number: 'Card ending 1932 · Limit $20,000', limit: 20000, opening: 3150.00, perks: { insurance: 'check', rewards: null } },
         { id: 'biz1', mode: 'business', kind: 'everyday', name: 'Westpac Business One', number: 'BSB 032-001 · 9923 1144', opening: 5800.00 }
       ],
       transactions: [
@@ -1501,6 +1565,8 @@
         { id: 'sb4', name: 'NRMA car insurance', source: 'Direct debit', freq: 'Monthly', due: '2026-12-15', amount: 212.75, setAside: 212.75 }
       ],
       weeklySpare: 150,
+      habitSeed: { learned: 268, months: 22, home: 'Surry Hills, Sydney', hours: [5, 23], grocer: 'Harris Farm Surry Hills', avgShop: 95, maxUsual: 1200, typical: { 'Groceries': 95, 'Entertainment & eating out': 60, 'Shopping': 140, 'Transport & fuel': 70, 'Subscriptions': 25, 'Important bills': 260, 'Travel': 300, 'Other': 120 }, known: ['harris farm', 'canva', 'spotify', 'strava', 'bunnings', 'officeworks', 'rollers', 'ampol', 'telstra', 'virgin'] },
+      memberships: { qantas: false, velocity: true },
       finProfile: { income: 7000, incomeLabel: 'Director draws (Rollers Pty Ltd)', home: 2600, homeLabel: 'Rent', bills: 600, living: 2500, debt: 400, saving: 250 },
       subscriptions: [
         { id: 'sub_canva', name: 'Canva Pro', monthly: 17.99, months: 10, annual: 164.99 },
@@ -1562,6 +1628,8 @@
         { id: 'mb4', name: 'Medibank health insurance', source: 'Direct debit', freq: 'Monthly', due: '2026-12-16', amount: 159.80, setAside: 159.80 }
       ],
       weeklySpare: 95,
+      habitSeed: { learned: 523, months: 48, home: 'Toowoomba, QLD', hours: [7, 20], grocer: 'IGA Toowoomba', avgShop: 64, maxUsual: 500, typical: { 'Groceries': 64, 'Entertainment & eating out': 30, 'Shopping': 80, 'Transport & fuel': 55, 'Subscriptions': 25, 'Important bills': 210, 'Travel': 400, 'Other': 50 }, known: ['iga', 'chemist', 'ergon', 'council', 'binge', 'ancestry', 'amazon', 'services australia', 'big w'] },
+      memberships: { qantas: false, velocity: false },
       finProfile: { income: 3600, incomeLabel: 'Age Pension + super', home: 0, homeLabel: 'Home (owned)', bills: 450, living: 2200, debt: 0, saving: 540 },
       subscriptions: [
         { id: 'sub_prime', name: 'Amazon Prime', monthly: 9.99, months: 8, annual: 79.00 },
@@ -1625,6 +1693,10 @@
     if (!Array.isArray(u.subscriptions)) u.subscriptions = clone(seedU.subscriptions || []);
     if (typeof u.weeklySpare !== 'number') u.weeklySpare = seedU.weeklySpare || 80;
     if (!u.finProfile && seedU.finProfile) u.finProfile = clone(seedU.finProfile);
+    if (!u.habitSeed && seedU.habitSeed) u.habitSeed = clone(seedU.habitSeed);
+    if (!u.memberships) u.memberships = clone(seedU.memberships || { qantas: false, velocity: false });
+    if (!u.learn) u.learn = { facts: [], checks: [], moments: [], known: [], travelNotice: null, extra: 0 };
+    (u.accounts || []).forEach(function(a){ if (a.kind === 'credit' && !a.perks) { var sa = (seedU.accounts || []).find(function(x){ return x.id === a.id; }); if (sa && sa.perks) a.perks = clone(sa.perks); } });
     if (!u.bsSettings.split) u.bsSettings.split = {};
     if (!u.bsSettings.roundUp) {
       u.bsSettings.roundUp = { enabled: true, step: 1, dest: '', rules: [] };
@@ -1913,6 +1985,7 @@
   }
 
   function logout(){
+    var ms = document.getElementById('momentStack'); if (ms) ms.innerHTML = '';
     sessionStorage.removeItem(SESSION_KEY);
     user = null;
     appEl.hidden = true;
@@ -2336,6 +2409,8 @@
     if (w.intensity === undefined) w.intensity = '2×';
     if (w.feeCover === undefined) w.feeCover = true;
     if (w.billCover === undefined) w.billCover = true;
+    if (w.fraudChecks === undefined) w.fraudChecks = true;
+    if (w.spendMoments === undefined) w.spendMoments = true;
     if (w.sweeps === undefined) w.sweeps = true;
     if (w.shield === undefined) w.shield = true;
     if (w.forecast === undefined) w.forecast = true;
@@ -2370,6 +2445,8 @@
       aiTile('Bill cover', 'If a purchase eats into money set aside for bills, top it up from savings automatically, then help you refill.', 'billCover', w.billCover !== false, '🧾', { dim: dim }) +
       aiTile('Smart sweeps', 'Move spare money into savings on good weeks; ease off on tight ones.', 'sweeps', w.sweeps, '⟳', { dim: dim }) +
       aiTile('Hold back tempting spends', 'Briefly set money aside during your known big-spend moments, then return it.', 'shield', w.shield, '⏸', { dim: dim }) +
+      aiTile('Unusual activity checks', 'Wesley learns your habits and asks "was this you?" when a spend doesn\'t look like you.', 'fraudChecks', w.fraudChecks !== false, '🔐', { dim: dim }) +
+      aiTile('Spending moments', 'Spot moments like booking flights, then ask a quick question or two and share helpful tips.', 'spendMoments', w.spendMoments !== false, '✈️', { dim: dim }) +
       aiTile('Look-ahead pre-funding', 'Set money aside early when a low point is coming up.', 'forecast', w.forecast, '📈', { dim: dim }) +
       '<div class="ai-tile' + (dim ? ' dim' : '') + '"><div class="top"><div class="ic" aria-hidden="true">🔔</div><h4>How Wesley notifies you</h4><p>Bundle money-movement alerts into a digest instead of a ping for every move.</p><div class="wm" aria-hidden="true">W</div></div>' +
         '<div class="band"><select class="ai-sel" style="width:100%;padding:8px" aria-label="How Wesley notifies you" onchange="aiSet(\'digest\', this.value)"><option value="daily"' + (w.digest === 'daily' ? ' selected' : '') + '>Daily digest</option><option value="weekly"' + (w.digest === 'weekly' ? ' selected' : '') + '>Weekly digest</option><option value="off"' + (w.digest === 'off' ? ' selected' : '') + '>Tell me every move</option></select></div></div>';
@@ -2415,6 +2492,8 @@
     renderBSSettings();
     renderSubscriptions();
     renderBillCover();
+    renderLearning();
+    renderMoments();
     renderBusinessApprovals();
     renderNotificationsPage();
     updateNotifBadge();
@@ -2432,7 +2511,9 @@
       { label: '⚡ Electricity', desc: 'Origin Energy Power', amount: 180.00 },
       { label: '🍽️ Dining', desc: 'Bondi Trattoria', amount: 68.00 },
       { label: '💻 Tech / Subs', desc: 'Software Subscription', amount: 29.99 },
-      { label: '🎧 Big buy', desc: 'JB Hi-Fi — Noise-cancelling headphones', amount: 549.00 }
+      { label: '🎧 Big buy', desc: 'JB Hi-Fi — Noise-cancelling headphones', amount: 549.00 },
+      { label: '✈️ Flights', desc: 'Qantas — flights Sydney to Bali', amount: 1240.00 },
+      { label: '🌐 Overseas online', desc: 'TECHMART ONLINE (USD)', amount: 899.00 }
     ],
     credit: [
       { label: '💼 Salary', desc: 'Salary Payment — Acme Pty Ltd', amount: 2480.00 },
@@ -2611,11 +2692,14 @@
       var billCoverResult = null;
       if (spendBucket) {
         var overBy = Math.round((-signedAmt - spendBucket.amount) * 100) / 100;
-        if (signedAmt < 0 && overBy > 0) billCoverResult = runBillCover(overBy, desc, dateVal);
+        var wzz = wz(), held = signedAmt < 0 && overBy > 0 && wzz.aiEnabled && wzz.fraudChecks !== false && unusualCheck(newTx).flag;
+        if (held) newTx._holdCover = overBy;
+        else if (signedAmt < 0 && overBy > 0) billCoverResult = runBillCover(overBy, desc, dateVal);
         spendBucket.amount = Math.max(0, Math.round((spendBucket.amount + signedAmt) * 100) / 100);
       }
     }
     if (acct.mode === 'personal') trackSubscriptionFromTx(desc, signedAmt);
+    if (acct.mode === 'personal' && signedAmt < 0) setTimeout(function(){ learnFromTx(newTx, acct); }, 700);
 
     var triggeredCount = evaluateTxNotificationRules(newTx, acct);
     saveStore();
@@ -3505,6 +3589,214 @@
       }
       slot.innerHTML = '<div class="bc-alert' + (bc.plan ? ' done' : '') + '"><div class="bc-top"><div class="bc-ic">' + head + '</div><div style="flex:1"><h4>' + title + '</h4><p>' + body + '</p></div></div>' + extra + '</div>';
     });
+  }
+
+  // ---------- Wesley learns: habits, unusual activity checks and spending moments ----------
+  var LEARN_LINKS = {
+    travelInsurance: 'https://www.westpac.com.au/personal-banking/insurance/travel-insurance/',
+    cardCover: 'https://www.westpac.com.au/credit-cards/manage/travelling-overseas-insurance/insurance-cover',
+    compareCards: 'https://www.westpac.com.au/personal-banking/credit-cards/compare-credit-cards/',
+    rewardsCards: 'https://www.westpac.com.au/personal-banking/credit-cards/reward/',
+    personalLoans: 'https://www.westpac.com.au/personal-loans'
+  };
+  var BIG_BRANDS = /qantas|jetstar|virgin|rex airlines|booking\.com|airbnb|expedia|webjet|flight centre|hilton|marriott|accor|wotif/;
+  var RISKY = /\(usd\)|\(eur\)|\(gbp\)|overseas|international|intl|crypto|bitcoin|gift ?card|western union|wire transfer/;
+  function lrn(){ user.learn = user.learn || { facts: [], checks: [], moments: [], known: [], travelNotice: null, extra: 0 }; return user.learn; }
+  function learnFact(txt){ var L = lrn(); if (!L.facts.some(function(f){ return f.txt === txt; })) L.facts.unshift({ txt: txt, at: new Date().toISOString().slice(0, 10) }); L.extra++; }
+  function merchantName(desc){ return String(desc || '').split(/\s+[—-]\s+/)[0].replace(/\s+\(.*\)$/, '').trim() || 'this merchant'; }
+  function travelNoticeOn(){ var t = lrn().travelNotice; return !!(t && t.until >= new Date().toISOString().slice(0, 10)); }
+
+  // What Wesley knows: the seeded history plus everything since
+  function habitProfile(){
+    var seed = user.habitSeed || { learned: 40, months: 3, home: 'Australia', hours: [7, 22], grocer: '', avgShop: 80, maxUsual: 500, typical: {}, known: [] };
+    var L = lrn(), txs = (user.transactions || []).filter(function(t){ var a = findAcct(t.acct); return a && a.mode === 'personal' && t.amount < 0 && !t.auto; });
+    var known = seed.known.concat(L.known), cats = {};
+    txs.forEach(function(t){ var c = t.category || inferTxCategory(t.desc); cats[c] = (cats[c] || 0) + 1; });
+    var learned = seed.learned + txs.length + (L.extra || 0);
+    var regular = known.slice(0, 8).map(function(k){ return k.split(' ').map(function(wd){ return wd.length <= 3 && wd !== 'of' ? wd.toUpperCase() : wd.replace(/\b\w/g, function(c){ return c.toUpperCase(); }); }).join(' ').replace(/^JB Hi-fi$/i, 'JB Hi-Fi'); });
+    return { seed: seed, learned: learned, months: seed.months, known: known, regular: regular, confidence: Math.min(97, Math.round(48 + Math.log(learned) * 8)), typical: seed.typical || {}, maxUsual: Math.round(Math.max(seed.maxUsual || 500, L.maxBump || 0) / 50) * 50 };
+  }
+
+  // Score a new spend against the habit profile
+  function unusualCheck(tx){
+    var hp = habitProfile(), d = String(tx.desc || '').toLowerCase(), amt = -tx.amount, cat = tx.category || inferTxCategory(tx.desc), reasons = [];
+    var trusted = lrn().trusted || {}, tk = Object.keys(trusted).find(function(k){ return d.indexOf(k) !== -1; });
+    if (tk && amt <= trusted[tk] * 2) return { flag: false, reasons: [], learned: hp.learned, trusted: true };
+    var typical = hp.typical[cat] || 60;
+    var brand = BIG_BRANDS.test(d), known = hp.known.some(function(k){ return d.indexOf(k) !== -1; });
+    if (amt > Math.max(typical * 4, 150) && amt > hp.maxUsual * 0.8 && !(brand && cat === 'Travel')) reasons.push('it\'s about ' + Math.round(amt / Math.max(typical, 1)) + '× your usual ' + (cat === 'Other' ? '' : cat.toLowerCase() + ' ') + 'spend');
+    if (!known && !brand) reasons.push('it\'s a merchant you haven\'t used before');
+    if (RISKY.test(d) && !travelNoticeOn()) reasons.push('it looks like an overseas or higher-risk payment');
+    var hr = parseInt(String(tx.time || '12:00').split(':')[0], 10), hrs = hp.seed.hours || [7, 22];
+    if (!isNaN(hr) && (hr < hrs[0] || hr > hrs[1])) reasons.push('it happened at ' + tx.time + ', outside your usual hours (' + hrs[0] + 'am to ' + (hrs[1] > 12 ? hrs[1] - 12 + 'pm' : hrs[1] + 'am') + ')');
+    var flag = reasons.length >= 2 || /crypto|bitcoin|gift ?card|western union/.test(d);
+    return { flag: flag, reasons: reasons, learned: hp.learned };
+  }
+
+  function travelKind(desc){
+    var d = String(desc || '').toLowerCase();
+    if (/qantas|jetstar/.test(d)) return { kind: 'flights', brand: /jetstar/.test(d) ? 'Jetstar' : 'Qantas', program: 'qantas', programName: 'Qantas Frequent Flyer' };
+    if (/virgin/.test(d)) return { kind: 'flights', brand: 'Virgin Australia', program: 'velocity', programName: 'Velocity Frequent Flyer' };
+    if (/airline|airways|flight|rex|air new zealand|singapore air|emirates|airasia/.test(d)) return { kind: 'flights', brand: merchantName(desc), program: null };
+    if (/booking\.com|airbnb|expedia|hotel|wotif|hilton|marriott|accor/.test(d)) return { kind: 'stay', brand: merchantName(desc), program: null };
+    return null;
+  }
+
+  // Called after a personal spend is added
+  function learnFromTx(tx, acct){
+    if (!user || !acct || acct.mode !== 'personal' || tx.amount >= 0) return;
+    var w = wz(); if (!w.aiEnabled) return;
+    var L = lrn();
+    if (w.fraudChecks !== false) {
+      var chk = unusualCheck(tx);
+      if (chk.flag) {
+        var m = { id: 'm_' + Date.now(), type: 'fraud', txId: tx.id, holdCover: tx._holdCover || 0, date: tx.date, desc: tx.desc, amount: -tx.amount, time: tx.time, acct: acct.name, reasons: chk.reasons, learned: chk.learned, step: 'ask' };
+        L.checks.unshift({ id: m.id, desc: tx.desc, amount: -tx.amount, reasons: chk.reasons, outcome: 'waiting' });
+        L.moments.unshift(m); saveStore(); renderMoments(); renderLearning(); return;
+      }
+    }
+    var tk = travelKind(tx.desc);
+    if (tk && w.spendMoments !== false) {
+      var isWork = (L.workBrands || []).indexOf(tk.brand) !== -1;
+      L.moments.unshift({ id: 'm_' + Date.now(), type: 'travel', txId: tx.id, desc: tx.desc, amount: -tx.amount, acctId: acct.id, acct: acct.name, info: tk, step: isWork ? 'worknote' : 'ask', ans: isWork ? { why: 'work' } : {} });
+      if (isWork) L.extra++;
+      saveStore(); renderMoments(); renderLearning(); return;
+    }
+    var d = String(tx.desc || '').toLowerCase();
+    if (!habitProfile().known.some(function(k){ return d.indexOf(k) !== -1; })) L.known.push(merchantName(tx.desc).toLowerCase());
+    L.extra++; saveStore(); renderLearning();
+  }
+
+  function tripGoal(){ return (user.savingsPlan || []).find(function(g){ return g.type === 'goal' && /holiday|trip|travel|bali|japan|europe|caravan|✈️/i.test(g.name); }); }
+  function userCard(){ return (user.accounts || []).find(function(a){ return a.mode === 'personal' && a.kind === 'credit'; }); }
+
+  function momentHtml(m){
+    var close = '<button type="button" class="mo-x" aria-label="Dismiss" onclick="momentDismiss(\'' + m.id + '\')">✕</button>';
+    var btn = function(label, act, cls){ return '<button type="button" class="' + (cls || 'mo-b') + '" onclick="momentAct(\'' + m.id + '\',\'' + act + '\')">' + label + '</button>'; };
+    var link = function(label, url){ return '<a class="mo-link" href="' + url + '" target="_blank" rel="noopener">' + label + ' ↗</a>'; };
+    if (m.type === 'fraud') {
+      if (m.step === 'ask') return '<div class="mo-head"><span class="mo-ic warn">🔐</span><div><b>Was this you?</b><span>' + money(m.amount) + ' at ' + escapeHtml(merchantName(m.desc)) + (m.time ? ' · ' + m.time : '') + '</span></div>' + close + '</div>' +
+        (m.holdCover ? '<div class="mo-meta" style="margin:0 0 6px">🛡️ Bill cover is on hold until you confirm, so your savings aren\'t touched.</div>' : '') + '<p>This doesn\'t look like your usual spending:</p><ul class="mo-reasons">' + m.reasons.map(function(r){ return '<li>' + escapeHtml(r.charAt(0).toUpperCase() + r.slice(1)) + '</li>'; }).join('') + '</ul><div class="mo-meta">Checked against ' + m.learned + ' of your past transactions in under a second.</div>' +
+        '<div class="mo-actions">' + btn('Yes, it was me', 'me', 'mo-b pri') + btn('No, it wasn\'t me', 'notme', 'mo-b danger') + '</div>';
+      if (m.step === 'me') return '<div class="mo-head"><span class="mo-ic ok">✓</span><div><b>Thanks, all good</b><span>Wesley learned something new</span></div>' + close + '</div><p>I\'ll remember that ' + escapeHtml(merchantName(m.desc)) + ' is you, so payments like this won\'t be flagged next time.</p><div class="mo-actions">' + btn('Done', 'close', 'mo-b pri') + '</div>';
+      return '<div class="mo-head"><span class="mo-ic warn">🛑</span><div><b>Let\'s keep you safe</b><span>Card ending ' + escapeHtml(String((userCard() || {}).number || '').replace(/.*ending (\d+).*/, '$1') || '••••') + '</span></div>' + close + '</div><p>In the live app, Wesley would lock the card straight away and connect you with the Westpac fraud team to get your money back. <em>Demo only: nothing has been blocked.</em></p><div class="mo-actions">' + btn('Okay', 'close', 'mo-b pri') + '</div>';
+    }
+    // travel
+    var info = m.info, what = info.kind === 'flights' ? 'flights with ' + escapeHtml(info.brand) : 'accommodation with ' + escapeHtml(info.brand);
+    var g = tripGoal();
+    if (m.step === 'ask') return '<div class="mo-head"><span class="mo-ic trip">' + (info.kind === 'flights' ? '✈️' : '🏨') + '</span><div><b>Noticed you paid for ' + what + '</b><span>' + money(m.amount) + ' · ' + escapeHtml(m.acct) + '</span></div>' + close + '</div>' +
+      '<p>Sounds exciting! Is this for a holiday? A couple of quick answers help Wesley look out for you.</p><div class="mo-actions">' + btn('Yes, a holiday', 'holiday', 'mo-b pri') + btn('It\'s for work', 'work') + btn('Not travel', 'nottravel') + '</div>';
+    if (m.step === 'saver') return '<div class="mo-head"><span class="mo-ic trip">🎯</span><div><b>' + (g ? 'Part of your saver?' : 'Want a trip saver?') + '</b><span>Question 2 of 3</span></div>' + close + '</div>' +
+      (g ? '<p>Is this part of your <strong>' + escapeHtml(g.name) + '</strong> saver (' + money(g.amount) + ' of ' + money(g.target) + ')?</p><div class="mo-actions">' + btn('Yes, count it', 'saver_yes', 'mo-b pri') + btn('No, a different trip', 'saver_no') + '</div>'
+         : '<p>Want a saver for the rest of the trip, like accommodation and spending money? Wesley can fill it bit by bit.</p><div class="mo-actions">' + btn('Set up a trip saver', 'saver_new', 'mo-b pri') + btn('Not now', 'saver_no') + '</div>');
+    if (m.step === 'where') return '<div class="mo-head"><span class="mo-ic trip">🌏</span><div><b>Where are you heading?</b><span>Question 3 of 3</span></div>' + close + '</div><div class="mo-actions">' + btn('Overseas', 'overseas', 'mo-b pri') + btn('Within Australia', 'domestic') + '</div>';
+    if (m.step === 'work') return '<div class="mo-head"><span class="mo-ic ok">💼</span><div><b>Got it, work travel</b><span>Wesley learned something new</span></div>' + close + '</div><p>I\'ll remember ' + escapeHtml(info.brand) + ' bookings are usually for work, so I won\'t ask about holidays next time.</p>' + rewardsTip(m) + '<div class="mo-actions">' + btn('Done', 'close', 'mo-b pri') + '</div>';
+    if (m.step === 'worknote') return '<div class="mo-head"><span class="mo-ic ok">💼</span><div><b>Another ' + escapeHtml(info.brand) + ' booking</b><span>' + money(m.amount) + ' · noted as work travel</span></div>' + close + '</div><p>You told me these are usually for work, so I\'ve filed it that way. Tap below if this one\'s a holiday instead.</p>' + rewardsTip(m) + '<div class="mo-actions">' + btn('Done', 'close', 'mo-b pri') + btn('This one\'s a holiday', 'holiday') + '</div>';
+    if (m.step === 'nottravel') return '<div class="mo-head"><span class="mo-ic ok">✓</span><div><b>Thanks for letting me know</b><span>Wesley learned something new</span></div>' + close + '</div><p>I\'ve noted it, so I\'ll be smarter about payments like this next time.</p><div class="mo-actions">' + btn('Done', 'close', 'mo-b pri') + '</div>';
+    // tips
+    var overseas = m.ans.where === 'overseas';
+    var tips = [insuranceTip(m, overseas, link), rewardsTip(m)];
+    if (overseas) tips.push('<div class="mo-tip"><span class="ti">💱</span><div><b>Spending overseas?</b> Tell Wesley your travel dates so purchases abroad aren\'t flagged as unusual. Some cards also charge international transaction fees, so it can pay to compare. ' + link('Compare cards', LEARN_LINKS.compareCards) + '<div class="mo-actions sm">' + (travelNoticeOn() ? '<span class="mo-done">✓ Travel dates noted</span>' : btn('Add my travel dates', 'notice')) + '</div></div></div>');
+    return '<div class="mo-head"><span class="mo-ic trip">🧳</span><div><b>A few things for your trip</b><span>Have an amazing time!</span></div>' + close + '</div>' + tips.join('') +
+      '<div class="mo-fine">General information only, not a recommendation. Eligibility, terms and conditions apply.</div><div class="mo-actions">' + btn('Done', 'close', 'mo-b pri') + '</div>';
+  }
+  function insuranceTip(m, overseas, link){
+    var card = userCard(), perks = card && card.perks;
+    if (perks && perks.insurance === true) {
+      var paid = m.acctId === card.id;
+      return '<div class="mo-tip"><span class="ti">🛡️</span><div><b>Good news: your ' + escapeHtml(card.name) + ' includes travel insurance.</b> It comes with complimentary ' + (overseas ? 'international medical' : 'domestic') + ' travel insurance when you meet the conditions, like paying for part of your trip on the card' + (overseas ? ', and international cover needs activating before you go' : '') + '. ' + (paid ? 'You paid with this card 👍' : 'You paid with ' + escapeHtml(m.acct) + ', so check you still meet the conditions.') + ' ' + link(overseas ? 'Check and activate cover' : 'Check what\'s covered', LEARN_LINKS.cardCover) + '</div></div>';
+    }
+    if (perks && perks.insurance === 'check') return '<div class="mo-tip"><span class="ti">🛡️</span><div><b>Don\'t forget travel insurance.</b> Some cards include complimentary cover, so check your ' + escapeHtml(card.name) + '\'s terms before you go. If it doesn\'t, Westpac Travel Insurance is provided by Allianz Global Assistance. ' + link('Check card cover', LEARN_LINKS.cardCover) + ' ' + link('Travel insurance', LEARN_LINKS.travelInsurance) + '</div></div>';
+    return '<div class="mo-tip"><span class="ti">🛡️</span><div><b>Don\'t forget travel insurance.</b> It can help if plans change, bags go missing or you need a doctor ' + (overseas ? 'overseas' : 'on the way') + '. Westpac Travel Insurance is provided by Allianz Global Assistance. ' + link('Get a quote', LEARN_LINKS.travelInsurance) + '</div></div>';
+  }
+  function rewardsTip(m){
+    var info = m.info, card = userCard(), perks = card && card.perks;
+    var link = function(label, url){ return '<a class="mo-link" href="' + url + '" target="_blank" rel="noopener">' + label + ' ↗</a>'; };
+    var cardLine = perks && perks.rewards ? ' Your ' + escapeHtml(card.name) + ' earns ' + escapeHtml(perks.rewards) + ' points on travel too.' : '';
+    if (info.program) {
+      if (user.memberships && user.memberships[info.program]) return '<div class="mo-tip"><span class="ti">⭐</span><div><b>Your ' + info.programName + ' is linked.</b> Make sure your member number is on the booking so the points land.' + cardLine + '</div></div>';
+      return '<div class="mo-tip"><span class="ti">⭐</span><div><b>Don\'t forget your ' + info.programName + ' points.</b> Add your member number to the booking so you earn points on these flights.' + cardLine + '<div class="mo-actions sm"><button type="button" class="mo-b" onclick="momentAct(\'' + m.id + '\',\'member\')">I\'m a member, link it</button></div></div></div>';
+    }
+    if (!(perks && perks.rewards)) return '<div class="mo-tip"><span class="ti">⭐</span><div><b>Travel a fair bit?</b> Some cards earn frequent flyer points on everyday spending. ' + link('See rewards cards', LEARN_LINKS.rewardsCards) + '</div></div>';
+    return '<div class="mo-tip"><span class="ti">⭐</span><div>' + cardLine.trim() + '</div></div>';
+  }
+
+  function momentAct(id, act){
+    var L = lrn(), m = L.moments.find(function(x){ return x.id === id; }); if (!m) return;
+    var chk = L.checks.find(function(c){ return c.id === id; });
+    if (act === 'close') { m.done = true; }
+    else if (m.type === 'fraud') {
+      if (act === 'me') { m.step = 'me'; if (chk) chk.outcome = 'You confirmed it'; L.known.push(merchantName(m.desc).toLowerCase()); L.trusted = L.trusted || {}; L.trusted[merchantName(m.desc).toLowerCase()] = m.amount; if (m.holdCover) { var bcr = runBillCover(m.holdCover, m.desc, m.date || new Date().toISOString().slice(0, 10)); m.holdCover = 0; if (bcr) setTimeout(function(){ showToast('🛡️ Bill cover: moved ' + money(bcr.covered) + ' from ' + bcr.from + ' so your bills stay covered'); }, 400); } L.maxBump = Math.max(L.maxBump || 0, m.amount * 1.1); learnFact('You shop at ' + merchantName(m.desc) + ' (confirmed ' + money(m.amount) + ')'); }
+      if (act === 'notme') { m.step = 'notme'; m.holdCover = 0; if (chk) chk.outcome = 'You reported it (demo)'; }
+    } else {
+      var info = m.info, g = tripGoal();
+      if (act === 'holiday') { m.ans.why = 'holiday'; m.step = 'saver'; learnFact(info.brand + ' ' + (info.kind === 'flights' ? 'flights' : 'bookings') + ' are usually for holidays'); }
+      else if (act === 'work') { m.ans.why = 'work'; m.step = 'work'; L.workBrands = (L.workBrands || []).concat(info.brand); learnFact(info.brand + ' bookings are usually for work'); }
+      else if (act === 'nottravel') { m.step = 'nottravel'; learnFact(merchantName(m.desc) + ' isn\'t travel spending'); }
+      else if (act === 'saver_yes' && g) { g.note = (info.kind === 'flights' ? 'Flights booked ✓' : 'Stay booked ✓'); m.step = 'where'; learnFact(merchantName(m.desc) + ' payment is part of ' + g.name); }
+      else if (act === 'saver_new') { var amt = Math.max(1000, Math.round(m.amount * 1.5 / 100) * 100); user.savingsPlan.push({ id: 'goal_' + Date.now(), name: '✈️ Trip spending', type: 'goal', amount: 0, target: amt, targetDate: monthLabel(defaultYm(4)), color: '#7e22ce', note: 'Flights booked ✓', fixed: false }); ensureUserBSSettings(user); showToast('🎯 Added a ✈️ Trip spending saver for ' + money(amt)); m.step = 'where'; }
+      else if (act === 'saver_no') m.step = 'where';
+      else if (act === 'overseas' || act === 'domestic') { m.ans.where = act; m.step = 'tips'; learnFact('Heading ' + (act === 'overseas' ? 'overseas' : 'on a trip within Australia') + ' soon'); }
+      else if (act === 'member') { user.memberships[info.program] = true; learnFact('You\'re a ' + info.programName + ' member'); showToast('⭐ ' + info.programName + ' linked. Wesley will remind you to add it to bookings'); }
+      else if (act === 'notice') { var until = new Date(Date.now() + 60 * 864e5).toISOString().slice(0, 10); L.travelNotice = { until: until }; learnFact('Travelling overseas until about ' + until.split('-').reverse().join('/')); showToast('🌏 Travel dates noted. Overseas spending won\'t be flagged as unusual'); }
+    }
+    saveStore(); renderAll(); renderMoments(); renderLearning();
+  }
+  function momentDismiss(id){ var m = lrn().moments.find(function(x){ return x.id === id; }); if (m) { m.done = true; var c = lrn().checks.find(function(x){ return x.id === id && x.outcome === 'waiting'; }); if (c) c.outcome = 'Dismissed'; } saveStore(); renderMoments(); renderLearning(); }
+  function renderMoments(){
+    var box = document.getElementById('momentStack'); if (!box) return;
+    if (!user || !user.learn) { box.innerHTML = ''; return; }
+    var open = user.learn.moments.filter(function(m){ return !m.done; }).slice(0, 2);
+    box.innerHTML = open.map(function(m){ return '<section class="moment ' + m.type + '" role="status" aria-live="polite">' + momentHtml(m) + '</section>'; }).join('');
+  }
+
+  // The "What Wesley's learning" panel on BankSmart
+  function renderLearning(){
+    var box = document.getElementById('learnPanel'); if (!box || !user) return;
+    var w = wz();
+    if (!w.aiEnabled) { box.innerHTML = '<div class="muted" style="font-size:14px">Wesley is paused, so he isn\'t learning right now.</div>'; return; }
+    var hp = habitProfile(), L = lrn(), s = hp.seed;
+    var hrs = s.hours || [7, 22], fmtH = function(h){ return h === 0 ? '12am' : (h < 12 ? h + 'am' : (h === 12 ? '12pm' : (h - 12) + 'pm')); };
+    var stats = '<div class="lp-stats"><div><b>' + hp.learned + '</b><span>transactions learned</span></div><div><b>' + hp.months + ' months</b><span>of history</span></div><div><b>' + hp.confidence + '%</b><span>confidence</span><i style="--w:' + hp.confidence + '%"></i></div></div>';
+    var habits = '<ul class="lp-habits">' +
+      (s.grocer ? '<li><span>🛒</span><div>Usual supermarket <b>' + escapeHtml(s.grocer) + '</b>, about ' + money(s.avgShop) + ' a shop</div></li>' : '') +
+      '<li><span>🕒</span><div>Usually spends between <b>' + fmtH(hrs[0]) + ' and ' + fmtH(hrs[1]) + '</b></div></li>' +
+      '<li><span>📍</span><div>Usually spends around <b>' + escapeHtml(s.home) + '</b></div></li>' +
+      '<li><span>📏</span><div>Purchases over about <b>' + m0(hp.maxUsual) + '</b> are unusual for you</div></li>' +
+      '<li><span>🔁</span><div>Regulars: ' + hp.regular.map(function(r){ return '<em>' + escapeHtml(r) + '</em>'; }).join('') + '</div></li></ul>';
+    var facts = L.facts.length ? '<ul class="lp-facts">' + L.facts.slice(0, 6).map(function(f){ return '<li>✓ ' + escapeHtml(f.txt) + '</li>'; }).join('') + '</ul>' : '<div class="lp-empty">Nothing yet. When Wesley asks a quick question and you answer, it shows up here.</div>';
+    var checks = L.checks.length ? '<ul class="lp-facts">' + L.checks.slice(0, 4).map(function(c){ return '<li>🔐 ' + money(c.amount) + ' at ' + escapeHtml(merchantName(c.desc)) + ' · <b>' + escapeHtml(c.outcome === 'waiting' ? 'Waiting for you' : c.outcome) + '</b></li>'; }).join('') + '</ul>' : '<div class="lp-empty">No unusual activity spotted. Wesley checks every spend against your habits.</div>';
+    // Ideas based on how you spend
+    var txs = (user.transactions || []).filter(function(t){ var a = findAcct(t.acct); return a && a.mode === 'personal' && t.amount < 0; });
+    var travel = txs.filter(function(t){ return travelKind(t.desc); }).length || (hp.typical['Travel'] > 0 ? 1 : 0);
+    var big = txs.filter(function(t){ return -t.amount >= 1000 && !travelKind(t.desc); }).length;
+    var card = userCard(), ideas = [];
+    if (travel) ideas.push({ ic: '🧳', t: 'You travel', d: card && card.perks && card.perks.insurance === true ? 'Your ' + card.name + ' includes complimentary travel insurance when you meet the conditions.' : 'Travel insurance can help when plans change.', a: card && card.perks && card.perks.insurance === true ? ['Check card cover', LEARN_LINKS.cardCover] : ['Travel insurance', LEARN_LINKS.travelInsurance] });
+    if (travel && !(card && card.perks && card.perks.rewards)) ideas.push({ ic: '⭐', t: 'Earn points on travel', d: 'Some cards earn Qantas or Velocity points on everyday spending.', a: ['Rewards cards', LEARN_LINKS.rewardsCards] });
+    if (big) ideas.push({ ic: '🔮', t: 'Bigger purchases lately', d: 'Planning another? See what it would mean for your whole account first.', run: 'openWhatIf({type:\'big\'})' });
+    if ((user.subscriptions || []).length >= 3) ideas.push({ ic: '🔁', t: (user.subscriptions || []).length + ' subscriptions', d: 'Paying yearly can be cheaper on some of them.', run: 'openWesley(\'Should any subscriptions go annual?\')' });
+    var ideaHtml = ideas.length ? '<div class="lp-ideas">' + ideas.map(function(i){ return '<div class="lp-idea"><span>' + i.ic + '</span><div><b>' + escapeHtml(i.t) + '</b><p>' + escapeHtml(i.d) + '</p>' + (i.a ? '<a href="' + i.a[1] + '" target="_blank" rel="noopener">' + i.a[0] + ' ↗</a>' : '<button type="button" onclick="' + i.run + '">Take a look</button>') + '</div></div>'; }).join('') + '</div><div class="lp-fine">General information only, not a recommendation. Eligibility, terms and conditions apply.</div>' : '<div class="lp-empty">As Wesley learns more, ideas based on your spending show up here.</div>';
+    box.innerHTML = stats +
+      '<div class="lp-grid"><div><h4>What Wesley knows about your habits</h4>' + habits + '</div><div><h4>Things you\'ve told Wesley</h4>' + facts + '<h4 style="margin-top:16px">Unusual activity checks</h4>' + checks + '</div></div>' +
+      '<h4 style="margin-top:18px">Ideas based on how you spend</h4>' + ideaHtml +
+      '<div class="lp-demo"><span>Try it:</span><button type="button" onclick="learnDemo(\'flights\')">✈️ Book flights</button><button type="button" onclick="learnDemo(\'unusual\')">🔐 An unusual purchase</button><button type="button" class="ghost" onclick="learnReset()">Reset what Wesley learned</button></div>';
+  }
+  function learnDemo(kind){
+    var acct = (user.accounts || []).find(function(a){ return a.mode === 'personal' && a.kind === 'everyday'; }); if (!acct) return;
+    var tx = kind === 'flights' ? { desc: 'Qantas — flights Sydney to Bali', amount: '1240', time: '19:42' } : { desc: 'TECHMART ONLINE (USD)', amount: '899', time: '03:12' };
+    var page = (document.querySelector('.page:not([hidden])') || {}).getAttribute ? document.querySelector('.page:not([hidden])').getAttribute('data-page') : 'banksmart';
+    openTxModal(); setTxType('debit');
+    var sel = document.getElementById('txAccountSelect'); if (sel) sel.value = acct.id;
+    document.getElementById('txDesc').value = tx.desc; document.getElementById('txAmount').value = tx.amount;
+    var tm = document.getElementById('txTime'); if (tm) tm.value = tx.time;
+    var cat = document.getElementById('txCategory'); if (cat) cat.value = 'auto';
+    submitTransaction();
+    if (page) go(page);
+  }
+  function learnReset(){ user.learn = { facts: [], checks: [], moments: [], known: [], travelNotice: null, extra: 0 }; saveStore(); renderMoments(); renderLearning(); showToast('Wesley\'s learning has been reset for this profile'); }
+  function learnSummaryHtml(){
+    var hp = habitProfile(), L = lrn(), s = hp.seed;
+    return "Here's what I've learned from <strong>" + hp.learned + " of your transactions</strong> over " + hp.months + " months: you usually shop at " + escapeHtml(s.grocer || 'the supermarket') + ", spend between " + s.hours[0] + "am and " + (s.hours[1] - 12) + "pm around " + escapeHtml(s.home) + ", and anything over about " + money(hp.maxUsual) + " is unusual for you." + (L.facts.length ? " You've also told me: " + L.facts.slice(0, 3).map(function(f){ return escapeHtml(f.txt); }).join('; ') + "." : "") + " I use this to spot unusual activity faster, and to notice moments like booking a trip. It's only ever your own data, and you can reset it in BankSmart.";
   }
 
   // ---------- What if…? Future-proofing planner ----------
@@ -5511,6 +5803,7 @@
         chips: (save.length > 1 ? ["Switch all to annual"] : []).concat(save.slice(0, 3).map(function(s){ return "Switch " + s.name.split(' ')[0] + " to annual"; })) };
     }
 
+    if (/what (have )?you learn|what do you know about me|my habits|how do you spot fraud|unusual activity/.test(t)) return { html: learnSummaryHtml(), chips: ["Open dashboard", "Thanks"] };
     // ===== What if…? future-proofing planner =====
     if (ctx.topic === 'whatif' && /start the planner|open the planner|let'?s do it|^(yes|yep|sure|ok|okay)\b/.test(t)) { ctx.topic = null; openWhatIf({ type: ctx.fpType }); return { html: "Opened 🔮 Answer a few quick questions and I'll show you what it means for your whole account.", chips: ["Thanks"] }; }
     if (!notifIntent && /what if|future.?proof|go(ing)? part.?time|buy(ing)? a car|car loan|change (my )?(job|income)|new job|career break|parental leave|save for|saving for|childcare|move out|moving out/.test(t) && !/afford (a |an |this |that )?\$?\d/.test(t)) {
