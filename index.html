@@ -363,6 +363,19 @@
   .wesley-name{font-weight:800;font-size:15px}
   .wesley-status{font-size:12px;color:var(--success);margin-top:1px}
   .wp-close{background:none;border:none;font-size:18px;color:#777;cursor:pointer;line-height:1}
+  .wp-tools-btn{font-family:inherit;font-size:12px;font-weight:700;border:1px solid var(--brand);background:#fff;color:var(--brand);border-radius:999px;padding:5px 11px;cursor:pointer;margin-right:10px}
+  .wp-tools-btn:hover,.wp-tools-btn.on{background:var(--brand);color:#fff}
+  .wz-tools{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:10px}
+  .wz-tool{position:relative;text-align:left;font-family:inherit;border:1px solid #ececec;border-radius:12px;padding:10px 10px 9px;cursor:pointer;background:var(--tbg,#fff);display:flex;flex-direction:column;gap:3px;opacity:0;transform:translateY(8px) scale(.97);animation:wzPop .35s cubic-bezier(.2,.9,.3,1.3) forwards;transition:box-shadow .15s,border-color .15s}
+  .wz-tool:hover{border-color:var(--brand);box-shadow:0 4px 14px rgba(218,23,16,.14)}
+  .wz-tool .ti{font-size:22px;line-height:1;display:inline-block;transform-origin:50% 80%}
+  .wz-tool:hover .ti{animation:wzWiggle .5s ease}
+  .wz-tool b{font-size:13px;color:#222}
+  .wz-tool span{font-size:11.5px;color:var(--muted);line-height:1.35}
+  .wz-tool em{position:absolute;top:8px;right:8px;font-style:normal;font-size:9.5px;font-weight:800;letter-spacing:.04em;text-transform:uppercase;background:var(--brand);color:#fff;border-radius:999px;padding:2px 6px}
+  @keyframes wzPop{to{opacity:1;transform:none}}
+  @keyframes wzWiggle{0%,100%{transform:rotate(0) scale(1)}25%{transform:rotate(-14deg) scale(1.15)}50%{transform:rotate(10deg) scale(1.15)}75%{transform:rotate(-6deg) scale(1.08)}}
+  @media (prefers-reduced-motion: reduce){.wz-tool{animation:none;opacity:1;transform:none}.wz-tool:hover .ti{animation:none}}
   .chat-log{flex:1;padding:16px;display:flex;flex-direction:column;gap:12px;overflow-y:auto;background:#fff}
   .wrow{display:flex;gap:9px;align-items:flex-end;align-self:flex-start;max-width:88%}
   .wrow .mini{width:30px;height:30px;border-radius:50%;background:linear-gradient(135deg,#da1710,#ff7468);display:flex;align-items:center;justify-content:center;flex:0 0 auto}
@@ -417,6 +430,25 @@
   .ai-ctrl .s{font-size:13px;color:var(--muted);margin-top:4px;max-width:560px;line-height:1.5}
   .ai-ctrl .ctl{flex:0 0 auto;display:flex;align-items:center;gap:10px;flex-wrap:wrap;justify-content:flex-end}
   .ai-dim{opacity:.4;pointer-events:none}
+  /* AI controls as Westpac-style account tiles */
+  .ai-tiles{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}
+  @media(max-width:960px){.ai-tiles{grid-template-columns:repeat(2,minmax(0,1fr))}}
+  @media(max-width:520px){.ai-tiles{grid-template-columns:1fr}}
+  .ai-tile{background:#fff;border:1px solid #dcd9d4;display:flex;flex-direction:column;min-height:228px;transition:box-shadow .15s}
+  .ai-tile:hover{box-shadow:0 2px 10px rgba(0,0,0,.08)}
+  .ai-tile .top{position:relative;padding:16px 16px 12px;flex:1}
+  .ai-tile h4{margin:0;padding-right:36px;font-size:17px;font-weight:400;line-height:1.25;color:#621a4b}
+  .ai-tile p{margin:8px 0 0;font-size:12.5px;line-height:1.45;color:var(--muted)}
+  .ai-tile .ic{position:absolute;top:14px;right:14px;width:28px;height:28px;border:1px solid #c9c6c1;border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:14px;background:#fff}
+  .ai-tile .wm{position:absolute;right:14px;bottom:10px;font-weight:900;font-size:22px;letter-spacing:-2px;color:#e3e0db;font-style:italic}
+  .ai-tile .band{display:flex;align-items:center;justify-content:space-between;gap:10px;min-height:58px;padding:12px 16px;background:#621a4b;color:#fff}
+  .ai-tile .band .st{font-size:17px;font-weight:700}
+  .ai-tile .band .st small{display:block;font-size:11px;font-weight:400;opacity:.8}
+  .ai-tile.off .band{background:#e9e7e3;color:#555}
+  .ai-tile.master .band{background:var(--brand)}
+  .ai-tile.master.off .band{background:#e9e7e3}
+  .ai-tile .band .ai-sel{background:#fff;color:#222;border:0;border-radius:4px;padding:6px 8px;font-family:inherit;font-size:12.5px;max-width:100%}
+  .ai-tile.dim{opacity:.45;pointer-events:none}
   .toggle{position:relative;width:46px;height:26px;display:inline-block;flex:0 0 auto}
   .toggle input{opacity:0;width:0;height:0}
   .tk{position:absolute;inset:0;background:#c7c7c7;border-radius:999px;transition:.2s;cursor:pointer}
@@ -696,8 +728,8 @@
         <!-- Wesley chat launcher -->
         <div class="ask-wesley">
           <div class="wesley-av" style="width:44px;height:44px"><svg width="26" height="26" viewBox="0 0 24 24" fill="#fff"><use href="#spark"/></svg></div>
-          <div class="txt"><b>Talk to Wesley</b>Ask things like "can I afford $1,200?", "save a bit harder", "what am I eligible for?", or "what did you spot this month?"</div>
-          <button onclick="openWesley()">Chat with Wesley</button>
+          <div class="txt"><b>Talk to Wesley</b>All your AI tools live in the chat now: can I afford it, What if, round-ups, bill cover, offers and more. Or just ask in your own words.</div>
+          <button onclick="openWesley('', true)">Open AI tools</button>
         </div>
 
         <!-- Bill cover alert (shows after Wesley tops up bills from savings) -->
@@ -755,24 +787,10 @@
           </div>
         </div>
 
-        <!-- 4. AI tools -->
-        <h2 class="bs-sec">Your AI tools</h2>
-        <div class="muted" style="font-size:13px;margin:-6px 0 14px">Tap any tool and Wesley will take it from there.</div>
-        <div class="ai-tools">
-          <div class="ai-tool"><div class="ic">🧮</div><h4>Can I afford it?</h4><p>Check any purchase and see the effect on your spending and savings.</p><button onclick="openWesley('Can I afford a $1,200 purchase?')">Try it</button></div>
-          <div class="ai-tool"><div class="ic">🌏</div><h4>What if…?</h4><p>Plan a trip: where, when and how much. Wesley tells you if it's doable and how to get there.</p><button onclick="openWhatIf()">Plan it</button></div>
-          <div class="ai-tool"><div class="ic">🪙</div><h4>Round-ups</h4><p>Round purchases up and save the spare change. Set which buys count.</p><button onclick="openWesley('Tell me about my round-ups')">Manage</button></div>
-          <div class="ai-tool"><div class="ic">⟳</div><h4>Smart sweeps</h4><p>Move spare money into savings on good weeks, ease off on tight ones.</p><button onclick="openWesley('Tell me about smart sweeps')">Manage</button></div>
-          <div class="ai-tool"><div class="ic">🛡️</div><h4>Bill cover</h4><p>Spent more than planned? Wesley tops up your bills from savings, then helps you refill.</p><button onclick="openWesley('How does bill cover work?')">Manage</button></div>
-          <div class="ai-tool"><div class="ic">🎁</div><h4>Offers for you</h4><p>Deals you actually qualify for, spotted from your own spending.</p><button onclick="openWesley('What offers do I qualify for?')">See offers</button></div>
-          <div class="ai-tool"><div class="ic">🎯</div><h4>Goals &amp; buckets</h4><p>Create savings goals and spending buckets Wesley fills for you.</p><button onclick="openPlanModal()">Create</button></div>
-          <div class="ai-tool"><div class="ic">🔁</div><h4>Subscription check</h4><p>After 6 months, Wesley checks if paying yearly beats paying monthly.</p><button onclick="openWesley('Should any subscriptions go annual?')">Check</button></div>
-        </div>
-
-        <!-- 5. AI controls & privacy -->
+        <!-- 4. AI controls & privacy -->
         <h2 class="bs-sec">AI controls &amp; privacy</h2>
         <div class="muted" style="font-size:13px;margin:-6px 0 14px">Fine-tune or switch off anything. Your choices are saved to your profile.</div>
-        <div class="panelbox" id="aiControls"></div>
+        <div class="ai-tiles" id="aiControls"></div>
 
         <div class="bs-note">🔒 Wesley only ever reads your own accounts and moves money between them — never to anyone else, and never using another customer's data.</div>
       </section>
@@ -1195,7 +1213,7 @@
     <div class="wp-head">
       <div class="wp-id"><div class="wesley-av" style="width:38px;height:38px"><svg width="22" height="22" viewBox="0 0 24 24" fill="#fff"><use href="#spark"/></svg></div>
         <div><div class="wesley-name">Wesley</div><div class="wesley-status">● Online · your AI money assistant</div></div></div>
-      <button class="wp-close" onclick="closeWesley()">✕</button>
+      <div style="display:flex;align-items:center"><button class="wp-tools-btn" id="wpToolsBtn" onclick="showWesleyTools()" title="Show all of Wesley's AI tools">🧰 Tools</button><button class="wp-close" onclick="closeWesley()" aria-label="Close chat">✕</button></div>
     </div>
     <div class="chat-log" id="chatLog"></div>
     <div class="chat-input">
@@ -2278,26 +2296,26 @@
     renderAiControls();
     renderWesleyInsights();
   }
-  function aiTog(label, sub, key, on){
-    return '<div class="ai-ctrl"><div><div class="l">' + label + '</div><div class="s">' + sub + '</div></div>' +
-      '<div class="ctl"><label class="toggle"><input type="checkbox" ' + (on ? 'checked' : '') + ' onchange="aiSet(\'' + key + '\', this.checked)"><span class="tk"></span></label></div></div>';
+  function aiTile(label, sub, key, on, icon, opts){
+    opts = opts || {};
+    return '<div class="ai-tile' + (on ? '' : ' off') + (opts.master ? ' master' : '') + (opts.dim ? ' dim' : '') + '">' +
+      '<div class="top"><div class="ic" aria-hidden="true">' + icon + '</div><h4>' + label + '</h4><p>' + sub + '</p><div class="wm" aria-hidden="true">W</div></div>' +
+      '<div class="band"><div class="st">' + (on ? 'On' : 'Off') + (opts.note ? '<small>' + opts.note + '</small>' : '') + '</div>' +
+      '<label class="toggle" title="Turn ' + label + (on ? ' off' : ' on') + '"><input type="checkbox" aria-label="' + label + '" ' + (on ? 'checked' : '') + ' onchange="aiSet(\'' + key + '\', this.checked)"><span class="tk"></span></label></div></div>';
   }
   function renderAiControls(){
     var box = document.getElementById('aiControls'); if (!box || !user) return;
-    var w = wz();
+    var w = wz(), dim = !w.aiEnabled;
     var banner = document.getElementById('aiOffBanner'); if (banner) banner.hidden = !!w.aiEnabled;
-    var master = '<div class="ai-ctrl"><div><div class="l">Wesley &amp; all AI features</div><div class="s">The master switch. Turn this off and Wesley stops acting, moving money and making suggestions — your banking still works exactly as normal.</div></div>' +
-      '<div class="ctl"><label class="toggle"><input type="checkbox" ' + (w.aiEnabled ? 'checked' : '') + ' onchange="aiSet(\'aiEnabled\', this.checked)"><span class="tk"></span></label></div></div>';
-    var rest = '<div class="' + (w.aiEnabled ? '' : 'ai-dim') + '">' +
-      aiTog('Fee cover', 'Top up from your buffer before a payment bounces, so you avoid fees.', 'feeCover', w.feeCover) +
-      aiTog('Bill cover', 'If a purchase eats into money set aside for bills, top it up from savings automatically, then help you refill.', 'billCover', w.billCover) +
-      aiTog('Smart sweeps', 'Move spare money into savings on good weeks; ease off on tight ones.', 'sweeps', w.sweeps) +
-      aiTog('Hold back tempting spends', 'Briefly set money aside during your known big-spend moments, then return it.', 'shield', w.shield) +
-      aiTog('Look-ahead pre-funding', 'Set money aside early when a low point is coming up.', 'forecast', w.forecast) +
-      '<div class="ai-ctrl"><div><div class="l">How Wesley notifies you</div><div class="s">Bundle money-movement alerts into a digest instead of a ping for every move.</div></div>' +
-        '<div class="ctl"><select class="ai-sel" onchange="aiSet(\'digest\', this.value)"><option value="daily"' + (w.digest === 'daily' ? ' selected' : '') + '>Daily digest</option><option value="weekly"' + (w.digest === 'weekly' ? ' selected' : '') + '>Weekly digest</option><option value="off"' + (w.digest === 'off' ? ' selected' : '') + '>Tell me every move</option></select></div></div>' +
-      '</div>';
-    box.innerHTML = master + rest;
+    box.innerHTML =
+      aiTile('Wesley &amp; all AI features', 'The master switch. Turn this off and Wesley stops acting, moving money and making suggestions. Your banking still works exactly as normal.', 'aiEnabled', w.aiEnabled, '✦', { master: true, note: w.aiEnabled ? 'Wesley is working for you' : 'Wesley is paused' }) +
+      aiTile('Fee cover', 'Top up from your buffer before a payment bounces, so you avoid fees.', 'feeCover', w.feeCover, '🛡️', { dim: dim }) +
+      aiTile('Bill cover', 'If a purchase eats into money set aside for bills, top it up from savings automatically, then help you refill.', 'billCover', w.billCover !== false, '🧾', { dim: dim }) +
+      aiTile('Smart sweeps', 'Move spare money into savings on good weeks; ease off on tight ones.', 'sweeps', w.sweeps, '⟳', { dim: dim }) +
+      aiTile('Hold back tempting spends', 'Briefly set money aside during your known big-spend moments, then return it.', 'shield', w.shield, '⏸', { dim: dim }) +
+      aiTile('Look-ahead pre-funding', 'Set money aside early when a low point is coming up.', 'forecast', w.forecast, '📈', { dim: dim }) +
+      '<div class="ai-tile' + (dim ? ' dim' : '') + '"><div class="top"><div class="ic" aria-hidden="true">🔔</div><h4>How Wesley notifies you</h4><p>Bundle money-movement alerts into a digest instead of a ping for every move.</p><div class="wm" aria-hidden="true">W</div></div>' +
+        '<div class="band"><select class="ai-sel" style="width:100%;padding:8px" aria-label="How Wesley notifies you" onchange="aiSet(\'digest\', this.value)"><option value="daily"' + (w.digest === 'daily' ? ' selected' : '') + '>Daily digest</option><option value="weekly"' + (w.digest === 'weekly' ? ' selected' : '') + '>Weekly digest</option><option value="off"' + (w.digest === 'off' ? ' selected' : '') + '>Tell me every move</option></select></div></div>';
   }
   function renderWesleyInsights(){
     var box = document.getElementById('wesleyInsights'); if (!box || !user) return;
@@ -5060,9 +5078,39 @@
     };
   }
 
-  function openWesley(prefill){
+  // Wesley's AI tools, shown as cards inside the chat
+  var WZ_TOOLS = [
+    { ic: '🧮', t: 'Can I afford it?', d: 'Check a purchase against your spending and savings', bg: '#fff6f0', ask: 'Can I afford something?' },
+    { ic: '🌏', t: 'What if…?', d: 'Plan a trip: where, when and how much', bg: '#f0f7ff', run: 'openWhatIf()', tag: 'New' },
+    { ic: '🪙', t: 'Round-ups', d: 'Save the spare change from your buys', bg: '#fffaeb', ask: 'Tell me about my round-ups' },
+    { ic: '⟳', t: 'Smart sweeps', d: 'Save more on good weeks, ease off on tight ones', bg: '#f1fbf5', ask: 'Tell me about smart sweeps' },
+    { ic: '🛡️', t: 'Bill cover', d: 'Tops up your bills from savings, then helps you refill', bg: '#f3f1ff', ask: 'How does bill cover work?', tag: 'New' },
+    { ic: '🎁', t: 'Offers for you', d: 'Deals spotted from your own spending', bg: '#fff1f6', ask: 'What offers do I qualify for?' },
+    { ic: '🎯', t: 'Goals & buckets', d: 'Create goals and buckets Wesley fills for you', bg: '#f0fbfb', run: 'openPlanModal()' },
+    { ic: '🔁', t: 'Subscription check', d: 'Is paying yearly cheaper than monthly?', bg: '#f6f6f6', ask: 'Should any subscriptions go annual?', tag: 'New' }
+  ];
+  function wesleyToolsHtml(){
+    return '<div class="wz-tools">' + WZ_TOOLS.map(function(x, i){
+      return '<button type="button" class="wz-tool" style="--tbg:' + x.bg + ';animation-delay:' + (i * 45) + 'ms" onclick="runWesleyTool(' + i + ')">' +
+        (x.tag ? '<em>' + x.tag + '</em>' : '') + '<div class="ti" aria-hidden="true">' + x.ic + '</div><b>' + x.t + '</b><span>' + x.d + '</span></button>';
+    }).join('') + '</div>';
+  }
+  function runWesleyTool(i){
+    var x = WZ_TOOLS[i]; if (!x) return;
+    if (x.ask) wesleyAsk(x.ask);
+    else if (x.run === 'openWhatIf()') { addMe('Plan a trip'); openWhatIf(); }
+    else if (x.run === 'openPlanModal()') { addMe('Create a goal or bucket'); openPlanModal(); }
+  }
+  function showWesleyTools(){
+    var panel = document.getElementById('wesleyPanel');
+    if (panel.hidden) { openWesley('', true); return; }
+    wesleyBubble(pick(["Here's everything I can help with 🧰 Tap one and I'll take it from there.", "Pick a tool and let's get into it ✨"]) + wesleyToolsHtml());
+  }
+  function openWesley(prefill, showTools){
     document.getElementById('wesleyPanel').hidden = false;
+    var fresh = !chatSeeded;
     seedChat();
+    if (showTools && !fresh) showWesleyTools();
     var b = document.getElementById('chatBox');
     if (prefill) b.value = prefill;
     setTimeout(function(){ b.focus(); }, 50);
@@ -5079,7 +5127,7 @@
     var safeAmt = getSafeToSpend();
     var name = (user ? user.firstName : 'Alex');
     var paydayStr = (user && user.id === 'peggy') ? 'next pension payment' : 'payday';
-    wesleyBubble("Hey " + name + " 👋 I'm Wesley. You've got <strong>" + money(safeAmt) + "</strong> safe to spend till " + paydayStr + ", and I've quietly sorted a few things this week. What's on your mind?", ["Can I afford something?","What if I go to Bali in June?","Should any subscriptions go annual?","Notifications & alerts","My round-ups"]);
+    wesleyBubble("Hey " + name + " 👋 I'm Wesley. You've got <strong>" + money(safeAmt) + "</strong> safe to spend till " + paydayStr + ", and I've quietly sorted a few things this week. Tap a tool below, or just ask me anything. 😊" + wesleyToolsHtml(), ["What if I go to Bali in June?","Notifications & alerts"]);
     if (user && user.billCover && !user.billCover.dismissed && !user.billCover.plan) wesleyBubble("Heads up 🛡️ — I used <strong>" + money(user.billCover.covered) + "</strong> from " + escapeHtml(user.billCover.from) + " to keep your bills covered. Want to pick how we refill it?", ["How should I refill my savings?"]);
   }
 
@@ -5180,6 +5228,7 @@
     var amtMatch = t.replace(/,/g, '').match(/\$?\s?(\d+(?:\.\d+)?)/);
     var amt = amtMatch ? parseFloat(amtMatch[1]) : 0;
 
+    if (/^(tools|menu|help|options|show (me )?(the |your )?tools|what can you do\??|what do you do\??|ai tools)$/.test(t.replace(/[!.?]+$/, ''))) return { html: "Here's everything I can help with 🧰 Tap one and I'll take it from there." + wesleyToolsHtml(), chips: [] };
     // ===== NEW: Bill cover refill choices =====
     var notifIntent = /notif|alert|remind|warn|ping|sms me|text me|email me|let me know|tell me when|\brule\b/.test(t);
     var bcPending = user && user.billCover && !user.billCover.dismissed && !user.billCover.plan;
