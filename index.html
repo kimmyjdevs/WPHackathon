@@ -1102,10 +1102,6 @@
           <input type="number" id="wiCost" placeholder="e.g. 3000" min="1" step="any" oninput="renderWhatIf()">
           <div style="font-size:12px;color:var(--muted);margin-top:4px">Flights, accommodation and spending money. The suggestions are rough demo estimates.</div>
         </div>
-        <div class="form-group">
-          <label for="wiExtra">Extra income you could put towards it? <span style="font-weight:400;color:var(--muted)">(optional, $ a week)</span></label>
-          <input type="number" id="wiExtra" placeholder="e.g. 50 from a side gig or extra shifts" min="0" step="any" oninput="renderWhatIf()">
-        </div>
         <div id="wiResult" class="wi-result"></div>
         <div style="display:flex;justify-content:flex-end;gap:10px;margin-top:18px">
           <button type="button" class="applybtn" onclick="closeWhatIf()" style="margin:0">Close</button>
@@ -3399,18 +3395,11 @@
     return p ? p.cost : 0;
   }
   // Core maths shared by the planner and Wesley
-  var WI_LOAN_RATE = 0.1399, WI_LOAN_MONTHS = 12; // illustrative only, not an offer
-  function loanCompare(amount){
-    var r = WI_LOAN_RATE / 12, n = WI_LOAN_MONTHS;
-    var monthly = amount * r / (1 - Math.pow(1 + r, -n));
-    return { amount: amount, monthly: Math.ceil(monthly), interest: Math.ceil(monthly * n - amount), months: n, rate: (WI_LOAN_RATE * 100).toFixed(2) };
-  }
-  function evalWhatIf(where, ym, cost, extra){
-    extra = Math.max(0, Number(extra) || 0);
-    var spare = ((user && user.weeklySpare) || 80) + extra;
+  function evalWhatIf(where, ym, cost){
+    var spare = (user && user.weeklySpare) || 80;
     var comfy = spare * 0.75;
     var weeks = weeksUntil(ym);
-    var r = { where: where, ym: ym, cost: cost, weeks: weeks, spare: spare, extra: extra, when: monthLabel(ym) };
+    var r = { where: where, ym: ym, cost: cost, weeks: weeks, spare: spare, when: monthLabel(ym) };
     if (!cost || cost <= 0 || !ym) { r.verdict = 'incomplete'; return r; }
     if (weeks < 1) { r.verdict = 'too-soon'; return r; }
     r.weekly = Math.ceil(cost / weeks);
@@ -3427,7 +3416,6 @@
       r.ruFixes = (r.weekly - r.ruExtra) <= spare;
       r.gap = Math.max(0, Math.ceil((r.weekly - spare) * weeks));
       r.extraNeeded = Math.max(0, Math.ceil(r.weekly - spare));
-      if (r.gap > 0) r.loan = loanCompare(r.gap);
     }
     return r;
   }
@@ -3436,7 +3424,7 @@
     if (r.verdict === 'incomplete') return 'Tell me where, when and roughly how much, and I\'ll help you work out a plan.';
     if (r.verdict === 'too-soon') return 'That\'s coming up really soon, so there isn\'t time to save for it bit by bit. <strong>Can I afford it?</strong> is the better check for this one, or pick a later month and I\'ll build a plan.';
     var head = r.verdict === 'ok' ? '✅ You\'re on track for this' : (r.verdict === 'tight' ? '🟡 Within reach, with a little care' : '🌱 Not quite yet, but there are ways to get there');
-    var spareTxt = money(r.spare) + (r.extra ? ' (including your extra ' + money(r.extra) + ')' : '');
+    var spareTxt = money(r.spare);
     var body = (forChat ? '<strong>' + head + '.</strong> ' : '<div class="wv">' + head + '</div>') +
       place + ' in ' + r.when + ' for ' + money(r.cost) + ' works out to about <strong>' + money(r.weekly) + ' a week</strong> over ' + r.weeks + ' weeks. ';
     if (r.verdict === 'ok') body += 'That fits comfortably in the ~' + spareTxt + ' you have spare each week, and your other goals stay on track. Nice one!';
@@ -3450,28 +3438,27 @@
     if (r.verdict === 'no') body += whatIfAltsHtml(r, forChat);
     return body;
   }
-  // Extra options when a plan doesn't fit yet — kept in-house and honest
-  function whatIfAltsHtml(r, forChat){
-    var inc = 'About ' + money(r.extraNeeded) + ' more a week from extra shifts, a side gig or selling things you no longer use would close the gap, and even a smaller amount brings your trip closer. Tell me what you could add and I\'ll redo the plan. I can keep that money in its own pot so it goes straight to the trip.';
-    var loan = r.loan ? 'Borrowing the ' + money(r.gap) + ' gap over ' + r.loan.months + ' months at an example rate of ' + r.loan.rate + '% p.a. would be about <strong>' + money(r.loan.monthly) + ' a month</strong>, with around <strong>' + money(r.loan.interest) + ' in interest</strong> on top of the trip.' + (r.loan.monthly > r.spare * 52 / 12 ? ' That\'s more than you currently have spare each month, so repayments could stretch your budget.' : '') + ' Saving costs nothing extra, so it\'s worth weighing up whether borrowing is right for you.' : '';
-    var fine = 'Example figures only, not an offer. Wesley can\'t tell you whether you\'d be approved for a loan, so a Westpac banker can talk through your options with no obligation.';
-    if (forChat) {
-      return '<br><br><strong>Other options to think about</strong><br>💼 <strong>Add another income source:</strong> ' + inc +
-        (loan ? '<br>🏦 <strong>Thinking about borrowing?</strong> ' + loan + '<br><span style="font-size:11.5px;color:#666">' + fine + '</span>' : '');
-    }
-    return '<div class="wi-alts"><h5>Other options to think about</h5>' +
-      '<div class="wi-alt"><strong class="t">💼 Add another income source</strong>' + inc + '<br><button type="button" onclick="document.getElementById(\'wiExtra\').focus()">Add extra income</button></div>' +
-      (loan ? '<div class="wi-alt"><strong class="t">🏦 Thinking about borrowing?</strong>' + loan + '<div class="fine">' + fine + '</div><button type="button" onclick="wiTalkToBanker()">Talk it through with a banker</button></div>' : '') +
-      '</div>';
+  // Other ways to fund it — links out to product pages, no eligibility claims
+  var WI_OPTIONS = [
+    { icon: '💳', name: 'Credit cards', blurb: 'Low rate, low fee and rewards cards, with features and costs side by side', url: 'https://www.westpac.com.au/credit-cards' },
+    { icon: '🏦', name: 'Personal loans', blurb: 'Fixed repayments and a set end date, for bigger plans', url: 'https://www.westpac.com.au/personal-loans' },
+    { icon: '🐷', name: 'Savings accounts', blurb: 'Ways to grow your trip fund faster with bonus interest', url: 'https://www.westpac.com.au/bank-accounts/savings-accounts/' }
+  ];
+  function wiOptionsList(){
+    return WI_OPTIONS.map(function(o){ return '<a href="' + o.url + '" target="_blank" rel="noopener" style="display:block;padding:7px 0;border-top:1px solid #eef1f5;color:var(--navy);text-decoration:none"><strong>' + o.icon + ' ' + o.name + ' ↗</strong><br><span style="font-size:12px;color:var(--muted)">' + o.blurb + '</span></a>'; }).join('');
   }
-  function wiTalkToBanker(){
-    showToast('📞 Thanks! A Westpac banker will be in touch to talk through your options (demo)');
+  var WI_FINE = 'General information only, not a recommendation. Seeing these options doesn\'t mean you\'d be approved, and there\'s no pressure to apply.';
+  function whatIfAltsHtml(r, forChat){
+    var intro = 'Some people use a credit card or personal loan to help with bigger plans. Borrowing comes with interest and repayments, so it\'s worth comparing with saving a little longer. If you\'d like to look into it, here\'s where to start.';
+    if (forChat) return '<br><br><strong>Other ways to fund it</strong><br>' + intro;
+    return '<div class="wi-alts"><h5>Other ways to fund it</h5><div class="wi-alt">' + intro +
+      '<br><button type="button" onclick="var l=this.nextElementSibling;l.hidden=!l.hidden;this.textContent=l.hidden?\'See options\':\'Hide options\'">See options</button>' +
+      '<div hidden style="margin-top:8px">' + wiOptionsList() + '<div class="fine">' + WI_FINE + '</div></div></div></div>';
   }
   function openWhatIf(prefill){
     prefill = prefill || {};
     document.getElementById('wiWhere').value = prefill.where || '';
     document.getElementById('wiCost').value = prefill.cost || '';
-    document.getElementById('wiExtra').value = prefill.extra || '';
     var when = document.getElementById('wiWhen');
     when.min = defaultYm(1);
     when.value = prefill.ym || defaultYm(6);
@@ -3489,7 +3476,7 @@
   }
   function wiApply(field, value){ document.getElementById(field).value = value; renderWhatIf(); }
   function readWhatIf(){
-    return evalWhatIf((document.getElementById('wiWhere').value || '').trim(), document.getElementById('wiWhen').value, parseFloat(document.getElementById('wiCost').value) || 0, parseFloat(document.getElementById('wiExtra').value) || 0);
+    return evalWhatIf((document.getElementById('wiWhere').value || '').trim(), document.getElementById('wiWhen').value, parseFloat(document.getElementById('wiCost').value) || 0);
   }
   function renderWhatIf(){
     var r = readWhatIf(), box = document.getElementById('wiResult'), btn = document.getElementById('wiGoalBtn');
@@ -5103,7 +5090,7 @@
   }
 
   function whatIfAnswer(){
-    var wi = ctx.whatif, r = evalWhatIf(wi.where, wi.ym, wi.cost, wi.extra);
+    var wi = ctx.whatif, r = evalWhatIf(wi.where, wi.ym, wi.cost);
     ctx.whatifR = r; ctx.awaiting = null;
     var notes = [];
     if (wi.assumedWhen) notes.push("I've assumed " + r.when + "");
@@ -5111,7 +5098,7 @@
     var pre = notes.length ? "(" + notes.join(" and ") + " — tell me if that's off.) " : "";
     var chips = ["Make it a goal"];
     if (r.verdict === 'tight' || r.verdict === 'no') chips.push("Push it to " + r.laterLabel, "Make it $" + r.lowerCost);
-    if (r.verdict === 'no') chips.push("Add extra income", "Should I borrow for it?");
+    if (r.verdict === 'no') chips.push("See other options");
     chips.push("Open the planner");
     if (r.verdict === 'too-soon') chips = ["Can I afford something?", "Open the planner"];
     return { html: pre + whatIfHtml(r, true), chips: chips };
@@ -5176,14 +5163,9 @@
         var gname = createTripGoal(ctx.whatifR); ctx.topic = null;
         return { html: "Done 🎯 — I've added <strong>" + escapeHtml(gname) + "</strong> to your savings plan: " + money(ctx.whatifR.cost) + " by " + ctx.whatifR.when + ", about " + money(ctx.whatifR.weekly) + " a week.", chips: ["What are my goals?", "Open dashboard"] };
       }
-      if (/extra income|side (gig|hustle|income)|another income|more income|extra shifts|overtime|i (could|can) (earn|make)/.test(t) && !(amt > 0)) { ctx.awaiting = 'whatif-extra'; return { html: "Love that idea 💪 Roughly how much extra could you put towards it each week? Extra shifts, a side gig, or selling a few things all count.", chips: ["$25", "$50", "$100"] }; }
-      if ((ctx.awaiting === 'whatif-extra' && amt > 0) || (amt > 0 && /extra|side|income|shifts|overtime|earn/.test(t))) { ctx.whatif.extra = amt; return whatIfAnswer(); }
-      if (/borrow|loan|finance it|credit card|pay it off/.test(t)) {
-        var lr = ctx.whatifR || evalWhatIf(ctx.whatif.where, ctx.whatif.ym, ctx.whatif.cost, ctx.whatif.extra);
-        if (!lr.loan) return { html: "Good news: you don't need to borrow for this one. Saving it gets you there with no interest at all. 🙌", chips: ["Make it a goal"] };
-        return { html: "Fair question, and it's worth a careful look. Borrowing the " + money(lr.gap) + " gap over " + lr.loan.months + " months at an example rate of " + lr.loan.rate + "% p.a. would be about <strong>" + money(lr.loan.monthly) + " a month</strong>, plus around <strong>" + money(lr.loan.interest) + " in interest</strong>." + (lr.loan.monthly > lr.spare * 52 / 12 ? " That's more than you currently have spare each month, so repayments could stretch things." : "") + " Saving a little longer costs nothing extra, so pushing it to " + lr.laterLabel + " might feel better long term.<br><span style=\"font-size:11.5px;color:#666\">Example figures only, not an offer. I can't tell you whether you'd be approved, but a Westpac banker can talk it through with you, no obligation.</span>", chips: ["Talk to a banker", "Push it to " + lr.laterLabel, "Add extra income"] };
+      if (/other options|see options|borrow|loan|credit card|finance it|other ways/.test(t)) {
+        return { html: "Of course. Here are a few Westpac options people look at for bigger plans. Borrowing comes with interest and repayments, so take your time comparing them with saving a little longer. 😊<br>" + wiOptionsList() + "<span style=\"font-size:11.5px;color:#666\">" + WI_FINE + "</span>", chips: ["Push it to " + (ctx.whatifR && ctx.whatifR.laterLabel || "later"), "Make it a goal"] };
       }
-      if (/talk to a banker|speak to (a|someone)|banker/.test(t)) { wiTalkToBanker(); return { html: "Done. A Westpac banker will be in touch to chat through your options, no pressure and no obligation. In the meantime I'm happy to keep tweaking the plan with you. 😊", chips: ["Push it to " + (ctx.whatifR && ctx.whatifR.laterLabel || "later"), "Make it a goal"] }; }
       if (/open (the )?planner/.test(t)) { openWhatIf(ctx.whatif); return { html: "Opened the What if planner with your trip filled in — tweak anything there.", chips: ["Thanks"] }; }
       var upd = parseWhatIf(raw), changed = false;
       if (upd.ym) { ctx.whatif.ym = upd.ym; ctx.whatif.assumedWhen = false; changed = true; }
