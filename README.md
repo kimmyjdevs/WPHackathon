@@ -17,7 +17,7 @@ A self-contained single-page mock of a Westpac-style online banking site featuri
 
 **🔁 Subscription check:** Wesley watches each subscription for 6 months, then compares monthly against annual pricing. You get **Switch to annual** (or switch all), a running "you're saving $X a year" total, and Undo. New subscription-like debits are tracked automatically. Prices are demo values.
 
-**🌏 What if…? planner:** where, when and how much gives a verdict of ✅ doable, 🟡 tight or ❌ not doable as planned, plus the weekly amount needed and tweaks (a later month, a lower budget, bigger round-ups). One tap turns it into a savings goal. You can also ask Wesley, e.g. *"What if I go to Bali in June?"*, then *"Push it to July 2027"*, *"Make it $2500"*, *"Make it a goal"*.
+**🌏 What if…? planner:** where, when and how much gives a verdict of ✅ doable, 🟡 tight or ❌ not doable as planned, plus the weekly amount needed and tweaks (a later month, a lower budget, bigger round-ups). One tap turns it into a savings goal. The wording stays calm and encouraging (✅ on track, 🟡 within reach, 🌱 not quite yet). When a plan doesn't fit, Wesley suggests **adding another income source** (there's an optional extra-income field, and you can tell Wesley something like *"Add extra income"*) and gives an honest **borrowing comparison**: example repayments and interest, with a note that Wesley can't say whether you'd be approved and an offer to talk it through with a banker. You can also ask Wesley, e.g. *"What if I go to Bali in June?"*, then *"Push it to July 2027"*, *"Make it $2500"*, *"Make it a goal"*.
 
 Also fixed: the "Wesley is paused" banner was always showing, even when Wesley was on.
 
