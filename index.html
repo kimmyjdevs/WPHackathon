@@ -491,6 +491,64 @@
   .wi-alt button:hover{background:var(--navy);color:#fff}
   .wi-result .wv{font-size:16px;font-weight:800;margin-bottom:4px;color:var(--navy)}
   .wi-result ul{margin:8px 0 0 18px}
+  .fp-box{max-width:640px}
+  .fp-progress{height:5px;background:#eee;border-radius:3px;margin:-4px 0 16px;overflow:hidden}
+  .fp-progress span{display:block;height:100%;width:4%;background:linear-gradient(90deg,var(--brand),#ff7468);transition:width .3s}
+  .fp-intro{font-size:14px;line-height:1.55;color:#333;margin-bottom:14px}
+  .fp-step{font-size:12px;color:var(--muted);font-weight:700;text-transform:uppercase;letter-spacing:.04em}
+  .fp-q{font-size:19px;margin:6px 0 6px;color:var(--navy);line-height:1.3}
+  .fp-help{font-size:13px;color:var(--muted);line-height:1.5;margin-bottom:12px}
+  .fp-opts{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:6px}
+  .fp-opt{font-family:inherit;text-align:left;background:#fff;border:1.5px solid var(--line2);border-radius:12px;padding:14px;cursor:pointer;display:flex;flex-direction:column;gap:4px;transition:border-color .15s,box-shadow .15s,transform .15s}
+  .fp-opt:hover{border-color:var(--brand);box-shadow:0 4px 14px rgba(218,23,16,.12);transform:translateY(-1px)}
+  .fp-opt.on{border-color:var(--brand);background:#fff6f5}
+  .fp-opt .fi{font-size:24px}
+  .fp-opt b{font-size:14.5px;color:#222}
+  .fp-opt .fs{font-size:12.5px;color:var(--muted);line-height:1.4}
+  .fp-field{display:flex;align-items:center;border:1.5px solid var(--line2);border-radius:10px;padding:0 12px;background:#fff}
+  .fp-field:focus-within{border-color:var(--navy)}
+  .fp-field .pre,.fp-field .suf{color:var(--muted);font-weight:700}
+  .fp-field input{flex:1;border:0;outline:0;font-family:inherit;font-size:18px;padding:12px 8px;background:transparent;min-width:0}
+  .fp-field input.err{color:var(--brand)}
+  .fp-chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
+  .fp-chips button{font-family:inherit;font-size:12.5px;font-weight:700;border:1px solid var(--navy);background:#fff;color:var(--navy);border-radius:999px;padding:6px 12px;cursor:pointer}
+  .fp-chips button:hover{background:var(--navy);color:#fff}
+  .fp-nav{display:flex;justify-content:flex-end;gap:10px;margin-top:20px;flex-wrap:wrap}
+  .fp-nav .applybtn{margin:0;padding:10px 16px;font-size:14px}
+  .fp-nav .signinbtn{padding:10px 20px;font-size:15px}
+  .fp-review{text-align:center;padding:16px 0}
+  .fp-spin{font-size:42px;display:inline-block;animation:fpSpin 1.2s ease-in-out infinite}
+  .fp-review ul{list-style:none;padding:0;margin:12px auto 0;max-width:280px;text-align:left}
+  .fp-review li{font-size:13.5px;color:var(--success);padding:3px 0;opacity:0;animation:fpIn .3s forwards}
+  @keyframes fpSpin{0%,100%{transform:rotate(-10deg) scale(1)}50%{transform:rotate(10deg) scale(1.12)}}
+  @keyframes fpIn{to{opacity:1}}
+  .fp-sec{font-size:14px;font-weight:800;color:var(--navy);margin:18px 0 8px}
+  .fp-table{width:100%;border-collapse:collapse;font-size:13px}
+  .fp-table th{text-align:right;font-size:11.5px;color:var(--muted);font-weight:700;padding:6px 8px;border-bottom:1px solid var(--line)}
+  .fp-table th:first-child,.fp-table td:first-child{text-align:left}
+  .fp-table td{padding:7px 8px;border-bottom:1px solid #f2f2f2;text-align:right;white-space:nowrap}
+  .fp-table td:first-child{white-space:normal}
+  .fp-table tr.in td{color:var(--success);font-weight:700}
+  .fp-table tr.tot td{font-weight:800;border-top:2px solid var(--line2);border-bottom:0;font-size:14px}
+  .fp-table i{font-style:normal;font-size:10px;margin-left:3px}
+  .fp-table i.up{color:var(--success)}
+  .fp-table i.dn{color:var(--brand)}
+  .fp-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+  .fp-card{border:1px solid var(--line);border-radius:10px;padding:10px 12px}
+  .fp-card .k{font-size:11.5px;color:var(--muted);font-weight:700}
+  .fp-card .v{font-size:19px;font-weight:800;color:var(--navy);margin:2px 0}
+  .fp-card .v.good{color:var(--success)}
+  .fp-card .v.bad{color:var(--brand)}
+  .fp-card .s{font-size:11.5px;color:var(--muted);line-height:1.35}
+  .fp-stress{margin-top:10px;background:#f3f1ff;border:1px solid #ddd6fe;border-radius:10px;padding:10px 12px;font-size:13px;line-height:1.5}
+  .fp-list{margin:0 0 0 18px;padding:0;font-size:13px;line-height:1.55}
+  .fp-two{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+  .fp-ideas{display:flex;flex-direction:column;gap:8px}
+  .fp-idea{display:flex;gap:10px;align-items:center;justify-content:space-between;background:#fffaeb;border:1px solid #f6dc8f;border-radius:10px;padding:10px 12px;font-size:13px;line-height:1.5}
+  .fp-idea button{flex:0 0 auto;font-family:inherit;font-size:12px;font-weight:700;border:1px solid var(--navy);background:#fff;color:var(--navy);border-radius:999px;padding:5px 11px;cursor:pointer}
+  .fp-idea button:hover{background:var(--navy);color:#fff}
+  .fp-fine{font-size:11.5px;color:var(--muted);margin-top:16px;line-height:1.45}
+  @media(max-width:560px){.fp-opts,.fp-two,.fp-cards{grid-template-columns:1fr}}
   .wi-tweaks{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
   .wi-tweaks button{font-family:inherit;font-size:12.5px;font-weight:700;border:1px solid var(--navy);background:#fff;color:var(--navy);border-radius:999px;padding:6px 12px;cursor:pointer}
   .wi-tweaks button:hover{background:var(--navy);color:#fff}
@@ -779,7 +837,7 @@
         <div class="muted" style="font-size:13px;margin:-6px 0 14px">Tap any tool and Wesley will take it from there.</div>
         <div class="ai-tools">
           <div class="ai-tool"><div class="ic">🧮</div><h4>Can I afford it?</h4><p>Check any purchase and see the effect on your spending and savings.</p><button onclick="openWesley('Can I afford a $1,200 purchase?')">Try it</button></div>
-          <div class="ai-tool"><div class="ic">🌏</div><h4>What if…?</h4><p>Plan a trip: where, when and how much. Wesley tells you if it's doable and how to get there.</p><button onclick="openWhatIf()">Plan it</button></div>
+          <div class="ai-tool"><div class="ic">🔮</div><h4>What if…?</h4><p>Buying a car, going part-time or saving for something big? Wesley checks what it means for your whole account.</p><button onclick="openWhatIf()">Plan it</button></div>
           <div class="ai-tool"><div class="ic">🪙</div><h4>Round-ups</h4><p>Round purchases up and save the spare change. Set which buys count.</p><button onclick="openWesley('Tell me about my round-ups')">Manage</button></div>
           <div class="ai-tool"><div class="ic">⟳</div><h4>Smart sweeps</h4><p>Move spare money into savings on good weeks, ease off on tight ones.</p><button onclick="openWesley('Tell me about smart sweeps')">Manage</button></div>
           <div class="ai-tool"><div class="ic">🛡️</div><h4>Bill cover</h4><p>Spent more than planned? Wesley tops up your bills from savings, then helps you refill.</p><button onclick="openWesley('How does bill cover work?')">Manage</button></div>
@@ -1104,34 +1162,15 @@
     </div>
   </div>
 
-  <!-- Modal: What if planner -->
+  <!-- Modal: What if…? future-proofing planner -->
   <div class="modal-backdrop" id="whatIfModal" hidden onclick="if(event.target===this)closeWhatIf()">
-    <div class="modal-box" role="dialog" aria-modal="true" aria-labelledby="whatIfTitle">
+    <div class="modal-box fp-box" role="dialog" aria-modal="true" aria-labelledby="whatIfTitle">
       <div class="modal-head">
-        <h2 id="whatIfTitle"><span>🌏</span> What if I went on a trip?</h2>
+        <h2 id="whatIfTitle"><span>🔮</span> What if…?</h2>
         <button class="modal-close" onclick="closeWhatIf()" aria-label="Close dialog">✕</button>
       </div>
-      <form id="whatIfForm" onsubmit="event.preventDefault();whatIfCreateGoal();">
-        <div class="form-group">
-          <label for="wiWhere">Where?</label>
-          <input type="text" id="wiWhere" placeholder="e.g. Bali" maxlength="40" oninput="renderWhatIf()">
-          <div class="chip-presets" id="wiPresets"></div>
-        </div>
-        <div class="form-group">
-          <label for="wiWhen">When?</label>
-          <input type="month" id="wiWhen" oninput="renderWhatIf()" onchange="renderWhatIf()">
-        </div>
-        <div class="form-group">
-          <label for="wiCost">How much will it cost? ($)</label>
-          <input type="number" id="wiCost" placeholder="e.g. 3000" min="1" step="any" oninput="renderWhatIf()">
-          <div style="font-size:12px;color:var(--muted);margin-top:4px">Flights, accommodation and spending money. The suggestions are rough demo estimates.</div>
-        </div>
-        <div id="wiResult" class="wi-result"></div>
-        <div style="display:flex;justify-content:flex-end;gap:10px;margin-top:18px">
-          <button type="button" class="applybtn" onclick="closeWhatIf()" style="margin:0">Close</button>
-          <button type="submit" class="signinbtn" style="padding:10px 20px;font-size:15px" id="wiGoalBtn" disabled>Make it a savings goal</button>
-        </div>
-      </form>
+      <div class="fp-progress"><span id="fpBar"></span></div>
+      <div id="fpBody"></div>
     </div>
   </div>
 
@@ -1330,6 +1369,7 @@
         { id: 'ab4', name: 'Youi contents insurance', source: 'Direct debit', freq: 'Annual', due: '2026-12-17', amount: 208.01, setAside: 208.01 }
       ],
       weeklySpare: 120,
+      finProfile: { income: 5370, incomeLabel: 'Salary (Acme Pty Ltd)', home: 1950, homeLabel: 'Rent', bills: 260, living: 2340, debt: 100, saving: 200 },
       subscriptions: [
         { id: 'sub_netflix', name: 'Netflix Standard', monthly: 18.99, months: 8, annual: null },
         { id: 'sub_disney', name: 'Disney+ Premium', monthly: 18.99, months: 9, annual: 189.99 },
@@ -1391,6 +1431,7 @@
         { id: 'pb5', name: 'Bupa health insurance', source: 'Direct debit', freq: 'Monthly', due: '2026-12-14', amount: 246.00, setAside: 123.00 }
       ],
       weeklySpare: 140,
+      finProfile: { income: 10400, incomeLabel: 'Household take-home pay', home: 3400, homeLabel: 'Mortgage', bills: 1100, living: 4100, debt: 200, saving: 1000 },
       subscriptions: [
         { id: 'sub_m365', name: 'Microsoft 365 Family', monthly: 18.00, months: 14, annual: 179.00 },
         { id: 'sub_disney', name: 'Disney+ Premium', monthly: 18.99, months: 11, annual: 189.99 },
@@ -1450,6 +1491,7 @@
         { id: 'sb4', name: 'NRMA car insurance', source: 'Direct debit', freq: 'Monthly', due: '2026-12-15', amount: 212.75, setAside: 212.75 }
       ],
       weeklySpare: 150,
+      finProfile: { income: 7000, incomeLabel: 'Director draws (Rollers Pty Ltd)', home: 2600, homeLabel: 'Rent', bills: 600, living: 2500, debt: 400, saving: 250 },
       subscriptions: [
         { id: 'sub_canva', name: 'Canva Pro', monthly: 17.99, months: 10, annual: 164.99 },
         { id: 'sub_spotify', name: 'Spotify Premium', monthly: 13.99, months: 26, annual: null },
@@ -1510,6 +1552,7 @@
         { id: 'mb4', name: 'Medibank health insurance', source: 'Direct debit', freq: 'Monthly', due: '2026-12-16', amount: 159.80, setAside: 159.80 }
       ],
       weeklySpare: 95,
+      finProfile: { income: 3600, incomeLabel: 'Age Pension + super', home: 0, homeLabel: 'Home (owned)', bills: 450, living: 2200, debt: 0, saving: 540 },
       subscriptions: [
         { id: 'sub_prime', name: 'Amazon Prime', monthly: 9.99, months: 8, annual: 79.00 },
         { id: 'sub_binge', name: 'Binge Standard', monthly: 18.00, months: 6, annual: null },
@@ -1571,6 +1614,7 @@
     var seedU = DEMO_USERS[u.id] || {};
     if (!Array.isArray(u.subscriptions)) u.subscriptions = clone(seedU.subscriptions || []);
     if (typeof u.weeklySpare !== 'number') u.weeklySpare = seedU.weeklySpare || 80;
+    if (!u.finProfile && seedU.finProfile) u.finProfile = clone(seedU.finProfile);
     if (!u.bsSettings.split) u.bsSettings.split = {};
     if (!u.bsSettings.roundUp) {
       u.bsSettings.roundUp = { enabled: true, step: 1, dest: '', rules: [] };
@@ -3453,82 +3497,385 @@
     });
   }
 
-  // ---------- What if planner ----------
-  var WI_PRESETS = [
-    { label: '🏝️ Bali', where: 'Bali', cost: 2800 },
-    { label: '🗾 Japan', where: 'Japan', cost: 5500 },
-    { label: '🏔️ NZ ski trip', where: 'New Zealand', cost: 3200 },
-    { label: '🏖️ Gold Coast weekend', where: 'the Gold Coast', cost: 650 },
-    { label: '🇪🇺 Europe', where: 'Europe', cost: 9000 }
-  ];
+  // ---------- What if…? Future-proofing planner ----------
+  // Guided questions about a life or money change, then a whole-account check:
+  // income, home, bills, everyday living, debt, savings goals, safety net and a surprise-cost stress test.
   var MONTHS = ['jan','feb','mar','apr','may','jun','jul','aug','sep','oct','nov','dec'];
   function monthLabel(ym){
     var p = (ym || '').split('-'); if (p.length < 2) return '';
-    return new Date(Number(p[0]), Number(p[1]) - 1, 1).toLocaleDateString('en-AU', { month: 'short', year: 'numeric' });
-  }
-  function weeksUntil(ym){
-    var p = (ym || '').split('-'); if (p.length < 2) return 0;
-    var target = new Date(Number(p[0]), Number(p[1]) - 1, 1);
-    return Math.floor((target - new Date()) / (7 * 864e5));
-  }
-  function ymAddWeeks(weeks){
-    var d = new Date(Date.now() + weeks * 7 * 864e5);
-    d = new Date(d.getFullYear(), d.getMonth() + 1, 1); // first full month after
-    return d.getFullYear() + '-' + String(d.getMonth() + 1).padStart(2, '0');
+    return new Date(Number(p[0]), Number(p[1]) - 1, 1).toLocaleDateString('en-AU', { month: 'long', year: 'numeric' });
   }
   function defaultYm(monthsAhead){
     var d = new Date(); d = new Date(d.getFullYear(), d.getMonth() + monthsAhead, 1);
     return d.getFullYear() + '-' + String(d.getMonth() + 1).padStart(2, '0');
   }
-  function presetCost(where){
-    var w = (where || '').toLowerCase();
-    var p = WI_PRESETS.find(function(x){ return w && (x.where.toLowerCase().indexOf(w) !== -1 || w.indexOf(x.where.toLowerCase().replace('the ', '')) !== -1); });
-    return p ? p.cost : 0;
+  function monthsUntilYm(ym){
+    var p = (ym || '').split('-'); if (p.length < 2) return 0;
+    var now = new Date();
+    return Math.max(0, (Number(p[0]) - now.getFullYear()) * 12 + (Number(p[1]) - 1 - now.getMonth()));
   }
-  // Core maths shared by the planner and Wesley
-  function evalWhatIf(where, ym, cost){
-    var spare = (user && user.weeklySpare) || 80;
-    var comfy = spare * 0.75;
-    var weeks = weeksUntil(ym);
-    var r = { where: where, ym: ym, cost: cost, weeks: weeks, spare: spare, when: monthLabel(ym) };
-    if (!cost || cost <= 0 || !ym) { r.verdict = 'incomplete'; return r; }
-    if (weeks < 1) { r.verdict = 'too-soon'; return r; }
-    r.weekly = Math.ceil(cost / weeks);
-    r.pct = Math.round(r.weekly / spare * 100);
-    r.verdict = r.weekly <= comfy ? 'ok' : (r.weekly <= spare ? 'tight' : 'no');
-    var step = (user && user.bsSettings && user.bsSettings.roundUp && user.bsSettings.roundUp.step) || 1;
-    r.ruStep = nextRoundUpTier(step);
-    r.ruExtra = Math.max(5, roundUpWeekly(r.ruStep) - roundUpWeekly(step));
-    if (r.verdict !== 'ok') {
-      r.laterYm = ymAddWeeks(Math.ceil(cost / comfy));
-      r.laterLabel = monthLabel(r.laterYm);
-      r.lowerCost = Math.max(50, Math.floor(comfy * weeks / 50) * 50);
-      r.ruWeekly = Math.ceil(cost / weeks) - r.ruExtra;
-      r.ruFixes = (r.weekly - r.ruExtra) <= spare;
-      r.gap = Math.max(0, Math.ceil((r.weekly - spare) * weeks));
-      r.extraNeeded = Math.max(0, Math.ceil(r.weekly - spare));
+  function m0(n){ n = Math.round(Number(n) || 0); return (n < 0 ? '-$' : '$') + Math.abs(n).toLocaleString('en-AU'); }
+  function loanRepay(principal, ratePct, years){
+    if (principal <= 0) return 0;
+    var r = (ratePct || 0) / 1200, n = Math.max(1, years * 12);
+    return r ? principal * r / (1 - Math.pow(1 + r, -n)) : principal / n;
+  }
+  function loanCapacity(monthly, ratePct, years){
+    if (monthly <= 0) return 0;
+    var r = (ratePct || 0) / 1200, n = Math.max(1, years * 12);
+    return r ? monthly * (1 - Math.pow(1 + r, -n)) / r : monthly * n;
+  }
+
+  // A plain monthly picture of the signed-in customer
+  function fpProfile(){
+    var p = (user && user.finProfile) || {};
+    var spare = ((user && user.weeklySpare) || 80) * 52 / 12;
+    var plan = (user && user.savingsPlan) || [];
+    var goals = plan.filter(function(g){ return g.type === 'goal'; });
+    var buf = plan.find(function(g){ return g.id === 'buffer'; });
+    var goalsTotal = goals.reduce(function(a, g){ return a + (g.amount || 0); }, 0);
+    var owing = 0, term = 0, everyday = 0;
+    (user && user.accounts || []).forEach(function(a){
+      if (a.mode !== 'personal') return;
+      if (a.kind === 'credit') owing += balanceOf(a).owing || 0;
+      else if (a.kind === 'term') term += a.opening || 0;
+      else if (a.kind === 'everyday') everyday += balanceOf(a) || 0;
+    });
+    var income = p.income || 5000;
+    var pr = {
+      income: income, incomeLabel: p.incomeLabel || 'Take-home pay',
+      home: p.home || 0, homeLabel: p.homeLabel || 'Rent or mortgage',
+      bills: p.bills || 0, living: p.living || 0, debt: p.debt || 0, saving: p.saving || 0,
+      goals: goals, goalsTotal: goalsTotal, buffer: buf ? buf.amount : 0,
+      savings: goalsTotal + (buf ? buf.amount : 0), term: term, owing: owing, everyday: everyday
+    };
+    if (!p.income) pr.living = Math.max(0, income - pr.home - pr.bills - pr.debt - pr.saving - spare);
+    pr.left = pr.income - pr.home - pr.bills - pr.living - pr.debt - pr.saving;
+    pr.essentials = pr.home + pr.bills + pr.living + pr.debt;
+    return pr;
+  }
+
+  var FP_COMMON = [
+    { key: 'goals', type: 'choice', q: 'Would you keep saving into your current goals?',
+      show: function(){ return fpProfile().goals.length > 0; },
+      help: function(){ var p = fpProfile(); return 'Right now you put about ' + m0(p.saving) + ' a month into ' + p.goals.map(function(g){ return escapeHtml(g.name); }).join(', ') + '.'; },
+      opts: function(){ return [{ v: 'keep', ic: '🎯', l: 'Yes, keep them going' }, { v: 'pause', ic: '⏸️', l: 'Happy to pause them if needed', s: 'Only if the numbers need it' }]; }, def: 'keep' },
+    { key: 'safety', type: 'choice', q: 'How big a safety net would you like to keep?',
+      help: function(){ return 'This is money for surprises, like a car repair or a few weeks between jobs. Essentials are your home, bills, everyday living and repayments.'; },
+      opts: function(){ var e = fpAnalyseEssentials(); return [
+        { v: 1, ic: '🪺', l: '1 month of essentials', s: 'About ' + m0(e) },
+        { v: 3, ic: '🛟', l: '3 months of essentials', s: 'About ' + m0(e * 3) + ' · a common rule of thumb' },
+        { v: 6, ic: '🏰', l: '6 months of essentials', s: 'About ' + m0(e * 6) + ' · extra peace of mind' }]; }, def: 3 },
+    { key: 'extra', type: 'choice', q: 'Anything else changing in the next 12 months?',
+      opts: function(){ return [{ v: 'none', ic: '👌', l: 'Nothing else I know of' }, { v: 'raise', ic: '📈', l: 'Expecting a pay rise', s: 'We\'ll allow for about 3%' }, { v: 'bill', ic: '🧾', l: 'A big one-off cost coming up' }]; }, def: 'none' },
+    { key: 'extraAmt', type: 'money', q: 'Roughly how much is that one-off cost?', show: function(a){ return a.extra === 'bill'; },
+      chips: function(){ return [500, 1000, 2500, 5000]; }, def: 1000 }
+  ];
+  function fpAnalyseEssentials(){
+    var a = fp.a, p = fpProfile(), extra = 0;
+    if (fp.type === 'big' && a.pay !== 'savings') extra += loanRepay(a.price - (a.pay === 'mix' ? a.deposit || 0 : 0), a.rate, a.term);
+    if (fp.type === 'big') extra += a.running || 0;
+    if (fp.type === 'cost') extra += a.monthly || 0;
+    return p.essentials + extra;
+  }
+
+  var FP_TYPES = {
+    big: { ic: '🚗', t: 'Buy something big', d: 'A car, motorbike, furniture or a renovation', steps: [
+      { key: 'what', type: 'text', q: 'What are you thinking of buying?', chips: function(){ return ['Car', 'Motorbike', 'Furniture', 'Home renovation']; }, def: 'Car' },
+      { key: 'price', type: 'money', q: function(a){ return 'Roughly how much will the ' + escapeHtml(String(a.what || 'purchase').toLowerCase()) + ' cost?'; },
+        chips: function(a){ return /car/i.test(a.what) ? [15000, 25000, 35000, 50000] : [2000, 5000, 10000, 20000]; }, def: function(a){ return /car/i.test(a.what) ? 25000 : 5000; } },
+      { key: 'when', type: 'month', q: 'When would you like to buy it?', def: function(){ return defaultYm(3); } },
+      { key: 'pay', type: 'choice', q: 'How would you pay for it?', help: function(){ return 'You have about ' + m0(fpProfile().savings) + ' in savings, goals and your Buffer today.'; },
+        opts: function(){ return [{ v: 'savings', ic: '🐷', l: 'Pay with my savings' }, { v: 'loan', ic: '🏦', l: 'Take out a loan for all of it' }, { v: 'mix', ic: '⚖️', l: 'A deposit from savings, plus a loan' }]; }, def: 'mix' },
+      { key: 'deposit', type: 'money', q: 'How much would you put down from savings?', show: function(a){ return a.pay === 'mix'; },
+        help: function(){ return 'You have about ' + m0(fpProfile().savings) + ' saved today.'; },
+        chips: function(a){ return [0.1, 0.2, 0.3].map(function(f){ return Math.round(a.price * f / 100) * 100; }); }, def: function(a){ return Math.round(a.price * 0.2 / 100) * 100; } },
+      { key: 'term', type: 'choice', q: 'Over how many years would you repay the loan?', show: function(a){ return a.pay !== 'savings'; },
+        opts: function(){ return [3, 4, 5, 7].map(function(y){ return { v: y, ic: y <= 3 ? '⚡' : (y >= 7 ? '🐢' : '🗓️'), l: y + ' years', s: y <= 3 ? 'Higher repayments, less interest' : (y >= 7 ? 'Lower repayments, more interest' : '') }; }); }, def: 5 },
+      { key: 'rate', type: 'number', q: 'What interest rate are you looking at?', suffix: '% p.a.', show: function(a){ return a.pay !== 'savings'; },
+        help: function(){ return 'Not sure? Leave the example rate. If you have a quote, pop it in.'; }, chips: function(){ return [7.99, 9.99, 12.99]; }, def: 9.99 },
+      { key: 'running', type: 'money', q: 'Any ongoing costs once you have it, per month?', help: function(a){ return /car|motor|bike/i.test(a.what) ? 'For a car: rego, insurance, fuel and servicing usually add up to $250 to $500 a month.' : 'Things like insurance, upkeep or subscriptions. Leave it at $0 if none.'; },
+        chips: function(a){ return /car|motor|bike/i.test(a.what) ? [0, 250, 350, 500] : [0, 50, 100, 200]; }, def: function(a){ return /car/i.test(a.what) ? 350 : (/motor|bike/i.test(a.what) ? 200 : 0); } }
+    ] },
+    income: { ic: '💼', t: 'Change my income', d: 'Go part-time, start a new job or take time off', steps: [
+      { key: 'change', type: 'choice', q: 'What\'s changing?', opts: function(){ return [
+        { v: 'parttime', ic: '🌤️', l: 'Going part-time' }, { v: 'newjob', ic: '🧳', l: 'Starting a new job' }, { v: 'break', ic: '🍼', l: 'Taking time off', s: 'Career break, study or parental leave' }]; }, def: 'parttime' },
+      { key: 'when', type: 'month', q: 'When would this start?', def: function(){ return defaultYm(12); } },
+      { key: 'newIncome', type: 'money', q: function(a){ return a.change === 'break' ? 'What would you take home each month during the break?' : 'What would your take-home pay be each month?'; },
+        help: function(){ var p = fpProfile(); return 'Today you take home about ' + m0(p.income) + ' a month (' + escapeHtml(p.incomeLabel) + '). Use the shortcuts if you\'re not sure.'; },
+        chips: function(a){ var i = fpProfile().income, f = a.change === 'parttime' ? [[0.8, '4 days'], [0.6, '3 days'], [0.5, '2.5 days']] : (a.change === 'break' ? [[0, 'Nothing'], [0.3, 'Some paid leave'], [0.5, 'Half pay']] : [[1.1, '10% more'], [1, 'About the same'], [0.9, '10% less']]);
+          return f.map(function(x){ return { v: Math.round(i * x[0] / 10) * 10, l: x[1] }; }); },
+        def: function(a){ var i = fpProfile().income; return Math.round(i * (a.change === 'parttime' ? 0.6 : (a.change === 'break' ? 0 : 1)) / 10) * 10; } },
+      { key: 'length', type: 'choice', q: 'How long would the break be?', show: function(a){ return a.change === 'break'; },
+        opts: function(){ return [3, 6, 12].map(function(m){ return { v: m, ic: m === 3 ? '🌱' : (m === 6 ? '🌿' : '🌳'), l: m + ' months' }; }); }, def: 6 }
+    ] },
+    save: { ic: '🎯', t: 'Have a set amount by a date', d: 'A holiday, wedding, home deposit or emergency fund', steps: [
+      { key: 'what', type: 'text', q: 'What would the money be for?', chips: function(){ return ['Holiday', 'Wedding', 'Home deposit', 'Emergency fund', 'New baby']; }, def: 'Holiday' },
+      { key: 'amount', type: 'money', q: 'How much would you need?', chips: function(){ return [3000, 10000, 25000, 50000]; }, def: 5000 },
+      { key: 'when', type: 'month', q: 'By when?', def: function(){ return defaultYm(12); } },
+      { key: 'existing', type: 'money', q: 'How much of your current savings would you put towards it?', help: function(){ return 'You have about ' + m0(fpProfile().savings) + ' saved today. $0 is fine.'; }, chips: function(){ var s = fpProfile().savings; return [0, Math.round(s * 0.25 / 50) * 50, Math.round(s * 0.5 / 50) * 50]; }, def: 0 }
+    ] },
+    cost: { ic: '🏠', t: 'Take on a new regular cost', d: 'Moving house, childcare, a pet or higher rent', steps: [
+      { key: 'what', type: 'text', q: 'What\'s the new cost?', chips: function(){ return ['Moving out', 'Higher rent', 'Childcare', 'A new pet', 'Private school']; }, def: 'Childcare' },
+      { key: 'monthly', type: 'money', q: 'How much extra would it cost each month?', chips: function(){ return [150, 300, 600, 1000, 1600]; }, def: 600 },
+      { key: 'when', type: 'month', q: 'When would it start?', def: function(){ return defaultYm(3); } },
+      { key: 'upfront', type: 'money', q: 'Any upfront cost to get started?', help: function(){ return 'For example a rental bond, enrolment fees or setup costs. $0 is fine.'; }, chips: function(){ return [0, 500, 1500, 3000]; }, def: 0 }
+    ] }
+  };
+
+  var fp = { type: null, i: 0, a: {} };
+  function fpSteps(){
+    if (!fp.type) return [];
+    return FP_TYPES[fp.type].steps.concat(FP_COMMON).filter(function(s){ return !s.show || s.show(fp.a); });
+  }
+  function fpVal(f){ return typeof f === 'function' ? f(fp.a) : f; }
+
+  function openWhatIf(opts){
+    opts = opts || {};
+    fp = { type: opts.type && FP_TYPES[opts.type] ? opts.type : null, i: 0, a: {} };
+    document.getElementById('whatIfModal').hidden = false;
+    fpRender();
+  }
+  function closeWhatIf(){ document.getElementById('whatIfModal').hidden = true; }
+
+  function fpRender(){
+    var body = document.getElementById('fpBody'), bar = document.getElementById('fpBar');
+    if (!fp.type) {
+      bar.style.width = '4%';
+      body.innerHTML = '<div class="fp-intro">Thinking about a change? Pick what\'s on your mind. Wesley will ask a few quick questions, then look at your whole account (income, bills, spending, savings and goals) and tell you what it would mean for you.</div>' +
+        '<div class="fp-opts">' + Object.keys(FP_TYPES).map(function(k){ var t = FP_TYPES[k];
+          return '<button type="button" class="fp-opt" onclick="fpPickType(\'' + k + '\')"><span class="fi">' + t.ic + '</span><b>' + t.t + '</b><span class="fs">' + t.d + '</span></button>'; }).join('') + '</div>';
+      return;
     }
+    var steps = fpSteps();
+    if (fp.i >= steps.length) { fpReview(); return; }
+    var s = steps[fp.i];
+    if (fp.a[s.key] === undefined) fp.a[s.key] = fpVal(s.def);
+    bar.style.width = Math.round((fp.i + 1) / (steps.length + 1) * 100) + '%';
+    var v = fp.a[s.key], input = '';
+    if (s.type === 'choice') {
+      input = '<div class="fp-opts">' + s.opts(fp.a).map(function(o){
+        return '<button type="button" class="fp-opt' + (String(o.v) === String(v) ? ' on' : '') + '" onclick="fpChoose(\'' + s.key + '\',\'' + o.v + '\')"><span class="fi">' + (o.ic || '') + '</span><b>' + o.l + '</b>' + (o.s ? '<span class="fs">' + o.s + '</span>' : '') + '</button>';
+      }).join('') + '</div>';
+    } else {
+      var t = s.type === 'month' ? 'month' : (s.type === 'text' ? 'text' : 'number');
+      input = '<div class="fp-field">' + (s.type === 'money' ? '<span class="pre">$</span>' : '') +
+        '<input id="fpInput" type="' + t + '"' + (t === 'month' ? ' min="' + defaultYm(0) + '"' : '') + (t === 'number' ? ' min="0" step="any" inputmode="decimal"' : ' maxlength="40"') +
+        ' value="' + escapeHtml(String(v === undefined ? '' : v)) + '" onkeydown="if(event.key===\'Enter\'){event.preventDefault();fpNext();}">' +
+        (s.suffix ? '<span class="suf">' + s.suffix + '</span>' : '') + '</div>';
+      var chips = s.type === 'month' ? [3, 6, 12, 24].map(function(m){ return { v: defaultYm(m), l: 'In ' + m + ' months' }; }) : (s.chips ? s.chips(fp.a) : []);
+      if (chips.length) input += '<div class="fp-chips">' + chips.map(function(c){
+        var cv = typeof c === 'object' ? c.v : c, cl = typeof c === 'object' ? (s.type === 'money' ? m0(c.v) + ' · ' + c.l : c.l) : (s.type === 'money' ? m0(c) : (s.type === 'number' ? c + '%' : c));
+        return '<button type="button" onclick="fpSetInput(\'' + escapeHtml(String(cv)) + '\')">' + cl + '</button>'; }).join('') + '</div>';
+    }
+    body.innerHTML = '<div class="fp-step">Question ' + (fp.i + 1) + ' of ' + steps.length + ' · ' + FP_TYPES[fp.type].ic + ' ' + FP_TYPES[fp.type].t + '</div>' +
+      '<h3 class="fp-q">' + fpVal(s.q) + '</h3>' + (s.help ? '<div class="fp-help">' + s.help(fp.a) + '</div>' : '') + input +
+      '<div class="fp-nav"><button type="button" class="applybtn" onclick="fpBack()">Back</button>' +
+      (s.type === 'choice' ? '' : '<button type="button" class="signinbtn" onclick="fpNext()">Next</button>') + '</div>';
+    var inp = document.getElementById('fpInput'); if (inp) setTimeout(function(){ inp.focus(); }, 30);
+  }
+  function fpPickType(k){ fp.type = k; fp.i = 0; fpRender(); }
+  function fpChoose(key, v){ fp.a[key] = isNaN(Number(v)) ? v : Number(v); fp.i++; fpRender(); }
+  function fpSetInput(v){ var inp = document.getElementById('fpInput'); if (inp) { inp.value = v; inp.focus(); } }
+  function fpNext(){
+    var s = fpSteps()[fp.i], inp = document.getElementById('fpInput');
+    if (s && inp) {
+      var raw = (inp.value || '').trim();
+      if (s.type === 'money' || s.type === 'number') { var n = parseFloat(raw.replace(/[$,]/g, '')); if (isNaN(n) || n < 0) { inp.classList.add('err'); return; } fp.a[s.key] = n; }
+      else if (s.type === 'month') { if (!/^\d{4}-\d{2}$/.test(raw)) { inp.classList.add('err'); return; } fp.a[s.key] = raw; }
+      else { if (!raw) { inp.classList.add('err'); return; } fp.a[s.key] = raw; }
+    }
+    fp.i++; fpRender();
+  }
+  function fpBack(){ if (fp.i === 0) { fp.type = null; } else fp.i--; fpRender(); }
+
+  // ---- The whole-account assessment ----
+  function fpAnalyse(type, a){
+    var p = fpProfile(), r = { type: type, a: a, p: p };
+    var monthsTo = monthsUntilYm(a.when);
+    var inc2 = p.income, home2 = p.home, bills2 = p.bills, living2 = p.living, debt2 = p.debt, saving2 = p.saving, newCost = 0, newLabel = '', upfront = 0, temp = 0, label = '';
+    if (type === 'big') {
+      var borrow = a.pay === 'savings' ? 0 : Math.max(0, a.price - (a.pay === 'mix' ? (a.deposit || 0) : 0));
+      upfront = a.pay === 'savings' ? a.price : (a.pay === 'mix' ? (a.deposit || 0) : 0);
+      r.borrow = borrow; r.repay = loanRepay(borrow, a.rate, a.term); r.interest = r.repay * a.term * 12 - borrow;
+      debt2 += r.repay; newCost = a.running || 0; newLabel = 'Running costs';
+      label = 'buying a ' + m0(a.price) + ' ' + String(a.what).toLowerCase() + ' in ' + monthLabel(a.when) + (borrow ? ' with a ' + m0(borrow) + ' loan over ' + a.term + ' years' : ' with your savings');
+    } else if (type === 'income') {
+      inc2 = a.newIncome; if (a.change === 'break') temp = a.length || 6;
+      label = (a.change === 'parttime' ? 'going part-time' : (a.change === 'break' ? 'taking ' + temp + ' months off' : 'starting a new job')) + ' from ' + monthLabel(a.when) + ' on ' + m0(a.newIncome) + ' a month';
+    } else if (type === 'save') {
+      var need = Math.max(0, a.amount - (a.existing || 0)), mths = Math.max(1, monthsTo);
+      upfront = a.existing || 0; newCost = need / mths; newLabel = 'Saving for ' + String(a.what).toLowerCase(); temp = mths; r.saveMonthly = newCost;
+      label = 'having ' + m0(a.amount) + ' for ' + String(a.what).toLowerCase() + ' by ' + monthLabel(a.when);
+    } else if (type === 'cost') {
+      newCost = a.monthly; newLabel = a.what; upfront = a.upfront || 0;
+      label = 'taking on ' + String(a.what).toLowerCase() + ' at ' + m0(a.monthly) + ' a month from ' + monthLabel(a.when);
+    }
+    if (a.extra === 'raise') inc2 = inc2 * 1.03;
+    if (a.extra === 'bill') upfront += a.extraAmt || 0;
+    var left2 = inc2 - home2 - bills2 - living2 - debt2 - saving2 - newCost;
+    r.goalsPaused = false;
+    if (left2 < 0 && a.goals === 'pause' && saving2 > 0) { left2 += saving2; saving2 = 0; r.goalsPaused = true; }
+    r.label = label; r.monthsTo = monthsTo; r.temp = temp; r.upfront = upfront; r.newCost = newCost; r.newLabel = newLabel;
+    r.today = { inc: p.income, home: p.home, bills: p.bills, living: p.living, debt: p.debt, saving: p.saving, newc: 0, left: p.left };
+    r.after = { inc: inc2, home: home2, bills: bills2, living: living2, debt: debt2, saving: saving2, newc: newCost, left: left2 };
+    r.essentials = home2 + bills2 + living2 + debt2 + (type === 'save' ? 0 : newCost);
+    r.safetyTarget = (a.safety || 3) * r.essentials;
+    r.prepPlanned = a.prepSave && monthsTo > 0 && p.left > 0 ? p.left * monthsTo : 0;
+    r.savingsAfter = p.savings + r.prepPlanned - upfront;
+    r.shortfall = left2 < 0 ? (temp ? -left2 * temp : Infinity) : 0;
+    r.savingsEnd = left2 < 0 && temp ? r.savingsAfter + left2 * temp : r.savingsAfter;
+    r.runway = left2 < 0 && !temp ? Math.max(0, r.savingsAfter / -left2) : null;
+    r.cover = r.essentials > 0 ? Math.max(0, r.savingsEnd) / r.essentials : 0;
+    r.cushion = Math.min(250, Math.max(100, inc2 * 0.03));
+    r.prep = Math.max(0, p.left) * monthsTo;
+    // Verdict
+    r.verdict = 'tight';
+    if (r.savingsAfter < 0 || (left2 < 0 && !temp) || (temp && r.savingsEnd < 0)) r.verdict = 'no';
+    // The change shouldn't eat into a safety net that's already below target, or push it below target
+    r.netBelowToday = p.savings < r.safetyTarget;
+    r.safetyOk = r.savingsEnd >= r.safetyTarget || r.savingsEnd >= p.savings - 1;
+    if (r.verdict !== 'no' && left2 >= r.cushion && r.safetyOk) r.verdict = 'ok';
+    // Would putting today's spare money aside until then fix it?
+    r.prepFixes = !a.prepSave && r.verdict !== 'ok' && monthsTo > 0 && left2 >= 0 && r.savingsAfter >= 0 && (r.savingsEnd + r.prep) >= r.safetyTarget;
+    // Surprise cost stress test (overspend built in)
+    r.shock = Math.max(1000, Math.round(inc2 * 0.2 / 100) * 100);
+    r.afterShock = r.savingsEnd - r.shock;
+    try { var bc = billCoverPlan(Math.min(r.shock, Math.max(0, p.savings))); r.shockFrom = bc.from; } catch (e) { r.shockFrom = ''; }
+    // Ideas
+    r.ideas = fpIdeas(r);
     return r;
   }
-  function whatIfHtml(r, forChat){
-    var place = r.where ? escapeHtml(r.where) : 'this trip';
-    if (r.verdict === 'incomplete') return 'Tell me where, when and roughly how much, and I\'ll help you work out a plan.';
-    if (r.verdict === 'too-soon') return 'That\'s coming up really soon, so there isn\'t time to save for it bit by bit. <strong>Can I afford it?</strong> is the better check for this one, or pick a later month and I\'ll build a plan.';
-    var head = r.verdict === 'ok' ? '✅ You\'re on track for this' : (r.verdict === 'tight' ? '🟡 Within reach, with a little care' : '🌱 Not quite yet, but there are ways to get there');
-    var spareTxt = money(r.spare);
-    var body = (forChat ? '<strong>' + head + '.</strong> ' : '<div class="wv">' + head + '</div>') +
-      place + ' in ' + r.when + ' for ' + money(r.cost) + ' works out to about <strong>' + money(r.weekly) + ' a week</strong> over ' + r.weeks + ' weeks. ';
-    if (r.verdict === 'ok') body += 'That fits comfortably in the ~' + spareTxt + ' you have spare each week, and your other goals stay on track. Nice one!';
-    else if (r.verdict === 'tight') body += 'That uses most of the ~' + spareTxt + ' you have spare each week, so it\'s doable, just with less breathing room. A small tweak could make it feel easier:';
-    else body += 'Right now you have about ' + spareTxt + ' spare each week, so this plan would need roughly ' + money(r.extraNeeded) + ' more a week. That\'s completely normal for a bigger trip, and here are a few ways to get there:';
-    if (r.verdict !== 'ok') {
-      var tips = ['Going in <strong>' + r.laterLabel + '</strong> gives you more time and keeps it comfortable', 'Keeping ' + r.when + ' with a budget of around <strong>' + money(r.lowerCost) + '</strong>'];
-      if (r.ruFixes) tips.push('Rounding up to the nearest $' + r.ruStep + ', which adds about ' + money(r.ruExtra) + ' a week without you noticing');
-      body += forChat ? '<br>• ' + tips.join('<br>• ') : '<ul><li>' + tips.join('</li><li>') + '</li></ul>';
+
+  function fpIdeas(r){
+    var a = r.a, p = r.p, ideas = [];
+    var fix = function(key, val, txt){ ideas.push({ key: key, val: val, txt: txt }); };
+    var need = Math.max(0, r.safetyTarget - r.savingsEnd);
+    if (r.type === 'big' && r.borrow) {
+      var alt = a.term < 7 ? 7 : 5, altRepay = loanRepay(r.borrow, a.rate, alt), altInt = altRepay * alt * 12 - r.borrow;
+      if (r.after.left < r.cushion && alt > a.term) fix('term', alt, 'Spread it over <strong>' + alt + ' years</strong>: about ' + m0(altRepay) + ' a month instead of ' + m0(r.repay) + ', though you\'d pay around ' + m0(altInt) + ' in interest in total.');
+      var room = p.left - (a.running || 0) - r.cushion;
+      var cap = Math.floor(loanCapacity(room, a.rate, a.term) / 500) * 500 + (a.pay === 'mix' ? Math.min(a.deposit || 0, Math.max(0, p.savings)) : 0);
+      if (r.verdict !== 'ok' && cap >= a.price * 0.3 && cap < a.price) fix('price', cap, 'A ' + escapeHtml(String(a.what).toLowerCase()) + ' around <strong>' + m0(cap) + '</strong> keeps your repayments comfortable on the same loan.');
+      else if (r.verdict !== 'ok' && (a.running || 0) > 0 && room < 0) ideas.push({ txt: 'Running costs of ' + m0(a.running) + ' a month use a big share of your spare ' + m0(p.left) + '. A cheaper-to-run option (smaller, used or more fuel efficient) could make the biggest difference.' });
     }
-    if (r.verdict === 'no') body += whatIfAltsHtml(r, forChat);
-    return body;
+    if (r.savingsAfter < 0 && p.left > 0) {
+      var short = r.upfront - p.savings, wm = Math.ceil(short / p.left);
+      ideas.push({ set: { when: defaultYm(Math.max(wm, r.monthsTo)), prepSave: true }, txt: 'Save the extra <strong>' + m0(short) + '</strong> first. Putting aside your spare ' + m0(p.left) + ' a month gets you there by about <strong>' + monthLabel(defaultYm(wm)) + '</strong>.' });
+    }
+    if (r.savingsAfter < 0 && p.term > 0) ideas.push({ txt: 'You also have <strong>' + m0(p.term) + '</strong> in a term deposit. Once it matures it could cover the upfront cost, so timing it then could work well.' });
+    if (r.type === 'big' && !r.borrow && r.savingsAfter >= 0 && r.savingsAfter < r.safetyTarget) {
+      var gap = r.safetyTarget - r.savingsAfter, mths = p.left > 0 ? Math.ceil(gap / p.left) : 0;
+      if (mths) ideas.push({ set: { when: defaultYm(Math.max(mths, r.monthsTo)), prepSave: true }, txt: 'Wait until <strong>' + monthLabel(defaultYm(mths)) + '</strong> and keep saving your spare ' + m0(p.left) + ' a month, so you still have a full safety net after buying.' });
+      fix('pay', 'mix', 'Use a <strong>smaller deposit plus a loan</strong> so you don\'t empty your savings.');
+    }
+    if (r.type === 'income') {
+      if (need > 0 && r.monthsTo > 0) { var per = need / r.monthsTo; ideas.push({ txt: 'Build up <strong>' + m0(need) + '</strong> more before ' + monthLabel(a.when) + '. That\'s about ' + m0(per) + ' a month from now' + (per <= p.left ? ', which fits in what you have spare today 👍' : ', which is more than you have spare today, so a later start date may help.') }); }
+      if (r.after.left < 0) ideas.push({ txt: 'Find about <strong>' + m0(-r.after.left + r.cushion) + ' a month</strong> to keep things balanced, for example by trimming everyday spending (' + m0(p.living) + ' a month today) or switching subscriptions to annual.' });
+      if (a.change === 'parttime' && r.verdict !== 'ok') fix('newIncome', Math.round(p.income * 0.8 / 10) * 10, 'Try <strong>4 days</strong> a week (about ' + m0(p.income * 0.8) + ' a month) as a first step.');
+      if (r.verdict !== 'ok' && r.monthsTo < 24) fix('when', defaultYm(r.monthsTo + 6), 'Start <strong>6 months later</strong> (' + monthLabel(defaultYm(r.monthsTo + 6)) + ') to give your safety net time to grow.');
+    }
+    if (r.type === 'save' && r.verdict !== 'ok') {
+      var comfy = Math.max(0, p.left - r.cushion);
+      if (comfy > 0) { var m = Math.ceil(Math.max(0, a.amount - (a.existing || 0)) / comfy); fix('when', defaultYm(Math.max(m, 1)), 'Aim for <strong>' + monthLabel(defaultYm(m)) + '</strong> instead. That\'s about ' + m0(comfy) + ' a month, which fits comfortably.'); }
+      if (comfy > 0 && r.monthsTo > 0) { var amt = Math.floor((comfy * r.monthsTo + (a.existing || 0)) / 100) * 100; if (amt > 0 && amt < a.amount) fix('amount', amt, 'Or keep the date and aim for <strong>' + m0(amt) + '</strong>.'); }
+    }
+    if (r.type === 'cost' && r.verdict !== 'ok') {
+      if (r.after.left < 0) ideas.push({ txt: 'You\'d need to free up about <strong>' + m0(-r.after.left + r.cushion) + ' a month</strong>. Everyday spending (' + m0(p.living) + ' a month) is usually the easiest place to start.' });
+      if (need > 0 && r.monthsTo > 0 && need / r.monthsTo <= p.left) ideas.push({ txt: 'Put aside about <strong>' + m0(need / r.monthsTo) + ' a month</strong> until ' + monthLabel(a.when) + ' so your safety net is ready when it starts.' });
+      if (r.upfront > 0 && r.monthsTo > 0 && r.upfront / r.monthsTo <= p.left) ideas.push({ txt: 'Set aside <strong>' + m0(r.upfront / r.monthsTo) + ' a month</strong> from now for the ' + m0(r.upfront) + ' upfront cost, so it doesn\'t come out of your savings.' });
+    }
+    if (r.prepFixes) ideas.unshift({ set: { prepSave: true }, txt: '✨ <strong>You have ' + r.monthsTo + ' months to get ready.</strong> If you set aside your spare ' + m0(p.left) + ' a month until then, you\'d have about ' + m0(r.prep) + ' extra, enough to keep a full safety net.' });
+    if (!r.goalsPaused && a.goals === 'keep' && r.after.left < 0 && p.saving > 0) ideas.push({ txt: 'Pausing your goal saving (' + m0(p.saving) + ' a month) for a while would help balance things.', key: 'goals', val: 'pause' });
+    return ideas;
   }
+
+  function fpReview(){
+    var body = document.getElementById('fpBody'); document.getElementById('fpBar').style.width = '100%';
+    var checks = ['Income coming in', 'Home and bills', 'Everyday spending', 'Card and repayments', 'Savings and goals', 'Safety net', 'Surprise-cost stress test'];
+    body.innerHTML = '<div class="fp-review"><div class="fp-spin">🔮</div><h3 class="fp-q">Wesley is looking at your whole account…</h3><ul>' + checks.map(function(c, i){ return '<li style="animation-delay:' + (i * 150) + 'ms">✓ ' + c + '</li>'; }).join('') + '</ul></div>';
+    setTimeout(function(){ if (!document.getElementById('whatIfModal').hidden) fpShowResult(); }, 1300);
+  }
+
+  function fpShowResult(){
+    var r = fpAnalyse(fp.type, fp.a); fp.r = r;
+    var p = r.p, a = r.a, t = r.today, af = r.after;
+    var head = r.verdict === 'ok' ? '✅ This works for you' : (r.verdict === 'tight' ? '🟡 Doable, with a few changes' : '🌱 Not quite yet, but there\'s a path');
+    var summary = 'Here\'s what ' + escapeHtml(r.label) + ' would look like for you' + (r.prepPlanned ? ', if you put aside your spare ' + m0(p.left) + ' a month until then (about ' + m0(r.prepPlanned) + ')' : '') + '. ';
+    if (r.verdict === 'ok') summary += 'You\'d still have about <strong>' + m0(af.left) + ' a month</strong> left over and a healthy safety net. Nice planning!';
+    else if (r.verdict === 'tight') summary += af.left >= 0 ? 'It balances, with about ' + m0(af.left) + ' a month left over' + (r.safetyOk ? ', which doesn\'t leave much room for surprises.' : ', but your safety net would be thinner than you\'d like.') + ' A small tweak or two would make it feel much easier.' : 'For ' + r.temp + ' months you\'d spend about ' + m0(-af.left) + ' more than comes in, which your savings can cover. Your safety net would be thinner afterwards, so a little preparation goes a long way.';
+    else if (r.savingsAfter < 0) summary += 'It would need about ' + m0(r.upfront) + ' upfront, which is more than you have saved today (' + m0(p.savings) + ')' + (af.left < 0 ? ', and your regular costs would be about ' + m0(-af.left) + ' a month more than comes in' : '') + '. That\'s completely normal for a bigger step, and the ideas below show a few ways to get there.';
+    else if (af.left < 0 && !r.temp) summary += 'Your regular costs would be about <strong>' + m0(-af.left) + ' a month more</strong> than comes in. Your savings would cover that for about ' + Math.floor(r.runway) + ' months, so it\'s worth adjusting the plan first. Here are some ways to get there.';
+    else summary += 'Over ' + r.temp + ' months the gap would be about ' + m0(-af.left * r.temp) + ', more than your savings can cover. The ideas below can help close it.';
+    var row = function(lbl, x, y, cls){ return '<tr' + (cls ? ' class="' + cls + '"' : '') + '><td>' + lbl + '</td><td>' + m0(x) + '</td><td>' + m0(y) + (Math.round(x) !== Math.round(y) ? ' <i class="' + (y > x === (cls === 'in' || cls === 'tot') ? 'up' : 'dn') + '">' + (y > x ? '▲' : '▼') + '</i>' : '') + '</td></tr>'; };
+    var table = '<table class="fp-table"><thead><tr><th>Each month</th><th>Today</th><th>With this change</th></tr></thead><tbody>' +
+      row('💰 ' + escapeHtml(p.incomeLabel), t.inc, af.inc, 'in') +
+      (p.home ? row('🏠 ' + escapeHtml(p.homeLabel), t.home, af.home) : '') + row('🧾 Bills', t.bills, af.bills) + row('🛒 Everyday living', t.living, af.living) +
+      row('💳 Repayments' + (r.borrow ? ' (incl. new loan)' : ''), t.debt, af.debt) + (r.newCost ? row('➕ ' + escapeHtml(r.newLabel), 0, af.newc) : '') +
+      row('🎯 Saving into goals' + (r.goalsPaused ? ' (paused)' : ''), t.saving, af.saving) +
+      row('Left over', t.left, af.left, 'tot') + '</tbody></table>';
+    var safety = '<div class="fp-cards">' +
+      '<div class="fp-card"><div class="k">Savings today</div><div class="v">' + m0(p.savings) + '</div><div class="s">Goals ' + m0(p.goalsTotal) + ' · Buffer ' + m0(p.buffer) + (p.term ? ' · plus ' + m0(p.term) + ' in a term deposit' : '') + '</div></div>' +
+      '<div class="fp-card"><div class="k">' + (r.temp && af.left < 0 ? 'Savings after ' + r.temp + ' months' : 'Savings after the change') + '</div><div class="v' + (r.savingsEnd < 0 ? ' bad' : '') + '">' + m0(r.savingsEnd) + '</div><div class="s">' + (r.upfront ? m0(r.upfront) + ' used upfront' : 'Nothing needed upfront') + '</div></div>' +
+      '<div class="fp-card"><div class="k">Safety net</div><div class="v' + (r.cover >= (a.safety || 3) ? ' good' : '') + '">' + (r.cover >= 12 ? '12+' : r.cover.toFixed(1)) + ' months</div><div class="s">of essentials covered · you wanted ' + (a.safety || 3) + '</div></div></div>';
+    var stress = '<div class="fp-stress"><b>🧪 Stress test: a surprise ' + m0(r.shock) + ' cost</b><br>' + (r.afterShock >= r.essentials
+      ? 'You\'d be okay. After paying it you\'d still have about ' + m0(r.afterShock) + ' saved, around ' + (r.afterShock / r.essentials).toFixed(1) + ' months of essentials.'
+      : (r.afterShock >= 0 ? 'You could cover it, but it would leave only about ' + m0(r.afterShock) + ' saved, less than a month of essentials.' : 'It would be more than your savings could cover at that point, by about ' + m0(-r.afterShock) + '.')) +
+      ' If a surprise ever does push you over, 🛡️ <strong>Bill cover</strong> tops your bills back up' + (r.shockFrom ? ' (today it would use ' + escapeHtml(r.shockFrom) + ')' : '') + ' so nothing bounces, then helps you refill.</div>';
+    var goals = p.goals.length ? '<div class="fp-sec">🎯 Your goals</div><ul class="fp-list">' + p.goals.map(function(g){
+      var st = r.goalsPaused ? '⏸️ Paused while things settle' : (af.left < 0 ? '🐢 Would slow down' : '✓ Stays on track');
+      if (r.upfront > p.buffer && !r.goalsPaused && r.upfront > 0) st += ' · some of the upfront money would come from here';
+      return '<li><b>' + escapeHtml(g.name) + '</b> (' + m0(g.amount) + ' of ' + m0(g.target) + '): ' + st + '</li>'; }).join('') + '</ul>' : '';
+    var can = [], cant = [];
+    if (af.left >= 0) can.push('Cover your home, bills, everyday living and repayments each month'); else cant.push('Cover all your regular costs from income alone' + (r.temp ? ' during those ' + r.temp + ' months' : ''));
+    if (r.savingsAfter >= 0) can.push(r.upfront ? 'Pay the ' + m0(r.upfront) + ' upfront from savings' : 'Get started without dipping into savings'); else cant.push('Pay the ' + m0(r.upfront) + ' upfront from today\'s savings');
+    if (r.savingsEnd >= r.safetyTarget) can.push('Keep the ' + (a.safety || 3) + '-month safety net you asked for');
+    else if (r.safetyOk) can.push('Keep your savings where they are today, without dipping into them');
+    else cant.push('Keep your safety net where it is without some preparation');
+    if (!r.goalsPaused && af.left >= 0 && af.saving > 0) can.push('Keep saving into your goals');
+    if (r.borrow) can.push('Repay the loan at about ' + m0(r.repay) + ' a month (around ' + m0(r.interest) + ' interest over ' + a.term + ' years at ' + a.rate + '% p.a.)');
+    var lists = '<div class="fp-two"><div><div class="fp-sec">👍 What can happen</div><ul class="fp-list">' + (can.length ? can.map(function(x){ return '<li>' + x + '</li>'; }).join('') : '<li>Not much yet without changes, and that\'s okay</li>') + '</ul></div>' +
+      (cant.length ? '<div><div class="fp-sec">🧩 What would need to change</div><ul class="fp-list">' + cant.map(function(x){ return '<li>' + x + '</li>'; }).join('') + '</ul></div>' : '') + '</div>';
+    var ideas = r.ideas.length ? '<div class="fp-sec">💡 Ideas to make it work</div><div class="fp-ideas">' + r.ideas.map(function(x, i){
+      return '<div class="fp-idea"><div>' + x.txt + '</div>' + ((x.key || x.set) ? '<button type="button" onclick="fpTryIdea(' + i + ')">Try this</button>' : '') + '</div>'; }).join('') + '</div>' : '';
+    var options = (r.borrow || r.verdict === 'no') ? '<div class="wi-alts"><h5>' + (r.borrow ? 'Looking into a loan?' : 'Other ways to fund it') + '</h5><div class="wi-alt">Borrowing comes with interest and repayments, so it\'s worth comparing with saving a little longer. If you\'d like to look into it, here\'s where to start.' +
+      '<br><button type="button" onclick="var l=this.nextElementSibling;l.hidden=!l.hidden;this.textContent=l.hidden?\'See options\':\'Hide options\'">See options</button><div hidden style="margin-top:8px">' + wiOptionsList() + '<div class="fine">' + WI_FINE + '</div></div></div></div>' : '';
+    document.getElementById('fpBody').innerHTML =
+      '<div class="wi-result ' + (r.verdict === 'ok' ? 'ok' : r.verdict === 'tight' ? 'tight' : 'no') + '"><div class="wv">' + head + '</div>' + summary + '</div>' +
+      '<div class="fp-sec">📊 Your month, side by side</div>' + table +
+      '<div class="fp-sec">🛟 Savings and safety net</div>' + safety +
+      (r.netBelowToday ? '<div class="fp-help" style="margin:8px 0 0">💡 Your safety net is a little under your ' + (a.safety || 3) + '-month goal today (' + m0(r.safetyTarget) + '), so building it up is worth doing whatever you decide. Your spare ' + m0(p.left) + ' a month is a great place to start.</div>' : '') + stress + goals + lists + ideas + options +
+      '<div class="fp-fine">Based on your Westpac accounts and the answers you gave. Example figures only. This is general information to help you think it through, not financial advice. Wesley can\'t tell you whether you\'d be approved for credit.</div>' +
+      '<div class="fp-nav"><button type="button" class="applybtn" onclick="fp.i=0;fpRender()">Change my answers</button><button type="button" class="applybtn" onclick="openWhatIf()">Try another what if</button><button type="button" class="signinbtn" onclick="fpMakePlan()">Make it a plan</button></div>';
+    document.getElementById('fpBody').scrollTop = 0;
+    var box = document.querySelector('#whatIfModal .modal-box'); if (box) box.scrollTop = 0;
+  }
+  function fpTryIdea(i){ var x = fp.r && fp.r.ideas[i]; if (!x || !(x.key || x.set)) return; if (x.set) Object.keys(x.set).forEach(function(k){ fp.a[k] = x.set[k]; }); else fp.a[x.key] = x.val; fpReview(); }
+
+  function fpMakePlan(){
+    var r = fp.r; if (!r || !user) return;
+    var a = r.a, name, target, ym = a.when, note;
+    if (r.type === 'big') { name = (/car/i.test(a.what) ? '🚗 ' : '🛍️ ') + a.what + ' fund'; target = a.pay === 'savings' ? a.price + Math.max(0, r.safetyTarget - (r.p.savings - a.price)) : Math.max(a.deposit || 0, 1000); }
+    else if (r.type === 'income') { name = '🛟 Safety net for ' + (a.change === 'parttime' ? 'part-time' : (a.change === 'break' ? 'time off' : 'a new job')); target = Math.max(r.safetyTarget, 1000); }
+    else if (r.type === 'save') { name = '🎯 ' + a.what; target = a.amount; }
+    else { name = '🛟 Buffer for ' + String(a.what).toLowerCase(); target = Math.max(a.monthly * 3 + (a.upfront || 0), 500); }
+    target = Math.round(target / 50) * 50;
+    var mths = Math.max(1, r.monthsTo || 12);
+    user.savingsPlan.push({ id: 'goal_' + Date.now(), name: name, type: 'goal', amount: 0, target: target, targetDate: monthLabel(ym), color: '#7e22ce', note: 'Saving ' + m0(target / mths) + '/month', fixed: false });
+    ensureUserBSSettings(user); saveStore(); renderAll();
+    showToast('🎯 Added "' + name + '": ' + m0(target) + ' by ' + monthLabel(ym));
+    closeWhatIf(); go('banksmart');
+    return name;
+  }
+  // What kind of what-if is someone asking Wesley about?
+  function fpTypeFromText(t){
+    if (/part.?time|new job|change (my )?(job|income|hours)|career break|parental|maternity|paternity|time off|quit|study|reduce (my )?hours|retire/.test(t)) return 'income';
+    if (/car|ute|motorbike|bike|loan|buy a|furniture|renovat|boat|caravan/.test(t)) return 'big';
+    if (/childcare|rent (goes|going) up|higher rent|move out|moving out|move house|pet|dog|cat|school fees|new (regular )?cost|gym/.test(t)) return 'cost';
+    if (/save|saving|deposit|wedding|holiday|trip|travel|emergency fund|baby|have \$|need \$/.test(t)) return 'save';
+    return null;
+  }
+
   // Other ways to fund it — links out to product pages, no eligibility claims
   var WI_OPTIONS = [
     { icon: '💳', name: 'Credit cards', blurb: 'Low rate, low fee and rewards cards, with features and costs side by side', url: 'https://www.westpac.com.au/credit-cards' },
@@ -3539,85 +3886,6 @@
     return WI_OPTIONS.map(function(o){ return '<a href="' + o.url + '" target="_blank" rel="noopener" style="display:block;padding:7px 0;border-top:1px solid #eef1f5;color:var(--navy);text-decoration:none"><strong>' + o.icon + ' ' + o.name + ' ↗</strong><br><span style="font-size:12px;color:var(--muted)">' + o.blurb + '</span></a>'; }).join('');
   }
   var WI_FINE = 'General information only, not a recommendation. Seeing these options doesn\'t mean you\'d be approved, and there\'s no pressure to apply.';
-  function whatIfAltsHtml(r, forChat){
-    var intro = 'Some people use a credit card or personal loan to help with bigger plans. Borrowing comes with interest and repayments, so it\'s worth comparing with saving a little longer. If you\'d like to look into it, here\'s where to start.';
-    if (forChat) return '<br><br><strong>Other ways to fund it</strong><br>' + intro;
-    return '<div class="wi-alts"><h5>Other ways to fund it</h5><div class="wi-alt">' + intro +
-      '<br><button type="button" onclick="var l=this.nextElementSibling;l.hidden=!l.hidden;this.textContent=l.hidden?\'See options\':\'Hide options\'">See options</button>' +
-      '<div hidden style="margin-top:8px">' + wiOptionsList() + '<div class="fine">' + WI_FINE + '</div></div></div></div>';
-  }
-  function openWhatIf(prefill){
-    prefill = prefill || {};
-    document.getElementById('wiWhere').value = prefill.where || '';
-    document.getElementById('wiCost').value = prefill.cost || '';
-    var when = document.getElementById('wiWhen');
-    when.min = defaultYm(1);
-    when.value = prefill.ym || defaultYm(6);
-    document.getElementById('wiPresets').innerHTML = '<span style="font-size:11.5px;color:var(--muted);align-self:center">Ideas:</span>' +
-      WI_PRESETS.map(function(p, i){ return '<button type="button" class="preset-chip" onclick="applyWiPreset(' + i + ')">' + p.label + ' (~' + money(p.cost).replace('.00', '') + ')</button>'; }).join('');
-    document.getElementById('whatIfModal').hidden = false;
-    renderWhatIf();
-  }
-  function closeWhatIf(){ document.getElementById('whatIfModal').hidden = true; }
-  function applyWiPreset(i){
-    var p = WI_PRESETS[i]; if (!p) return;
-    document.getElementById('wiWhere').value = p.where.replace(/^the /, 'The ');
-    document.getElementById('wiCost').value = p.cost;
-    renderWhatIf();
-  }
-  function wiApply(field, value){ document.getElementById(field).value = value; renderWhatIf(); }
-  function readWhatIf(){
-    return evalWhatIf((document.getElementById('wiWhere').value || '').trim(), document.getElementById('wiWhen').value, parseFloat(document.getElementById('wiCost').value) || 0);
-  }
-  function renderWhatIf(){
-    var r = readWhatIf(), box = document.getElementById('wiResult'), btn = document.getElementById('wiGoalBtn');
-    box.className = 'wi-result' + (r.verdict === 'ok' ? ' ok' : r.verdict === 'tight' ? ' tight' : r.verdict === 'no' ? ' no' : '');
-    var html = whatIfHtml(r, false);
-    if (r.verdict === 'tight' || r.verdict === 'no') {
-      html += '<div class="wi-tweaks"><button type="button" onclick="wiApply(\'wiWhen\',\'' + r.laterYm + '\')">Try ' + r.laterLabel + '</button>' +
-        '<button type="button" onclick="wiApply(\'wiCost\',' + r.lowerCost + ')">Try ' + money(r.lowerCost).replace('.00', '') + '</button></div>';
-    }
-    box.innerHTML = html;
-    var ready = ['ok', 'tight', 'no'].indexOf(r.verdict) !== -1;
-    btn.disabled = !ready;
-    btn.textContent = r.verdict === 'no' ? 'Start a goal and build towards it' : 'Make it a savings goal';
-  }
-  function createTripGoal(r){
-    if (!user || !r || !r.cost) return null;
-    var name = '✈️ ' + (r.where ? r.where.replace(/^the /i, '').replace(/^./, function(c){ return c.toUpperCase(); }) : 'Trip') + ' trip';
-    var id = 'goal_' + Date.now();
-    user.savingsPlan.push({ id: id, name: name, type: 'goal', amount: 0, target: r.cost, targetDate: r.when, color: '#7e22ce', note: 'Saving ' + money(r.weekly) + '/week', fixed: false });
-    ensureUserBSSettings(user);
-    saveStore(); renderAll();
-    showToast('🎯 Added "' + name + '" — ' + money(r.cost) + ' by ' + r.when);
-    return name;
-  }
-  function whatIfCreateGoal(){
-    var r = readWhatIf();
-    if (['ok', 'tight', 'no'].indexOf(r.verdict) === -1) return;
-    createTripGoal(r); closeWhatIf(); go('banksmart');
-  }
-  // Natural-language parsing for Wesley: "what if I go to Bali in March for $3,000"
-  function parseWhatIf(raw){
-    var t = raw.toLowerCase().replace(/,/g, '');
-    var where = '';
-    var m = raw.match(/\b(?:to|visit|in)\s+((?:the\s+)?[A-Z][A-Za-z]+(?:\s+[A-Z][A-Za-z]+)?)/);
-    if (m && MONTHS.indexOf(m[1].toLowerCase().slice(0, 3)) === -1) where = m[1];
-    if (!where) { var m2 = t.match(/\b(?:to|visit)\s+([a-z]+(?:\s+[a-z]+)?)/); if (m2 && MONTHS.indexOf(m2[1].slice(0, 3)) === -1) where = m2[1].replace(/\s+(in|for|next|this|on)$/, '').replace(/\b\w/g, function(c){ return c.toUpperCase(); }); }
-    where = where.replace(/\s+(In|For|Next|This|On)$/, '');
-    var ym = '';
-    var mm = t.match(/\b(jan|feb|mar|apr|may|jun|jul|aug|sep|oct|nov|dec)[a-z]*\.?(?:\s+(20\d\d))?/);
-    if (mm) {
-      var mi = MONTHS.indexOf(mm[1]), now = new Date(), y = mm[2] ? Number(mm[2]) : now.getFullYear();
-      if (!mm[2] && (mi < now.getMonth() + 1)) y += 1;
-      ym = y + '-' + String(mi + 1).padStart(2, '0');
-    } else if (/next year/.test(t)) ym = defaultYm(12);
-    else { var inM = t.match(/in (\d+) months?/); if (inM) ym = defaultYm(Number(inM[1])); }
-    var cm = t.match(/\$\s?(\d+(?:\.\d+)?)\s*(k)?/) || t.match(/(\d{3,6})(k)?\s*(?:dollars|bucks)?/) || t.match(/(\d+(?:\.\d+)?)\s*(k)\b/);
-    var cost = cm ? parseFloat(cm[1]) * (cm[2] ? 1000 : 1) : 0;
-    if (/20\d\d/.test(String(cost)) && mm && mm[2] && String(cost) === mm[2]) cost = 0;
-    return { where: where, ym: ym, cost: cost };
-  }
 
   // ==========================================
   // NOTIFICATIONS SCREEN, RULE ENGINE & BUSINESS APPROVALS
@@ -5100,7 +5368,7 @@
     var safeAmt = getSafeToSpend();
     var name = (user ? user.firstName : 'Alex');
     var paydayStr = (user && user.id === 'peggy') ? 'next pension payment' : 'payday';
-    wesleyBubble("Hey " + name + " 👋 I'm Wesley. You've got <strong>" + money(safeAmt) + "</strong> safe to spend till " + paydayStr + ", and I've quietly sorted a few things this week. What's on your mind?", ["Can I afford something?","What if I go to Bali in June?","Should any subscriptions go annual?","Notifications & alerts","My round-ups"]);
+    wesleyBubble("Hey " + name + " 👋 I'm Wesley. You've got <strong>" + money(safeAmt) + "</strong> safe to spend till " + paydayStr + ", and I've quietly sorted a few things this week. What's on your mind?", ["Can I afford something?","What if I buy a car?","Should any subscriptions go annual?","Notifications & alerts","My round-ups"]);
     if (user && user.billCover && !user.billCover.dismissed && !user.billCover.plan) wesleyBubble("Heads up 🛡️ — I used <strong>" + money(user.billCover.covered) + "</strong> from " + escapeHtml(user.billCover.from) + " to keep your bills covered. Want to pick how we refill it?", ["How should I refill my savings?"]);
   }
 
@@ -5180,21 +5448,6 @@
     return { html: pre + verdict + detail + save + choice, chips: ["Save a bit harder", "Keep it relaxed", "Pick a different amount", "Not now"] };
   }
 
-  function whatIfAnswer(){
-    var wi = ctx.whatif, r = evalWhatIf(wi.where, wi.ym, wi.cost);
-    ctx.whatifR = r; ctx.awaiting = null;
-    var notes = [];
-    if (wi.assumedWhen) notes.push("I've assumed " + r.when + "");
-    if (wi.guessedCost) notes.push("used a rough " + money(wi.cost) + " estimate");
-    var pre = notes.length ? "(" + notes.join(" and ") + " — tell me if that's off.) " : "";
-    var chips = ["Make it a goal"];
-    if (r.verdict === 'tight' || r.verdict === 'no') chips.push("Push it to " + r.laterLabel, "Make it $" + r.lowerCost);
-    if (r.verdict === 'no') chips.push("See other options");
-    chips.push("Open the planner");
-    if (r.verdict === 'too-soon') chips = ["Can I afford something?", "Open the planner"];
-    return { html: pre + whatIfHtml(r, true), chips: chips };
-  }
-
   function answerFor(t){
     var raw = t || '';
     t = raw.toLowerCase().trim();
@@ -5248,31 +5501,12 @@
         chips: (save.length > 1 ? ["Switch all to annual"] : []).concat(save.slice(0, 3).map(function(s){ return "Switch " + s.name.split(' ')[0] + " to annual"; })) };
     }
 
-    // ===== NEW: What if planner =====
-    var wiNew = parseWhatIf(raw);
-    var wiIsNewTrip = !!wiNew.where && wiNew.where.toLowerCase() !== String(ctx.whatif && ctx.whatif.where || '').toLowerCase();
-    if ((ctx.topic === 'whatif' || (ctx.whatifR && /make it a goal/.test(t))) && ctx.whatif && !wiIsNewTrip && !/afford|bill|subscri|round.?up|what are my goals|settings|offer|forecast/.test(t)) {
-      if (/make it a goal|create (the |a )?goal|set (it )?up as a goal|save for it/.test(t)) {
-        var gname = createTripGoal(ctx.whatifR); ctx.topic = null;
-        return { html: "Done 🎯 — I've added <strong>" + escapeHtml(gname) + "</strong> to your savings plan: " + money(ctx.whatifR.cost) + " by " + ctx.whatifR.when + ", about " + money(ctx.whatifR.weekly) + " a week.", chips: ["What are my goals?", "Open dashboard"] };
-      }
-      if (/other options|see options|borrow|loan|credit card|finance it|other ways/.test(t)) {
-        return { html: "Of course. Here are a few Westpac options people look at for bigger plans. Borrowing comes with interest and repayments, so take your time comparing them with saving a little longer. 😊<br>" + wiOptionsList() + "<span style=\"font-size:11.5px;color:#666\">" + WI_FINE + "</span>", chips: ["Push it to " + (ctx.whatifR && ctx.whatifR.laterLabel || "later"), "Make it a goal"] };
-      }
-      if (/open (the )?planner/.test(t)) { openWhatIf(ctx.whatif); return { html: "Opened the What if planner with your trip filled in — tweak anything there.", chips: ["Thanks"] }; }
-      var upd = parseWhatIf(raw), changed = false;
-      if (upd.ym) { ctx.whatif.ym = upd.ym; ctx.whatif.assumedWhen = false; changed = true; }
-      if (upd.cost) { ctx.whatif.cost = upd.cost; ctx.whatif.guessedCost = false; changed = true; }
-      else if (amt > 0 && ctx.awaiting === 'whatif-cost') { ctx.whatif.cost = amt; ctx.whatif.guessedCost = false; changed = true; }
-      if (changed) return whatIfAnswer();
-    }
-    if (!notifIntent && /what if|plan (a|my) trip|save for (a|my) trip|holiday|trip to|go(ing)? to [a-z]|travel(l)?ing to|fly to|visit [a-z]/.test(t) && !/afford/.test(t)) {
-      var q = parseWhatIf(raw);
-      ctx.topic = 'whatif';
-      ctx.whatif = { where: q.where, ym: q.ym, cost: q.cost || presetCost(q.where), assumedWhen: !q.ym, guessedCost: !q.cost && !!presetCost(q.where) };
-      if (!ctx.whatif.ym) ctx.whatif.ym = defaultYm(6);
-      if (!ctx.whatif.cost) { ctx.awaiting = 'whatif-cost'; return { html: "Love it ✈️ " + (q.where ? escapeHtml(q.where) + " — " : "") + "roughly how much do you think it'll cost all up (flights, stay and spending)?", chips: ["$1,500", "$3,000", "$6,000"] }; }
-      return whatIfAnswer();
+    // ===== What if…? future-proofing planner =====
+    if (ctx.topic === 'whatif' && /start the planner|open the planner|let'?s do it|^(yes|yep|sure|ok|okay)\b/.test(t)) { ctx.topic = null; openWhatIf({ type: ctx.fpType }); return { html: "Opened 🔮 Answer a few quick questions and I'll show you what it means for your whole account.", chips: ["Thanks"] }; }
+    if (!notifIntent && /what if|future.?proof|go(ing)? part.?time|buy(ing)? a car|car loan|change (my )?(job|income)|new job|career break|parental leave|save for|saving for|childcare|move out|moving out/.test(t) && !/afford (a |an |this |that )?\$?\d/.test(t)) {
+      ctx.topic = 'whatif'; ctx.fpType = fpTypeFromText(t);
+      var fpt = ctx.fpType ? FP_TYPES[ctx.fpType] : null;
+      return { html: "Good one to think through properly " + (fpt ? fpt.ic : "🔮") + " I'll ask a few quick questions, then look at your whole account (income, bills, spending, savings and goals) and show you what it would mean, including a stress test for surprise costs.", chips: ["Start the planner", "Not now"] };
     }
 
     // pick / change the amount while we're talking about a purchase
