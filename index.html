@@ -373,6 +373,13 @@
   .wz-tool b{font-size:13px;color:#222}
   .wz-tool span{font-size:11.5px;color:var(--muted);line-height:1.35}
   .wz-tool em{position:absolute;top:8px;right:8px;font-style:normal;font-size:9.5px;font-weight:800;letter-spacing:.04em;text-transform:uppercase;background:var(--brand);color:#fff;border-radius:999px;padding:2px 6px}
+  .wz-chips{margin-top:10px}
+  .wz-chip{display:inline-flex;align-items:center;gap:5px;opacity:0;transform:translateY(6px) scale(.96);animation:wzPop .3s cubic-bezier(.2,.9,.3,1.3) forwards}
+  .wz-chip .ti{display:inline-block;transform-origin:50% 80%}
+  .wz-chip:hover .ti{animation:wzWiggle .5s ease}
+  .wz-chip i{font-style:normal;font-size:9px;font-weight:800;letter-spacing:.04em;text-transform:uppercase;background:var(--brand);color:#fff;border-radius:999px;padding:1px 5px}
+  .wz-chip:hover i{background:#fff;color:var(--brand)}
+  @media (prefers-reduced-motion: reduce){.wz-chip{animation:none;opacity:1;transform:none}.wz-chip:hover .ti{animation:none}}
   @keyframes wzPop{to{opacity:1;transform:none}}
   @keyframes wzWiggle{0%,100%{transform:rotate(0) scale(1)}25%{transform:rotate(-14deg) scale(1.15)}50%{transform:rotate(10deg) scale(1.15)}75%{transform:rotate(-6deg) scale(1.08)}}
   @media (prefers-reduced-motion: reduce){.wz-tool{animation:none;opacity:1;transform:none}.wz-tool:hover .ti{animation:none}}
@@ -5090,9 +5097,8 @@
     { ic: '🔁', t: 'Subscription check', d: 'Is paying yearly cheaper than monthly?', bg: '#f6f6f6', ask: 'Should any subscriptions go annual?', tag: 'New' }
   ];
   function wesleyToolsHtml(){
-    return '<div class="wz-tools">' + WZ_TOOLS.map(function(x, i){
-      return '<button type="button" class="wz-tool" style="--tbg:' + x.bg + ';animation-delay:' + (i * 45) + 'ms" onclick="runWesleyTool(' + i + ')">' +
-        (x.tag ? '<em>' + x.tag + '</em>' : '') + '<div class="ti" aria-hidden="true">' + x.ic + '</div><b>' + x.t + '</b><span>' + x.d + '</span></button>';
+    return '<div class="qr-row wz-chips">' + WZ_TOOLS.map(function(x, i){
+      return '<button type="button" class="qr wz-chip" style="animation-delay:' + (i * 45) + 'ms" onclick="runWesleyTool(' + i + ')" title="' + x.d + '"><span class="ti" aria-hidden="true">' + x.ic + '</span> ' + x.t + (x.tag ? ' <i>' + x.tag + '</i>' : '') + '</button>';
     }).join('') + '</div>';
   }
   function runWesleyTool(i){
