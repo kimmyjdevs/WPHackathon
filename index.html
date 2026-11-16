@@ -728,7 +728,7 @@
 
         <!-- AI off banner -->
         <div id="aiOffBanner" class="ai-off-banner" hidden>
-          <span>⏸️ <strong>Wesley is paused.</strong> Your AI tools are switched off. You can turn them back on any time in AI controls below.</span>
+          <span>⏸️ <strong>Wesley is paused.</strong> Your AI tools are switched off. You can turn them back on any time in Settings &amp; Rules.</span>
           <button onclick="aiSet('aiEnabled', true)">Turn Wesley back on</button>
         </div>
 
@@ -794,12 +794,7 @@
           </div>
         </div>
 
-        <!-- 4. AI controls & privacy -->
-        <h2 class="bs-sec">AI controls &amp; privacy</h2>
-        <div class="muted" style="font-size:13px;margin:-6px 0 14px">Fine-tune or switch off anything. Your choices are saved to your profile.</div>
-        <div class="ai-tiles" id="aiControls"></div>
-
-        <div class="bs-note">🔒 Wesley only ever reads your own accounts and moves money between them — never to anyone else, and never using another customer's data.</div>
+        <div class="bs-note">⚙️ Want to switch a feature on or off? <a href="#" onclick="go('bs-settings');setTimeout(function(){var e=document.getElementById('aiControls');e&&e.scrollIntoView({block:'start'})},60);return false">Manage AI controls &amp; privacy in Settings &amp; Rules</a>.</div>
       </section>
 
       <!-- BankSmart Settings -->
@@ -809,6 +804,13 @@
           <button class="bs-settings-btn" onclick="go('banksmart')">← Back to BankSmart</button>
         </div>
         <div class="bs-tag">Configure how BankSmart automates your money movements, categorises incoming funds, and helps you save effortlessly.</div>
+
+        <!-- Section 0: AI controls & privacy (moved from BankSmart main page) -->
+        <h2 class="bs-sec" style="margin-top:6px">AI controls &amp; privacy</h2>
+        <div class="muted" style="font-size:13px;margin:-6px 0 14px">Fine-tune or switch off anything. Your choices are saved to your profile.</div>
+        <div class="ai-tiles" id="aiControls"></div>
+
+        <div class="bs-note" style="margin-bottom:24px">🔒 Wesley only ever reads your own accounts and moves money between them — never to anyone else, and never using another customer's data.</div>
 
         <!-- Section 1: Income Splitting -->
         <div class="panelbox">
@@ -2327,7 +2329,7 @@
   function renderWesleyInsights(){
     var box = document.getElementById('wesleyInsights'); if (!box || !user) return;
     var w = wz();
-    if (!w.aiEnabled) { box.innerHTML = '<div class="ai-insight" style="grid-column:1/-1"><div class="ic">⏸️</div><h4>Insights are paused</h4><p>Turn Wesley on in AI controls below to see what he spots in your accounts.</p></div>'; return; }
+    if (!w.aiEnabled) { box.innerHTML = '<div class="ai-insight" style="grid-column:1/-1"><div class="ic">⏸️</div><h4>Insights are paused</h4><p>Turn Wesley on in Settings &amp; Rules to see what he spots in your accounts.</p></div>'; return; }
     var txs = (user.transactions || []);
     var debits = txs.filter(function(t){ return (t.amount || 0) < 0; });
     var spent = debits.reduce(function(a, t){ return a + Math.abs(t.amount || 0); }, 0);
