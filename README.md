@@ -21,6 +21,8 @@ A self-contained single-page mock of a Westpac-style online banking site featuri
 
 **AI controls & privacy** are now Westpac-style tiles with an On/Off band, at the top of BankSmart **Settings & Rules**.
 
+**🎨 BankSmart page refresh:** the BankSmart page now uses a cleaner 2027 look in Westpac red and white: a red "Talk to Wesley" bar with an ask box, a large Safe to spend figure, rounded pot cards, AI tools with line icons in red tiles, and pill buttons throughout.
+
 Also fixed: the "Wesley is paused" banner was always showing, even when Wesley was on.
 
 ---
