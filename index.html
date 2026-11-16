@@ -193,6 +193,9 @@
   .bills-foot a{color:var(--brand);font-weight:700;cursor:pointer;text-decoration:none}
   .bills-foot a:hover{text-decoration:underline}
   .pot-tag{display:inline-block;font-size:10.5px;font-weight:700;text-transform:uppercase;letter-spacing:0.04em;padding:2px 6px;border-radius:4px;background:#f1f1f1;color:var(--muted);margin-left:auto}
+  .pot-lock{margin-top:8px;font-family:inherit;font-size:11.5px;font-weight:700;border:1px solid var(--line);background:#fff;color:var(--muted);border-radius:999px;padding:3px 9px;cursor:pointer}
+  .pot-lock.on{border-color:var(--navy);color:var(--navy);background:#eef4fb}
+  .pot-lock:hover{border-color:var(--navy);color:var(--navy)}
   .pot-del{position:absolute;top:10px;right:10px;background:none;border:none;color:#aaa;cursor:pointer;font-size:16px;line-height:1;width:22px;height:22px;border-radius:50%;display:flex;align-items:center;justify-content:center}
   .pot-del:hover{background:#fee2e2;color:var(--brand)}
   .pot .potbar{height:6px;background:#e7e7e7;border-radius:999px;overflow:hidden;margin-top:8px}
@@ -2487,9 +2490,9 @@
         money(newBal) + '</strong>';
       var sts = getSafeToSpend();
       if (currentTxType === 'debit' && acct.kind === 'everyday' && acct.mode === 'personal' && amt > sts) {
-        var w = wz(), src = billCoverSource();
+        var w = wz(), bcp = billCoverPlan(amt - sts);
         previewEl.innerHTML += '<div style="margin-top:8px;padding:8px 10px;border-radius:6px;background:#fff8e6;border:1px solid #f0c060">⚠️ This is <strong>' + money(amt - sts) + '</strong> more than your Safe to spend (' + money(sts) + '), so it would eat into money set aside for bills.' +
-          ((w.aiEnabled && w.billCover !== false) ? ' <strong>Bill cover</strong> will top your bills back up from ' + escapeHtml(src ? src.name : 'your Buffer') + '.' : ' Bill cover is off.') + '</div>';
+          ((w.aiEnabled && w.billCover !== false) ? (bcp.moves.length ? ' <strong>Bill cover</strong> will top your bills back up from ' + escapeHtml(bcp.from) + '.' + (bcp.left > 0 ? ' It can\'t cover the last ' + money(bcp.left) + '.' : '') : ' There\'s nothing unprotected to cover it from.') : ' Bill cover is off.') + '</div>';
       }
     }
   }
@@ -2663,6 +2666,7 @@
         '<div class="pn"><span class="dot" style="background:' + item.color + '"></span><span>' + escapeHtml(item.name) + '</span>' + tag + '</div>' +
         '<div class="pv">' + money(item.amount) + '</div>' +
         progressHtml +
+        (isGoal ? '<button type="button" class="pot-lock' + (item.protected ? ' on' : '') + '" onclick="toggleGoalProtect(\'' + item.id + '\')" title="Protected goals are never used for bill cover">' + (item.protected ? '🔒 Protected from bill cover' : '🔓 Protect from bill cover') + '</button>' : '') +
         billsHtml +
       '</div>';
     }).join('');
@@ -3279,24 +3283,88 @@
   }
 
   // ---------- Bill cover ----------
-  function billCoverSource(){
-    var plan = user.savingsPlan || [];
-    var dest = user.bsSettings && user.bsSettings.roundUp ? user.bsSettings.roundUp.dest : '';
-    var src = plan.find(function(p){ return p.type === 'goal' && p.name === dest && p.amount > 0; });
-    if (!src) src = plan.filter(function(p){ return p.type === 'goal' && p.amount > 0; }).sort(function(a, b){ return b.amount - a.amount; })[0];
-    return src || null;
+  // ---- Which savings to use for bill cover ----
+  // 1. Never touch goals the user has protected.
+  // 2. Prefer goals with the most time left (furthest target date), so they can catch up easily.
+  //    Ties go to the goal that's furthest ahead (highest % of target).
+  // 3. Take up to half of that goal, then the Buffer, then up to half of the next goals,
+  //    so no single goal takes the whole hit. Only then the rest of those goals.
+  // 5. Goals due within 3 months are a last resort.
+  var BC_NEAR_MONTHS = 3, BC_FIRST_SHARE = 0.5;
+  var MONTH_IDX = { jan:0, feb:1, mar:2, apr:3, may:4, jun:5, jul:6, aug:7, sep:8, oct:9, nov:10, dec:11 };
+  function goalDueDate(g){
+    var t = String(g.targetDate || '').toLowerCase().trim(), now = new Date();
+    if (!t) return null;
+    var y = (t.match(/\b(20\d\d)\b/) || [])[1];
+    var m = t.match(/\b(jan|feb|mar|apr|may|jun|jul|aug|sep|oct|nov|dec)[a-z]*/);
+    if (/end of (the )?year/.test(t)) return new Date(now.getFullYear(), 11, 1);
+    if (/^mid\b/.test(t) && y) return new Date(Number(y), 5, 1);
+    if (/^(early|start)\b/.test(t) && y) return new Date(Number(y), 1, 1);
+    if (/^late\b/.test(t) && y) return new Date(Number(y), 9, 1);
+    var mm = t.match(/(\d+)\s*months?/); if (mm) return new Date(now.getFullYear(), now.getMonth() + Number(mm[1]), 1);
+    if (m && y) return new Date(Number(y), MONTH_IDX[m[1]], 1);
+    if (m) { var d = new Date(now.getFullYear(), MONTH_IDX[m[1]], 1); if (d < now) d.setFullYear(d.getFullYear() + 1); return d; }
+    if (y) return new Date(Number(y), 11, 1);
+    return null;
+  }
+  function goalMonthsLeft(g){
+    var d = goalDueDate(g); if (!d) return 999; // no date: treat as the most flexible
+    return Math.max(0, Math.ceil((d - new Date()) / (30.44 * 864e5)));
+  }
+  function billCoverPlan(shortfall){
+    var plan = (user && user.savingsPlan) || [];
+    var goals = plan.filter(function(p){ return p.type === 'goal' && p.amount > 0; }).map(function(g){
+      return { g: g, months: goalMonthsLeft(g), pct: g.target ? g.amount / g.target : 0 };
+    });
+    var rank = function(a, b){ return (b.months - a.months) || (b.pct - a.pct); };
+    var flexible = goals.filter(function(x){ return !x.g.protected && x.months > BC_NEAR_MONTHS; }).sort(rank);
+    var nearDue = goals.filter(function(x){ return !x.g.protected && x.months <= BC_NEAR_MONTHS; }).sort(rank);
+    var protectedGoals = goals.filter(function(x){ return x.g.protected; });
+    var left = round2(shortfall), taken = {}, order = [];
+    function take(id, name, avail, info){
+      var t = round2(Math.min(avail, left)); if (t <= 0) return;
+      if (!taken[id]) { taken[id] = { id: id, name: name, amt: 0, months: info ? info.months : null }; order.push(id); }
+      taken[id].amt = round2(taken[id].amt + t); left = round2(left - t);
+    }
+    var buf = plan.find(function(p){ return p.id === 'buffer'; });
+    if (flexible[0]) take(flexible[0].g.id, flexible[0].g.name, round2(flexible[0].g.amount * BC_FIRST_SHARE), flexible[0]);
+    if (left > 0 && buf && buf.amount > 0) take('buffer', 'Buffer', buf.amount);
+    flexible.slice(1).forEach(function(x){ if (left > 0) take(x.g.id, x.g.name, round2(x.g.amount * BC_FIRST_SHARE), x); });
+    flexible.forEach(function(x){ if (left > 0) take(x.g.id, x.g.name, round2(x.g.amount - (taken[x.g.id] ? taken[x.g.id].amt : 0)), x); });
+    nearDue.forEach(function(x){ if (left > 0) take(x.g.id, x.g.name, round2(x.g.amount * BC_FIRST_SHARE), x); });
+    var moves = order.map(function(id){ return taken[id]; });
+    var goalMoves = moves.filter(function(m){ return m.id !== 'buffer'; });
+    // Plain-English reason
+    var why = '';
+    var monthsTxt = function(n){ return n >= 999 ? 'it doesn\'t have a set date' : (flexible.length > 1 ? 'it\'s due furthest away (' : 'it\'s not due for ') + n + ' month' + (n === 1 ? '' : 's') + (flexible.length > 1 ? ')' : ''); };
+    var isNear = function(m){ return nearDue.some(function(x){ return x.g.id === m.id; }); };
+    if (goalMoves.length && isNear(goalMoves[0])) why = 'Your other savings were protected or already used, so I took a little from ' + goalMoves.map(function(m){ return m.name; }).join(' and ') + ' even though ' + (goalMoves.length === 1 ? 'it\'s' : 'they\'re') + ' due soon. Refilling ' + (goalMoves.length === 1 ? 'it' : 'them') + ' is the priority.';
+    else if (goalMoves.length === 1) why = 'I used ' + goalMoves[0].name + ' because ' + monthsTxt(goalMoves[0].months) + ', so it has ' + (flexible.length > 1 ? 'the most time' : 'time') + ' to catch up.';
+    else if (goalMoves.length > 1) why = 'I spread it across ' + goalMoves.map(function(m){ return m.name; }).join(' and ') + ' so no single goal takes the whole hit, starting with ' + goalMoves[0].name + ' because ' + monthsTxt(goalMoves[0].months) + '.';
+    else if (moves.length) why = 'I used your Buffer, which is there for exactly this.';
+    if (moves.some(function(m){ return m.id === 'buffer'; }) && goalMoves.length) why += ' Your Buffer helped too.';
+    var skipped = protectedGoals.map(function(x){ return x.g.name + ' (protected)'; })
+      .concat(nearDue.filter(function(x){ return !taken[x.g.id]; }).map(function(x){ return x.g.name + ' (due soon)'; }));
+    if (skipped.length) why += ' I didn\'t touch ' + (skipped.length > 1 ? skipped.slice(0, -1).join(', ') + ' or ' + skipped[skipped.length - 1] : skipped[0]) + '.';
+    var names = moves.map(function(m){ return m.name; });
+    return { moves: moves, left: left, from: names.length > 1 ? names.slice(0, -1).join(', ') + ' and ' + names[names.length - 1] : (names[0] || ''), why: why };
+  }
+  function toggleGoalProtect(id){
+    var g = (user.savingsPlan || []).find(function(p){ return p.id === id; }); if (!g) return;
+    g.protected = !g.protected;
+    saveStore(); renderAll();
+    showToast(g.protected ? '🔒 ' + g.name + ' is protected. Bill cover won\'t touch it' : '🔓 ' + g.name + ' can be used for bill cover if needed');
   }
   // Called when a personal everyday debit is bigger than Safe to spend
   function runBillCover(shortfall, merchant, dateVal){
     var w = wz();
     if (!w.aiEnabled || w.billCover === false || shortfall <= 0) return null;
-    var moves = [], left = shortfall;
-    var src = billCoverSource();
-    if (src) { var take = round2(Math.min(src.amount, left)); if (take > 0) { src.amount = round2(src.amount - take); left = round2(left - take); moves.push({ id: src.id, name: src.name, amt: take }); } }
-    if (left > 0) {
-      var buf = (user.savingsPlan || []).find(function(p){ return p.id === 'buffer'; });
-      if (buf && buf.amount > 0) { var t2 = round2(Math.min(buf.amount, left)); buf.amount = round2(buf.amount - t2); left = round2(left - t2); moves.push({ id: 'buffer', name: 'Buffer', amt: t2 }); }
-    }
+    var bp = billCoverPlan(shortfall);
+    var moves = bp.moves, left = bp.left;
+    moves.forEach(function(m){
+      var item = (user.savingsPlan || []).find(function(p){ return p.id === m.id; });
+      if (item) item.amount = round2(item.amount - m.amt);
+    });
     var covered = round2(shortfall - left);
     if (covered <= 0) return null;
     moves.forEach(function(m){
@@ -3304,7 +3372,9 @@
         user.transactions.push({ id: 'tx_bc_' + Date.now() + '_' + m.id, acct: 'choice', date: dateVal, desc: 'BankSmart bill cover — from ' + m.name, amount: m.amt, custom: true, auto: true });
       }
     });
-    user.billCover = { date: dateVal, merchant: merchant, shortfall: shortfall, covered: covered, uncovered: left, moves: moves, from: moves.map(function(m){ return m.name; }).join(' + '), refillTo: moves[0].id, refillName: moves[0].name, plan: null, dismissed: false };
+    var goalMoves = moves.filter(function(m){ return m.id !== 'buffer'; });
+    var refill = goalMoves.length ? goalMoves : moves;
+    user.billCover = { date: dateVal, merchant: merchant, shortfall: shortfall, covered: covered, uncovered: left, moves: moves, from: bp.from, why: bp.why, refillTo: refill[0].id, refillName: refill.map(function(m){ return m.name; }).join(' and '), plan: null, dismissed: false };
     return user.billCover;
   }
   function refillOptions(){
@@ -3343,7 +3413,7 @@
       var title, body, extra = '';
       if (!bc.plan) {
         title = 'Bill cover: your bills are still covered';
-        body = 'Your ' + escapeHtml(bc.merchant) + ' purchase was ' + money(bc.shortfall) + ' more than your Safe to spend, so I moved <strong>' + money(bc.covered) + '</strong> from <strong>' + escapeHtml(bc.from) + '</strong> to keep your upcoming bills covered.' +
+        body = 'Your ' + escapeHtml(bc.merchant) + ' purchase was ' + money(bc.shortfall) + ' more than your Safe to spend, so I moved <strong>' + money(bc.covered) + '</strong> from <strong>' + escapeHtml(bc.from) + '</strong> to keep your upcoming bills covered.' + (bc.why ? ' ' + escapeHtml(bc.why) : '') +
           (bc.uncovered > 0 ? ' I couldn\'t cover the last ' + money(bc.uncovered) + ' — check your upcoming bills.' : '') + ' How would you like to refill your savings?';
         if (full) {
           extra = '<div class="bc-opts">' + refillOptions().map(function(o){
@@ -5119,12 +5189,14 @@
       ctx.topic = 'billcover';
       return { html: "Done — <strong>" + plan.title.toLowerCase() + "</strong>. I'll put back about " + money(plan.weekly) + " a week, so " + escapeHtml(user.billCover.refillName) + " is back where it was in roughly <strong>" + plan.weeks + " weeks</strong>." + (key !== 'lump' ? " Round-ups now go to the nearest $" + plan.step + "." : ""), chips: ["Open dashboard", "Thanks"] };
     }
+    var bcW = user && user.billCover;
+    if (bcW && bcW.why && !bcW.dismissed && /why (that|this|those|did you|use|from)|which (goal|account|savings|one)|from where|where did (it|the money) come from/.test(t)) return { html: escapeHtml(bcW.why) + " You can protect any goal from bill cover using the 🔒 button on its card in BankSmart.", chips: ["How should I refill my savings?", "Thanks"] };
     if (!notifIntent && /bill cover|refill|replenish|top(ped)? ?up my bills|cover(ed)? my bills|not enough (for|to cover) (my )?bills/.test(t)) {
       ctx.topic = 'billcover';
       var bc = user && user.billCover;
       if (bc && !bc.dismissed && !bc.plan) {
         var opts = refillOptions();
-        return { html: "Your " + escapeHtml(bc.merchant) + " purchase went " + money(bc.shortfall) + " past your Safe to spend, so I moved <strong>" + money(bc.covered) + "</strong> from " + escapeHtml(bc.from) + " to keep your bills covered. Three ways to put it back:<br>" +
+        return { html: "Your " + escapeHtml(bc.merchant) + " purchase went " + money(bc.shortfall) + " past your Safe to spend, so I moved <strong>" + money(bc.covered) + "</strong> from " + escapeHtml(bc.from) + " to keep your bills covered." + (bc.why ? " " + escapeHtml(bc.why) : "") + " Three ways to put it back:<br>" +
           opts.map(function(o){ return "• <strong>" + o.title + "</strong> — " + o.desc + " (~" + o.weeks + " weeks)"; }).join("<br>"), chips: opts.map(function(o){ return o.title; }) };
       }
       if (bc && bc.plan && !bc.dismissed) return { html: "You're refilling " + escapeHtml(bc.refillName) + " with <strong>" + bc.plan.title.toLowerCase() + "</strong> — about " + money(bc.plan.weekly) + " a week, back in roughly " + bc.plan.weeks + " weeks.", chips: ["Open dashboard", "Thanks"] };
